@@ -121,14 +121,32 @@
     .modal-inner{width:min(1000px,92vw);aspect-ratio:16/9;background:#000;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);border:1px solid #222;transform:scale(.96);opacity:.95;transition:transform .18s ease, opacity .18s ease}
     .modal.open .modal-inner{transform:scale(1);opacity:1}
     .modal-close{position:absolute;top:16px;left:16px;background:#ffd000;color:#111;border-radius:10px;border:0;padding:8px 10px;font-weight:900;cursor:pointer}
+      /* ===== Fancy accents / animations ===== */
+    .shine{position:relative;overflow:hidden}
+    .shine::after{content:"";position:absolute;inset:-120% -40%;background:linear-gradient(120deg,transparent,rgba(255,208,0,.12),transparent);transform:rotate(8deg);animation:shine 7s linear infinite}
+    @keyframes shine{to{transform:translateX(120%) rotate(8deg)}}
+
+    .tilt{transition:transform .18s ease, box-shadow .18s ease}
+    .tilt:hover{transform:translateY(-2px) rotate(.6deg);box-shadow:0 16px 42px rgba(0,0,0,.55)}
+
+    .reveal{opacity:0;transform:translateY(14px);transition:opacity .4s ease, transform .4s ease}
+    .reveal.in{opacity:1;transform:none}
+
+    .btn.magnet{position:relative;will-change:transform}
+
+    /* Parallax dots bg */
+    .bg-dots{position:absolute;inset:-10% -10% auto -10%;height:280px;pointer-events:none;opacity:.12;filter:blur(0.5px)}
+    .dot{position:absolute;width:6px;height:6px;border-radius:50%;background:#ffd000}
+
   </style>
 </head>
 <body>
+  <svg class="bg-dots" id="dotsBg"></svg>
   <div class="progress" id="progress"></div>
 
   <div class="fab" aria-label="floating actions">
     <a class="wa" href="https://wa.me/962797933137" target="_blank" rel="noopener" title="واتساب"><i class="fa-brands fa-whatsapp"></i></a>
-    <a class="top" href="#top" title="أعلى" id="backTop"><i class="fa-solid fa-arrow-up"></i></a>
+    <a class="top" href="#" title="أعلى" id="backTop"><i class="fa-solid fa-arrow-up"></i></a>
   </div>
 
   <header id="top">
@@ -187,7 +205,7 @@
         </div>
       </div>
       <div>
-        <div class="carousel card" id="carousel" aria-label="معرض صور النادي">
+        <div class="carousel card shine tilt" id="carousel" aria-label="معرض صور النادي">
           <img src="https://i.imgur.com/BhILWUs.jpeg" alt="Gravity Gym 1" class="active" loading="eager">
           <img src="https://i.imgur.com/nRaE0ei.jpeg" alt="Gravity Gym 2" loading="lazy">
           <img src="https://i.imgur.com/bjjNhPr.jpeg" alt="Gravity Gym 3" loading="lazy">
@@ -200,7 +218,7 @@
   </main>
 
   <section class="container" id="stats">
-    <div class="card pad">
+    <div class="card pad reveal">
       <div class="stats" id="statsRow" aria-label="إحصائيات مختصرة">
         <div class="stat"><div class="num" data-count="2021">0</div><div class="lbl" id="s-founded">تاريخ التأسيس</div></div>
         <div class="stat"><div class="num" data-count="30">0</div><div class="lbl" id="s-parking">سيارات في المصفّ</div></div>
@@ -223,11 +241,11 @@
   </section>
 
   <section class="container" id="hours">
-    <div class="card pad">
+    <div class="card pad reveal">
       <h2 style="font-size:var(--h2);margin:0 0 10px" id="hours-t">ساعات العمل</h2>
       <div class="kv">
-        <div class="card pad"><strong id="ladies">سيدات</strong><div class="sub" id="ladies-time">08:00 صباحاً – 02:00 ظهراً</div></div>
-        <div class="card pad"><strong id="men">رجال</strong><div class="sub" id="men-time">03:00 عصراً – 12:00 منتصف الليل</div></div>
+        <div class="card pad reveal"><strong id="ladies">سيدات</strong><div class="sub" id="ladies-time">08:00 صباحاً – 02:00 ظهراً</div></div>
+        <div class="card pad reveal"><strong id="men">رجال</strong><div class="sub" id="men-time">03:00 عصراً – 12:00 منتصف الليل</div></div>
       </div>
     </div>
   </section>
@@ -235,10 +253,10 @@
   <section class="container" id="pricing">
     <h2 style="font-size:var(--h2);margin:0 0 10px" id="price-t">الاشتراكات</h2>
     <div class="price">
-      <div class="card plan"><span class="ribbon" id="save-1">الأكثر طلباً</span><h3 id="p1">شهر</h3><div class="num">25 <span class="jod">JOD</span></div></div>
-      <div class="card plan"><h3 id="p3">3 أشهر</h3><div class="num">50 <span class="jod">JOD</span></div></div>
-      <div class="card plan"><span class="ribbon" id="save-3">الأوفر</span><h3 id="p6">6 أشهر</h3><div class="num">90 <span class="jod">JOD</span></div></div>
-      <div class="card plan"><h3 id="p12">سنة</h3><div class="num">170 <span class="jod">JOD</span></div></div>
+      <div class="card plan reveal tilt"><span class="ribbon" id="save-1">الأكثر طلباً</span><h3 id="p1">شهر</h3><div class="num">25 <span class="jod">JOD</span></div></div>
+      <div class="card plan reveal tilt"><h3 id="p3">3 أشهر</h3><div class="num">50 <span class="jod">JOD</span></div></div>
+      <div class="card plan reveal tilt"><span class="ribbon" id="save-3">الأوفر</span><h3 id="p6">6 أشهر</h3><div class="num">90 <span class="jod">JOD</span></div></div>
+      <div class="card plan reveal tilt"><h3 id="p12">سنة</h3><div class="num">170 <span class="jod">JOD</span></div></div>
     </div>
   </section>
 
@@ -246,7 +264,7 @@
 
   <section class="container" id="gallery">
     <h2 style="font-size:var(--h2);margin:0 0 10px" id="media-t">المعرض</h2>
-    <div class="gallery">
+    <div class="gallery reveal" id="gal">
       <img src="https://i.imgur.com/BhILWUs.jpeg" alt="صورة النادي 1" loading="lazy">
       <img src="https://i.imgur.com/nRaE0ei.jpeg" alt="صورة النادي 2" loading="lazy">
       <img src="https://i.imgur.com/bjjNhPr.jpeg" alt="صورة النادي 3" loading="lazy">
@@ -257,7 +275,7 @@
 
   <section class="container" id="videos">
     <h2 style="font-size:var(--h2);margin:0 0 10px">الفيديوهات</h2>
-    <div class="v-grid">
+    <div class="v-grid reveal" id="vgrid">
       <button class="v-card" data-yt="Azuflu-PgJA" onclick="openVideo(this)">
         <img class="v-thumb" src="https://img.youtube.com/vi/Azuflu-PgJA/hqdefault.jpg" alt="Video 1">
         <span class="v-play"><span class="pulse"><i class="fa-solid fa-play"></i></span></span>
@@ -279,7 +297,7 @@
   </div>
 
   <section class="container" id="testimonials">
-    <div class="card pad">
+    <div class="card pad reveal">
       <div class="marquee" aria-label="آراء المشتركين">
         <div class="marquee-track">
           <div class="card pad" style="min-width:320px;background:#0f0f0f"><i class="fa-solid fa-star" style="color:#ffd000"></i> نظافة ومعدات قوية — المصفّ خرافي!</div>
@@ -321,7 +339,7 @@
     </div>
   </section>
 
-  <footer>
+  <footer class="reveal">
     <div class="container" style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap">
       <div>© <span id="foot">Gravity Gym — إربد</span></div>
       <div style="display:flex;gap:8px">
@@ -355,12 +373,13 @@
     const io=new IntersectionObserver((entries)=>{entries.forEach((e)=>{if(e.isIntersecting){const el=e.target;const final=+el.dataset.count;let val=0;const step=Math.ceil(final/50);const inc=()=>{val+=step;if(val>final) val=final; el.textContent=val; if(val<final) requestAnimationFrame(inc);}; inc(); io.unobserve(el);}})},{threshold:.4});
     statNums.forEach(n=>io.observe(n));
 
-    // Back-to-top visibility (FIXED): shows after 220px
+    // Back-to-top visibility + smooth scroll
     const backTop=document.getElementById('backTop');
-    const showTop=()=>{ if(!backTop) return; if(window.scrollY>220){ backTop.classList.add('show'); }else{ backTop.classList.remove('show'); } };
+    const showTop=()=>{ if(!backTop) return; backTop.classList.toggle('show', window.scrollY>220); };
     showTop(); window.addEventListener('scroll', showTop);
+    if(backTop){ backTop.addEventListener('click', (e)=>{ e.preventDefault(); window.scrollTo({top:0, behavior:'smooth'});}); }
 
-    // Video Modal
+    // Video Modal (refined transition + close on backdrop/Esc)
     const modal=document.getElementById('videoModal'); const slot=document.getElementById('videoSlot');
     function openVideo(btn){
       const mp4=btn.getAttribute('data-mp4'); const yt=btn.getAttribute('data-yt'); slot.innerHTML='';
@@ -369,6 +388,10 @@
       modal.classList.add('open');
     }
     function closeVideo(){ modal.classList.remove('open'); slot.innerHTML=''; }
+    // close on backdrop click
+    modal.addEventListener('click', (e)=>{ if(e.target===modal) closeVideo(); });
+    // close on Esc
+    window.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && modal.classList.contains('open')) closeVideo(); });
     window.openVideo=openVideo; window.closeVideo=closeVideo;
 
     // i18n (AR default / EN toggle)
@@ -385,5 +408,47 @@
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"HealthClub","name":"Gravity Gym","address":{"@type":"PostalAddress","addressLocality":"Irbid","addressCountry":"JO"},"description":"Strength & Cardio facility. Ladies AM / Men PM. Sauna, showers, lockers, changing rooms. Private parking for 30 cars.","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"08:00","closes":"14:00","description":"Ladies"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"15:00","closes":"24:00","description":"Men"}],"foundingDate":"2021-08","sameAs":["https://www.facebook.com/gravitygymjo/","https://www.instagram.com/gravity.gym_jo"]}
   </script>
+  <script>
+    // ===== Parallax dots background =====
+    const dotsSvg=document.getElementById('dotsBg');
+    if(dotsSvg){
+      const W=window.innerWidth*1.2, H=280, N=Math.min(120, Math.floor(window.innerWidth/12));
+      dotsSvg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+      for(let i=0;i<N;i++){
+        const c=document.createElementNS('http://www.w3.org/2000/svg','circle');
+        c.setAttribute('cx',Math.random()*W);
+        c.setAttribute('cy',Math.random()*H);
+        c.setAttribute('r',Math.random()*2+1);
+        c.setAttribute('class','dot');
+        dotsSvg.appendChild(c);
+      }
+      window.addEventListener('mousemove',e=>{
+        const x=(e.clientX/window.innerWidth-0.5)*10;
+        const y=(e.clientY/window.innerHeight-0.5)*6;
+        dotsSvg.style.transform=`translate(${x}px,${y}px)`;
+      });
+    }
+
+    // ===== Reveal on scroll =====
+    const revEls=[...document.querySelectorAll('.reveal')];
+    const rIO=new IntersectionObserver((es)=>{
+      es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in'); rIO.unobserve(e.target);}})
+    },{threshold:.18});
+    revEls.forEach(el=>rIO.observe(el));
+
+    // ===== Magnetic button micro-interaction =====
+    const magnets=[...document.querySelectorAll('.btn.primary')];
+    magnets.forEach(b=>{
+      b.classList.add('magnet');
+      b.addEventListener('mousemove',e=>{
+        const r=b.getBoundingClientRect();
+        const dx=e.clientX-(r.left+r.width/2);
+        const dy=e.clientY-(r.top+r.height/2);
+        b.style.transform=`translate(${dx*0.05}px,${dy*0.05}px)`;
+      });
+      b.addEventListener('mouseleave',()=>{b.style.transform=''})
+    });
+  </script>
 </body>
+</html>
 </html>
