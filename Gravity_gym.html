@@ -2,84 +2,77 @@
 <html lang="ar" dir="rtl">
 <head>
   <!--
-    GRAVITY GYM — SUPER PRO LANDING (AR default / EN toggle)
-    - Mobile‑first, ultra‑clean, buttery animations
-    - Sections: Hero, Stats, Amenities, Hours, Pricing, Coaches, Gallery, Videos, Testimonials, FAQ, Contact+Map
-    - Features: GSAP‑free micro‑interactions (pure CSS + IntersectionObserver), auto carousel, counters, marquee, scroll progress, back‑to‑top, floating WhatsApp, schema.org
-    - Assets provided by user only (no external stock)
-    Author: Issa × ChatGPT — 2025‑11‑12
+    GRAVITY GYM — BLACK & YELLOW EDITION (AR default / EN toggle)
+    - Mobile‑first, ultra‑clean, rich micro‑animations
+    - In‑page video modal (YouTube privacy‑enhanced with minimal chrome)
+    - Floating WhatsApp → +962797933137
+    - Sections: Hero, Stats, Amenities, Hours, Pricing, Coaches, Gallery, Videos (modal), Testimonials, FAQ, Contact+Map
+    Author: Issa × ChatGPT — 2025‑11‑13
   -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Gravity Gym — إربد | القوة والكارديو • ساونا • اشتراكات</title>
-  <meta name="description" content="Gravity Gym — صالة تمارين مقاومة وكارديو في إربد. فترة صباحية للسيدات ومسائية للرجال. ساونا، شاورات، لوكرات، غرف غيار، ومصفّ خاص لـ 30 سيارة. تأسس آب 2021." />
+  <meta name="description" content="Gravity Gym — تمارين مقاومة وكارديو في إربد. سيدات صباحًا ورجال مساءً. ساونا، شاورات، لوكرات، غرف غيار، ومصفّ خاص لـ 30 سيارة. تأسس آب 2021." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    /* ========================= DESIGN SYSTEM ========================= */
+    /* ========================= THEME: Black & Yellow ========================= */
     :root{
-      /* Light, friendly, premium */
-      --bg:#ffffff;          /* page background */
-      --ink:#0f172a;         /* main text */
-      --muted:#62718a;       /* secondary */
-      --line:#e6edf5;        /* soft borders */
-      --card:#ffffff;        /* card bg */
-      --brand:#0ea5e9;       /* cyan accent */
-      --brand-2:#22c55e;     /* emerald accent */
-      --brand-3:#f59e0b;     /* amber for highlights */
-      --shadow:0 10px 28px rgba(15, 23, 42, .08);
-      --radius:16px;
-
-      /* Typo */
-      --h1: clamp(28px, 6vw, 48px);
-      --h2: clamp(22px, 4vw, 32px);
+      --bg:#0a0a0a;          /* deep black */
+      --panel:#111111;       /* panels */
+      --card:#121212;        /* cards */
+      --ink:#f5f5f5;         /* main text (near‑white) */
+      --muted:#b0b0b0;       /* secondary */
+      --line:#1f1f1f;        /* borders */
+      --brand:#ffd000;       /* yellow */
+      --brand-2:#ffb300;     /* amber */
+      --accent:#000000;      /* pure black blocks */
+      --shadow:0 14px 36px rgba(0,0,0,.45);
+      --radius:18px;
+      --h1: clamp(28px, 6vw, 52px);
+      --h2: clamp(22px, 4vw, 34px);
       --h3: clamp(18px, 2.8vw, 22px);
     }
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:"Cairo", Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:"Cairo", Inter, system-ui,-apple-system, Segoe UI, Roboto, Arial, sans-serif}
     img{max-width:100%;display:block}
     a{color:inherit;text-decoration:none}
     .container{max-width:1220px;margin:0 auto;padding:0 16px}
 
     /* ========================= GLOBAL UI ========================= */
     .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
-    .pill{padding:8px 12px;border:1px solid var(--line);border-radius:12px;background:#fff;display:inline-flex;align-items:center;gap:8px}
-    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border:1px solid var(--line);border-radius:12px;background:#fff;cursor:pointer;transition:transform .12s ease, box-shadow .12s ease}
+    .pill{padding:9px 12px;border:1px solid var(--line);border-radius:999px;background:#141414;display:inline-flex;align-items:center;gap:8px}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:13px 18px;border:1px solid var(--line);border-radius:14px;background:#141414;cursor:pointer;transition:transform .12s ease, box-shadow .12s ease}
     .btn:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
-    .btn.primary{background:linear-gradient(90deg, var(--brand), var(--brand-2));color:#fff;border-color:transparent;font-weight:800}
-    .btn.ghost{background:#fff}
-
-    /* Prefers reduced motion */
-    @media (prefers-reduced-motion: reduce){
-      *{animation:none!important;transition:none!important}
-    }
+    .btn.primary{background:linear-gradient(90deg,#ffd000,#ffb300);color:#171717;border-color:transparent;font-weight:900}
+    .btn.ghost{background:#141414;color:#f5f5f5}
 
     /* ========================= NAVBAR ========================= */
-    header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid var(--line)}
+    header{position:sticky;top:0;z-index:60;background:#0d0d0d;border-bottom:1px solid var(--line)}
     .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0}
     .brand{display:flex;align-items:center;gap:10px}
-    .logo{width:44px;height:44px;border-radius:12px;border:1px solid var(--line);display:grid;place-items:center}
+    .logo{width:44px;height:44px;border-radius:14px;border:1px solid var(--line);display:grid;place-items:center;background:#0f0f0f}
     .menu{display:flex;align-items:center;gap:8px}
     .lang{display:flex;gap:6px}
-    .lang button{padding:8px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;cursor:pointer}
-    .lang .active{background:var(--brand);color:#fff;border-color:var(--brand);font-weight:700}
-    .burger{display:none;border:1px solid var(--line);border-radius:10px;background:#fff;padding:8px}
+    .lang button{padding:8px 12px;border:1px solid var(--line);border-radius:10px;background:#141414;color:#f5f5f5;cursor:pointer}
+    .lang .active{background:var(--brand);color:#111;border-color:#111;font-weight:900}
+    .burger{display:none;border:1px solid var(--line);border-radius:10px;background:#141414;padding:8px;color:#f5f5f5}
     @media (max-width:980px){.menu{display:none}.burger{display:inline-flex}}
-    .drawer{position:fixed;inset:56px 0 0 0;background:#fff;border-top:1px solid var(--line);box-shadow:var(--shadow);display:none}
+    .drawer{position:fixed;inset:56px 0 0 0;background:#0d0d0d;border-top:1px solid var(--line);box-shadow:var(--shadow);display:none}
     .drawer .list{display:grid;gap:8px;padding:14px}
-    .drawer .list a,.drawer .list button{padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff;text-align:center}
+    .drawer .list a,.drawer .list button{padding:12px;border:1px solid var(--line);border-radius:12px;background:#141414;text-align:center}
 
     /* ========================= PROGRESS + FAB ========================= */
-    .progress{position:fixed;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg, var(--brand), var(--brand-2));transform-origin:right center;transform:scaleX(0);z-index:99}
-    .fab{position:fixed;inset:auto 12px 12px auto;display:grid;gap:10px;z-index:70}
-    .fab a{width:48px;height:48px;display:grid;place-items:center;border-radius:50%;box-shadow:var(--shadow)}
+    .progress{position:fixed;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,#ffd000,#ffb300);transform-origin:right center;transform:scaleX(0);z-index:99}
+    .fab{position:fixed;inset:auto 14px 14px auto;display:grid;gap:10px;z-index:80}
+    .fab a{width:54px;height:54px;display:grid;place-items:center;border-radius:50%;box-shadow:var(--shadow)}
     .fab .wa{background:#25D366;color:#fff}
-    .fab .top{background:#111827;color:#fff}
+    .fab .top{background:#ffd000;color:#111}
 
     /* ========================= HERO ========================= */
-    .hero{display:grid;gap:16px;align-items:center;padding:18px 0}
+    .hero{display:grid;gap:16px;align-items:center;padding:22px 0}
     .headline{font-size:var(--h1);line-height:1.05;font-weight:900;letter-spacing:-.01em}
     .sub{color:var(--muted);font-size:clamp(14px,2.4vw,18px)}
     .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
@@ -91,11 +84,11 @@
     .carousel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s ease}
     .carousel img.active{opacity:1}
     .dots{position:absolute;bottom:10px;left:0;right:0;display:flex;justify-content:center;gap:6px}
-    .dot{width:8px;height:8px;border-radius:999px;background:#d1d5db}
-    .dot.active{background:#60a5fa}
+    .dot{width:9px;height:9px;border-radius:999px;background:#3a3a3a}
+    .dot.active{background:#ffd000}
 
-    /* ========================= SECTION LAYOUTS ========================= */
-    section{padding:18px 0}
+    /* ========================= SECTIONS ========================= */
+    section{padding:22px 0}
     .grid{display:grid;gap:12px}
     .cards{grid-template-columns:repeat(12,1fr)}
     .col-3{grid-column:span 3}
@@ -107,21 +100,21 @@
 
     /* ===== Stats ===== */
     .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-    .stat{display:grid;gap:2px;place-items:center;padding:14px}
-    .stat .num{font-weight:900;font-size:26px}
-    .stat .lbl{color:var(--muted);font-size:13px}
+    .stat{display:grid;gap:4px;place-items:center;padding:14px;background:#0f0f0f;border-radius:14px;border:1px solid var(--line)}
+    .stat .num{font-weight:900;font-size:26px;color:#ffd000}
+    .stat .lbl{color:#cfcfcf;font-size:13px}
     @media (max-width:750px){.stats{grid-template-columns:repeat(2,1fr)}}
 
     /* ===== Hours ===== */
-    .kv{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .kv{display:grid;grid-template-columns:1fr 1fr;gap:12px}
     @media (max-width:600px){.kv{grid-template-columns:1fr}}
 
     /* ===== Pricing ===== */
     .price{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
-    .plan{grid-column:span 3;padding:16px;position:relative}
-    .plan .ribbon{position:absolute;top:12px;left:12px;background:#fde68a;color:#6b4600;padding:4px 10px;border-radius:999px;font-weight:800;font-size:12px}
-    .num{font-size:34px;font-weight:900}
-    .jod{font-size:12px;color:var(--muted)}
+    .plan{grid-column:span 3;padding:18px;position:relative;background:#0f0f0f}
+    .plan .ribbon{position:absolute;top:12px;left:12px;background:#ffd000;color:#111;padding:4px 10px;border-radius:999px;font-weight:900;font-size:12px}
+    .num{font-size:34px;font-weight:900;color:#ffd000}
+    .jod{font-size:12px;color:#bdbdbd}
     @media (max-width:900px){.plan{grid-column:span 6}}
     @media (max-width:600px){.plan{grid-column:span 12}}
 
@@ -130,7 +123,7 @@
     .coach{min-width:260px;scroll-snap-align:center}
     .coach .avatar{aspect-ratio:4/3;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
 
-    /* ===== Gallery (masonry‑like via columns) ===== */
+    /* ===== Gallery (masonry‑like) ===== */
     .gallery{column-count:4;column-gap:12px}
     .gallery img{width:100%;border-radius:12px;border:1px solid var(--line);margin:0 0 12px;break-inside:avoid}
     @media (max-width:1100px){.gallery{column-count:3}}
@@ -143,12 +136,18 @@
     @keyframes slide{to{transform:translateX(-50%)}}
 
     /* ===== FAQ ===== */
-    details{border:1px solid var(--line);border-radius:12px;padding:12px;background:#fff}
-    summary{cursor:pointer;font-weight:700}
+    details{border:1px solid var(--line);border-radius:12px;padding:12px;background:#0f0f0f}
+    summary{cursor:pointer;font-weight:800;color:#ffd000}
     details[open]{box-shadow:var(--shadow)}
 
     /* ===== Footer ===== */
-    footer{margin-top:24px;padding:18px 0;border-top:1px solid var(--line);color:var(--muted)}
+    footer{margin-top:24px;padding:18px 0;border-top:1px solid var(--line);color:#a7a7a7}
+
+    /* ===== Modal (Video) ===== */
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;z-index:200}
+    .modal.open{display:flex}
+    .modal-inner{width:min(1000px,92vw);aspect-ratio:16/9;background:#000;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);border:1px solid #222}
+    .modal-close{position:absolute;top:16px;left:16px;background:#ffd000;color:#111;border-radius:10px;border:0;padding:8px 10px;font-weight:900;cursor:pointer}
   </style>
 </head>
 <body>
@@ -157,7 +156,7 @@
 
   <!-- Floating actions: WhatsApp + Back to top -->
   <div class="fab" aria-label="floating actions">
-    <a class="wa" href="https://wa.me/962" target="_blank" rel="noopener" title="واتساب"><i class="fa-brands fa-whatsapp"></i></a>
+    <a class="wa" href="https://wa.me/962797933137" target="_blank" rel="noopener" title="واتساب"><i class="fa-brands fa-whatsapp"></i></a>
     <a class="top" href="#top" title="أعلى"><i class="fa-solid fa-arrow-up"></i></a>
   </div>
 
@@ -165,10 +164,10 @@
   <header id="top">
     <div class="container nav">
       <div class="brand">
-        <div class="logo" aria-hidden="true"><i class="fa-solid fa-dumbbell"></i></div>
+        <div class="logo" aria-hidden="true"><i class="fa-solid fa-dumbbell" style="color:#ffd000"></i></div>
         <div>
           <div style="font-weight:900">Gravity Gym</div>
-          <div style="font-size:12px;color:var(--muted)" id="i-founded">تأسس آب 2021</div>
+          <div style="font-size:12px;color:#cfcfcf" id="i-founded">تأسس آب 2021</div>
         </div>
       </div>
       <div class="menu" id="menu">
@@ -241,22 +240,10 @@
   <section class="container" id="stats">
     <div class="card pad">
       <div class="stats" id="statsRow" aria-label="إحصائيات مختصرة">
-        <div class="stat">
-          <div class="num" data-count="2021">0</div>
-          <div class="lbl" id="s-founded">تاريخ التأسيس</div>
-        </div>
-        <div class="stat">
-          <div class="num" data-count="30">0</div>
-          <div class="lbl" id="s-parking">سيارات في المصفّ</div>
-        </div>
-        <div class="stat">
-          <div class="num" data-count="2">0</div>
-          <div class="lbl" id="s-zones">صالات تمارين</div>
-        </div>
-        <div class="stat">
-          <div class="num" data-count="6">0</div>
-          <div class="lbl" id="s-amen">مرافق رئيسية</div>
-        </div>
+        <div class="stat"><div class="num" data-count="2021">0</div><div class="lbl" id="s-founded">تاريخ التأسيس</div></div>
+        <div class="stat"><div class="num" data-count="30">0</div><div class="lbl" id="s-parking">سيارات في المصفّ</div></div>
+        <div class="stat"><div class="num" data-count="2">0</div><div class="lbl" id="s-zones">صالات تمارين</div></div>
+        <div class="stat"><div class="num" data-count="6">0</div><div class="lbl" id="s-amen">مرافق رئيسية</div></div>
       </div>
     </div>
   </section>
@@ -265,12 +252,12 @@
   <section class="container" id="amenities">
     <h2 style="font-size:var(--h2);margin:0 0 10px" id="amen-t">المرافق</h2>
     <div class="grid cards">
-      <div class="card pad col-4"><i class="fa-solid fa-dumbbell"></i> <strong id="chip-strength">تمارين مقاومة</strong><div class="sub">معدات كاملة وأرضية تدريب مخصصة.</div></div>
-      <div class="card pad col-4"><i class="fa-solid fa-heart-pulse"></i> <strong id="chip-cardio">كارديو</strong><div class="sub">أجهزة هوائية حديثة ومسارات مشي.</div></div>
-      <div class="card pad col-4"><i class="fa-solid fa-hot-tub-person"></i> <strong id="chip-sauna">ساونا</strong><div class="sub">استشفاء بعد التمرين.</div></div>
-      <div class="card pad col-4"><i class="fa-solid fa-shower"></i> <strong id="chip-showers">شاورات</strong><div class="sub">نظافة وراحة.</div></div>
-      <div class="card pad col-4"><i class="fa-solid fa-key"></i> <strong id="chip-lockers">لوكرات</strong><div class="sub">حفظ الممتلكات بأمان.</div></div>
-      <div class="card pad col-4"><i class="fa-solid fa-person-running"></i> <strong>صالة هوائية</strong><div class="sub">مساحة للتمارين الحرة.</div></div>
+      <div class="card pad col-4"><i class="fa-solid fa-dumbbell" style="color:#ffd000"></i> <strong id="chip-strength">تمارين مقاومة</strong><div class="sub">معدات كاملة وأرضية تدريب مخصصة.</div></div>
+      <div class="card pad col-4"><i class="fa-solid fa-heart-pulse" style="color:#ffd000"></i> <strong id="chip-cardio">كارديو</strong><div class="sub">أجهزة هوائية حديثة ومسارات مشي.</div></div>
+      <div class="card pad col-4"><i class="fa-solid fa-hot-tub-person" style="color:#ffd000"></i> <strong id="chip-sauna">ساونا</strong><div class="sub">استشفاء بعد التمرين.</div></div>
+      <div class="card pad col-4"><i class="fa-solid fa-shower" style="color:#ffd000"></i> <strong id="chip-showers">شاورات</strong><div class="sub">نظافة وراحة.</div></div>
+      <div class="card pad col-4"><i class="fa-solid fa-key" style="color:#ffd000"></i> <strong id="chip-lockers">لوكرات</strong><div class="sub">حفظ الممتلكات بأمان.</div></div>
+      <div class="card pad col-4"><i class="fa-solid fa-person-running" style="color:#ffd000"></i> <strong>صالة هوائية</strong><div class="sub">مساحة للتمارين الحرة.</div></div>
     </div>
   </section>
 
@@ -279,14 +266,8 @@
     <div class="card pad">
       <h2 style="font-size:var(--h2);margin:0 0 10px" id="hours-t">ساعات العمل</h2>
       <div class="kv">
-        <div class="card pad">
-          <strong id="ladies">سيدات</strong>
-          <div class="sub" id="ladies-time">08:00 صباحاً – 02:00 ظهراً</div>
-        </div>
-        <div class="card pad">
-          <strong id="men">رجال</strong>
-          <div class="sub" id="men-time">03:00 عصراً – 12:00 منتصف الليل</div>
-        </div>
+        <div class="card pad"><strong id="ladies">سيدات</strong><div class="sub" id="ladies-time">08:00 صباحاً – 02:00 ظهراً</div></div>
+        <div class="card pad"><strong id="men">رجال</strong><div class="sub" id="men-time">03:00 عصراً – 12:00 منتصف الليل</div></div>
       </div>
     </div>
   </section>
@@ -295,24 +276,10 @@
   <section class="container" id="pricing">
     <h2 style="font-size:var(--h2);margin:0 0 10px" id="price-t">الاشتراكات</h2>
     <div class="price">
-      <div class="card plan">
-        <span class="ribbon" id="save-1">الأكثر طلباً</span>
-        <h3 id="p1">شهر</h3>
-        <div class="num">25 <span class="jod">JOD</span></div>
-      </div>
-      <div class="card plan">
-        <h3 id="p3">3 أشهر</h3>
-        <div class="num">50 <span class="jod">JOD</span></div>
-      </div>
-      <div class="card plan">
-        <span class="ribbon" id="save-3">الأوفر</span>
-        <h3 id="p6">6 أشهر</h3>
-        <div class="num">90 <span class="jod">JOD</span></div>
-      </div>
-      <div class="card plan">
-        <h3 id="p12">سنة</h3>
-        <div class="num">170 <span class="jod">JOD</span></div>
-      </div>
+      <div class="card plan"><span class="ribbon" id="save-1">الأكثر طلباً</span><h3 id="p1">شهر</h3><div class="num">25 <span class="jod">JOD</span></div></div>
+      <div class="card plan"><h3 id="p3">3 أشهر</h3><div class="num">50 <span class="jod">JOD</span></div></div>
+      <div class="card plan"><span class="ribbon" id="save-3">الأوفر</span><h3 id="p6">6 أشهر</h3><div class="num">90 <span class="jod">JOD</span></div></div>
+      <div class="card plan"><h3 id="p12">سنة</h3><div class="num">170 <span class="jod">JOD</span></div></div>
     </div>
   </section>
 
@@ -320,21 +287,9 @@
   <section class="container" id="coaches">
     <h2 style="font-size:var(--h2);margin:0 0 10px" id="trainers-t">المدرّبون</h2>
     <div class="coach-row">
-      <div class="card pad coach">
-        <div class="avatar"><img src="https://i.imgur.com/BhILWUs.jpeg" alt="مدرّب 1"></div>
-        <strong>Coach A</strong>
-        <div class="sub" id="chip-issa">معتمد ISSA</div>
-      </div>
-      <div class="card pad coach">
-        <div class="avatar"><img src="https://i.imgur.com/nRaE0ei.jpeg" alt="مدرّب 2"></div>
-        <strong>Coach B</strong>
-        <div class="sub">برامج شخصية</div>
-      </div>
-      <div class="card pad coach">
-        <div class="avatar"><img src="https://i.imgur.com/bjjNhPr.jpeg" alt="مدرّب 3"></div>
-        <strong>Coach C</strong>
-        <div class="sub">تقوية وكارديو</div>
-      </div>
+      <div class="card pad coach"><div class="avatar"><img src="https://i.imgur.com/BhILWUs.jpeg" alt="مدرّب 1"></div><strong>Coach A</strong><div class="sub" id="chip-issa">معتمد ISSA</div></div>
+      <div class="card pad coach"><div class="avatar"><img src="https://i.imgur.com/nRaE0ei.jpeg" alt="مدرّب 2"></div><strong>Coach B</strong><div class="sub">برامج شخصية</div></div>
+      <div class="card pad coach"><div class="avatar"><img src="https://i.imgur.com/bjjNhPr.jpeg" alt="مدرّب 3"></div><strong>Coach C</strong><div class="sub">تقوية وكارديو</div></div>
     </div>
   </section>
 
@@ -350,38 +305,46 @@
     </div>
   </section>
 
-  <!-- ========================= VIDEOS ========================= -->
+  <!-- ========================= VIDEOS (IN‑PAGE MODAL) ========================= -->
   <section class="container" id="videos">
     <h2 style="font-size:var(--h2);margin:0 0 10px">الفيديوهات</h2>
+    <!-- NOTE: لو توفرت روابط MP4 مباشرة، نستبدل الـ data-yt بـ data-mp4 ويشتغل <video> محلي داخل المودال بدون أي شعار -->
     <div class="grid cards">
-      <div class="card col-6" style="padding:0;overflow:hidden">
-        <div class="video" style="aspect-ratio:16/9">
-          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Azuflu-PgJA" title="Gravity Gym video 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <button class="card col-6 pad" data-yt="Azuflu-PgJA" onclick="openVideo(this)" style="text-align:right;cursor:pointer">
+        <div style="aspect-ratio:16/9;position:relative;overflow:hidden;border-radius:12px;border:1px solid var(--line)">
+          <img src="https://img.youtube.com/vi/Azuflu-PgJA/hqdefault.jpg" alt="Video 1" style="width:100%;height:100%;object-fit:cover;filter:brightness(.85)">
+          <span style="position:absolute;inset:auto 12px 12px auto;background:#ffd000;color:#111;padding:6px 10px;border-radius:999px;font-weight:900">تشغيل</span>
         </div>
-      </div>
-      <a class="card col-3" style="overflow:hidden" href="https://youtube.com/shorts/w0PgPKT1h8s" target="_blank" rel="noopener" title="Short 1">
-        <img src="https://i.ytimg.com/vi/w0PgPKT1h8s/hqdefault.jpg" alt="Short 1">
-      </a>
-      <a class="card col-3" style="overflow:hidden" href="https://youtube.com/shorts/IfFAI8CxTxA" target="_blank" rel="noopener" title="Short 2">
-        <img src="https://i.ytimg.com/vi/IfFAI8CxTxA/hqdefault.jpg" alt="Short 2">
-      </a>
+      </button>
+      <button class="card col-3 pad" data-yt="w0PgPKT1h8s" onclick="openVideo(this)" style="cursor:pointer">
+        <img src="https://img.youtube.com/vi/w0PgPKT1h8s/hqdefault.jpg" alt="Short 1" style="border-radius:12px;border:1px solid var(--line)">
+      </button>
+      <button class="card col-3 pad" data-yt="IfFAI8CxTxA" onclick="openVideo(this)" style="cursor:pointer">
+        <img src="https://img.youtube.com/vi/IfFAI8CxTxA/hqdefault.jpg" alt="Short 2" style="border-radius:12px;border:1px solid var(--line)">
+      </button>
     </div>
   </section>
+
+  <!-- Video Modal -->
+  <div class="modal" id="videoModal" role="dialog" aria-modal="true" aria-label="Video player">
+    <button class="modal-close" onclick="closeVideo()"><i class="fa-solid fa-xmark"></i></button>
+    <div class="modal-inner" id="videoSlot"></div>
+  </div>
 
   <!-- ========================= TESTIMONIALS ========================= -->
   <section class="container" id="testimonials">
     <div class="card pad">
       <div class="marquee" aria-label="آراء المشتركين">
         <div class="marquee-track">
-          <div class="card pad" style="min-width:320px"><i class="fa-solid fa-star" style="color:#f59e0b"></i> نظافة ومعدات قوية — المصفّ خرافي!</div>
-          <div class="card pad" style="min-width:320px">فترة السيدات الصبح مرتبة وهادية</div>
-          <div class="card pad" style="min-width:320px">ساونا + شاور بعد الكارديو… ولا أروع</div>
-          <div class="card pad" style="min-width:320px">أسعار ممتازة مقابل القيمة</div>
-          <!-- clones for seamless loop -->
-          <div class="card pad" style="min-width:320px"><i class="fa-solid fa-star" style="color:#f59e0b"></i> نظافة ومعدات قوية — المصفّ خرافي!</div>
-          <div class="card pad" style="min-width:320px">فترة السيدات الصبح مرتبة وهادية</div>
-          <div class="card pad" style="min-width:320px">ساونا + شاور بعد الكارديو… ولا أروع</div>
-          <div class="card pad" style="min-width:320px">أسعار ممتازة مقابل القيمة</div>
+          <div class="card pad" style="min-width:320px;background:#0f0f0f"><i class="fa-solid fa-star" style="color:#ffd000"></i> نظافة ومعدات قوية — المصفّ خرافي!</div>
+          <div class="card pad" style="min-width:320px;background:#0f0f0f">فترة السيدات الصبح مرتبة وهادية</div>
+          <div class="card pad" style="min-width:320px;background:#0f0f0f">ساونا + شاور بعد الكارديو… ولا أروع</div>
+          <div class="card pad" style="min-width:320px;background:#0f0f0f">أسعار ممتازة مقابل القيمة</div>
+          <!-- clones -->
+          <div class="card pad" style="min-width:320px;background:#0f0f0f"><i class="fa-solid fa-star" style="color:#ffd000"></i> نظافة ومعدات قوية — المصفّ خرافي!</div>
+          <div class="card pad" style="min-width:320px;background:#0f0f0f">فترة السيدات الصبح مرتبة وهادية</div>
+          <div class="card pad" style="min-width:320px;background:#0f0f0f">ساونا + شاور بعد الكارديو… ولا أروع</div>
+          <div class="card pad" style="min-width:320px;background:#0f0f0f">أسعار ممتازة مقابل القيمة</div>
         </div>
       </div>
     </div>
@@ -392,7 +355,7 @@
     <h2 style="font-size:var(--h2);margin:0 0 10px">الأسئلة الشائعة</h2>
     <div class="grid">
       <details class="card pad"><summary>هل يوجد مصفّ سيارات؟</summary><div class="sub">نعم — مصفّ خاص يتسع لـ 30 سيارة.</div></details>
-      <details class="card pad"><summary>هل يوجد اشتراك للسيدات؟</summary><div class="sub">نعم — فترة صباحية من 08:00 صباحاً إلى 02:00 ظهراً.</div></details>
+      <details class="card pad"><summary>هل يوجد اشتراك للسيدات؟</summary><div class="sub">نعم — فترة صباحية من 08:00 إلى 02:00.</div></details>
       <details class="card pad"><summary>هل يوجد ساونا وشاورات؟</summary><div class="sub">نعم — ساونا وشاورات ولوكرات وغرف غيار.</div></details>
     </div>
   </section>
@@ -402,19 +365,17 @@
     <h2 style="font-size:var(--h2);margin:0 0 10px" id="contact-t">التواصل والموقع</h2>
     <div class="grid cards">
       <div class="card col-6 pad">
-        <p class="sub" id="contact-d">تواصل عبر فيسبوك أو إنستغرام للاستفسارات والاشتراك.</p>
+        <p class="sub" id="contact-d">تواصل عبر واتساب <strong style="color:#ffd000">+962 79 793 3137</strong> أو فيسبوك/إنستغرام.</p>
         <div style="display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 12px">
-          <a class="pill" href="https://www.facebook.com/gravitygymjo/" target="_blank" rel="noopener" title="صفحة فيسبوك">
-            <span style="display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#1877f2;color:#fff;font-weight:800">f</span>
-            &nbsp; Facebook
-          </a>
-          <a class="pill" href="https://www.instagram.com/gravity.gym_jo" target="_blank" rel="noopener" title="حساب إنستغرام"><i class="fa-brands fa-instagram"></i> Instagram</a>
+          <a class="pill" href="https://wa.me/962797933137" target="_blank" rel="noopener" title="واتساب"><i class="fa-brands fa-whatsapp" style="color:#25D366"></i> WhatsApp</a>
+          <a class="pill" href="https://www.facebook.com/gravitygymjo/" target="_blank" rel="noopener" title="Facebook"><i class="fa-brands fa-facebook-f" style="color:#1877f2"></i> Facebook</a>
+          <a class="pill" href="https://www.instagram.com/gravity.gym_jo" target="_blank" rel="noopener" title="Instagram"><i class="fa-brands fa-instagram"></i> Instagram</a>
         </div>
         <form onsubmit="event.preventDefault();alert(note.innerText)">
-          <input class="input" placeholder="اسمك" required style="width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--line)">
-          <textarea class="input" placeholder="رسالتك" required style="width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--line);min-height:120px"></textarea>
+          <input class="input" placeholder="اسمك" required style="width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:#0f0f0f;color:#f5f5f5">
+          <textarea class="input" placeholder="رسالتك" required style="width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--line);min-height:120px;background:#0f0f0f;color:#f5f5f5"></textarea>
           <button class="btn primary" type="submit" id="send">إرسال</button>
-          <span id="note" style="display:none">تم — منرجعلك عبر فيسبوك/إنستغرام.</span>
+          <span id="note" style="display:none">تم — منرجعلك على واتساب أو السوشال.</span>
         </form>
       </div>
       <div class="card col-6 pad">
@@ -438,14 +399,12 @@
   <script>
     // ===== Scroll progress =====
     const progress = document.getElementById('progress');
-    window.addEventListener('scroll',()=>{
-      const t = document.documentElement; const sc = t.scrollTop; const h = t.scrollHeight - t.clientHeight; const pct = h? sc/h : 0; progress.style.transform=`scaleX(${pct})`;
-    });
+    window.addEventListener('scroll',()=>{const t=document.documentElement;const sc=t.scrollTop;const h=t.scrollHeight-t.clientHeight;progress.style.transform=`scaleX(${h?sc/h:0})`;});
 
     // ===== Mobile drawer =====
     const burger=document.getElementById('burger');
     const drawer=document.getElementById('drawer');
-    function toggleDrawer(force){drawer.style.display = (force===false? 'none' : (drawer.style.display==='grid'?'none':'grid'));}
+    function toggleDrawer(force){drawer.style.display=(force===false?'none':(drawer.style.display==='grid'?'none':'grid'));}
     if(burger) burger.addEventListener('click',()=>toggleDrawer());
 
     // ===== Carousel =====
@@ -454,30 +413,40 @@
     const dotsWrap=document.getElementById('dots');
     imgs.forEach((_,i)=>{const d=document.createElement('div');d.className='dot'+(i===0?' active':'');d.dataset.i=i;dotsWrap.appendChild(d)});
     const dots=[...dotsWrap.children];
-    let idx=0;let timer=null;
-    function go(n){imgs[idx].classList.remove('active');dots[idx].classList.remove('active');idx=(n+imgs.length)%imgs.length;imgs[idx].classList.add('active');dots[idx].classList.add('active');}
+    let idx=0;let timer=null;function go(n){imgs[idx].classList.remove('active');dots[idx].classList.remove('active');idx=(n+imgs.length)%imgs.length;imgs[idx].classList.add('active');dots[idx].classList.add('active');}
     function play(){timer=setInterval(()=>go(idx+1),3200);} play();
-    c.addEventListener('mouseenter',()=>clearInterval(timer));
-    c.addEventListener('mouseleave',play);
-    dots.forEach(d=>d.addEventListener('click',()=>{clearInterval(timer);go(+d.dataset.i);play();}))
+    c.addEventListener('mouseenter',()=>clearInterval(timer));c.addEventListener('mouseleave',play);dots.forEach(d=>d.addEventListener('click',()=>{clearInterval(timer);go(+d.dataset.i);play();}))
 
-    // ===== Stats counters (IntersectionObserver) =====
-    const statNums = document.querySelectorAll('.stat .num');
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach((e)=>{
-        if(e.isIntersecting){
-          const el=e.target; const final=+el.dataset.count; let val=0; const step=Math.ceil(final/50);
-          const inc=()=>{val+=step; if(val>final) val=final; el.textContent=val; if(val<final) requestAnimationFrame(inc);};
-          inc(); io.unobserve(el);
-        }
-      })
-    },{threshold:.4});
+    // ===== Stats counters =====
+    const statNums=document.querySelectorAll('.stat .num');
+    const io=new IntersectionObserver((entries)=>{entries.forEach((e)=>{if(e.isIntersecting){const el=e.target;const final=+el.dataset.count;let val=0;const step=Math.ceil(final/50);const inc=()=>{val+=step;if(val>final) val=final;el.textContent=val;if(val<final) requestAnimationFrame(inc);};inc();io.unobserve(el);}})},{threshold:.4});
     statNums.forEach(n=>io.observe(n));
 
-    // ===== Back‑to‑top appear =====
-    const fabTop = document.querySelector('.fab .top');
-    const showTop = () => { fabTop.style.opacity = (window.scrollY>500? '1' : '.0'); };
-    showTop(); window.addEventListener('scroll', showTop);
+    // ===== Back‑to‑top visibility =====
+    const fabTop=document.querySelector('.fab .top');const showTop=()=>{fabTop.style.opacity=(window.scrollY>500?'1':'.0');};showTop();window.addEventListener('scroll',showTop);
+
+    // ===== Video Modal (YouTube privacy‑enhanced OR pure MP4 when provided) =====
+    const modal=document.getElementById('videoModal');
+    const slot=document.getElementById('videoSlot');
+    function openVideo(btn){
+      const mp4=btn.getAttribute('data-mp4'); // << لو عندك لينك MP4 مباشر، حطه هنا بدل data-yt
+      const yt=btn.getAttribute('data-yt');
+      slot.innerHTML='';
+      if(mp4){
+        const v=document.createElement('video');
+        v.src=mp4; v.controls=true; v.autoplay=true; v.playsInline=true; v.style.width='100%'; v.style.height='100%';
+        slot.appendChild(v);
+      }else if(yt){
+        // Privacy‑enhanced, minimal UI (لا يمكن قانونياً إخفاء العلامة بالكامل ضمن شروط يوتيوب)
+        const iframe=document.createElement('iframe');
+        iframe.width='100%'; iframe.height='100%'; iframe.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'; iframe.allowFullscreen=true;
+        iframe.src=`https://www.youtube-nocookie.com/embed/${yt}?autoplay=1&modestbranding=1&rel=0&controls=1&color=white`;
+        slot.appendChild(iframe);
+      }
+      modal.classList.add('open');
+    }
+    function closeVideo(){modal.classList.remove('open');slot.innerHTML='';}
+    window.openVideo=openVideo; window.closeVideo=closeVideo;
 
     // ===== i18n (AR default / EN toggle) =====
     const t={
@@ -488,7 +457,7 @@
         locationT:'الموقع', location:'إربد — خلف مستشفى الراهبات، بجانب مطعم سنويشة', parking:'خاص يتسع لـ 30 سيارة',
         hoursT:'ساعات العمل', ladies:'سيدات', men:'رجال', ladiesTime:'08:00 صباحاً – 02:00 ظهراً', menTime:'03:00 عصراً – 12:00 منتصف الليل',
         priceT:'الاشتراكات', save1:'الأكثر طلباً', save3:'الأوفر', p1:'شهر', p3:'3 أشهر', p6:'6 أشهر', p12:'سنة',
-        trainersT:'المدرّبون', mediaT:'المعرض', contactT:'التواصل والموقع', contactD:'تواصل عبر فيسبوك أو إنستغرام للاستفسارات والاشتراك.', foot:'Gravity Gym — إربد'
+        trainersT:'المدرّبون', mediaT:'المعرض', contactT:'التواصل والموقع', contactD:'تواصل عبر واتساب أو فيسبوك/إنستغرام.', foot:'Gravity Gym — إربد'
       },
       en:{
         founded:'Founded Aug 2021', title:'Strength & Cardio — built for real progress',
@@ -497,58 +466,21 @@
         locationT:'Location', location:'Irbid — behind Al‑Rahibat Hospital, next to \"Sanwisha\" restaurant', parking:'Private parking (30)',
         hoursT:'Hours', ladies:'Ladies', men:'Men', ladiesTime:'8:00 AM – 2:00 PM', menTime:'3:00 PM – 12:00 AM',
         priceT:'Membership Plans', save1:'Popular', save3:'Best value', p1:'1 Month', p3:'3 Months', p6:'6 Months', p12:'12 Months',
-        trainersT:'Trainers', mediaT:'Gallery', contactT:'Contact & Location', contactD:'Reach out on Facebook or Instagram for inquiries and membership.', foot:'Gravity Gym — Irbid'
+        trainersT:'Trainers', mediaT:'Gallery', contactT:'Contact & Location', contactD:'Reach out via WhatsApp or socials.', foot:'Gravity Gym — Irbid'
       }
     };
 
-    const map=[
-      ['i-founded','founded'],['i-title','title'],['i-sub','sub'],
-      ['nav-about','about'],['nav-hours','hours'],['nav-plans','plans'],['nav-media','media'],['nav-contact','contact'],
-      ['i-join','join'],['i-hours','viewHours'],
-      ['i-location-t','locationT'],['i-location','location'],['i-parking','parking'],
-      ['hours-t','hoursT'],['ladies','ladies'],['men','men'],['ladies-time','ladiesTime'],['men-time','menTime'],
-      ['price-t','priceT'],['save-1','save1'],['save-3','save3'],['p1','p1'],['p3','p3'],['p6','p6'],['p12','p12'],
-      ['trainers-t','trainersT'],['media-t','mediaT'],['contact-t','contactT'],['contact-d','contactD'],['foot','foot']
-    ];
+    const map=[['i-founded','founded'],['i-title','title'],['i-sub','sub'],['nav-about','about'],['nav-hours','hours'],['nav-plans','plans'],['nav-media','media'],['nav-contact','contact'],['i-join','join'],['i-hours','viewHours'],['i-location-t','locationT'],['i-location','location'],['i-parking','parking'],['hours-t','hoursT'],['ladies','ladies'],['men','men'],['ladies-time','ladiesTime'],['men-time','menTime'],['price-t','priceT'],['save-1','save1'],['save-3','save3'],['p1','p1'],['p3','p3'],['p6','p6'],['p12','p12'],['trainers-t','trainersT'],['media-t','mediaT'],['contact-t','contactT'],['contact-d','contactD'],['foot','foot']];
 
     const btnAR=document.getElementById('btnAR');
     const btnEN=document.getElementById('btnEN');
-
-    function setLang(lang){
-      const dict=t[lang];
-      map.forEach(([id,key])=>{const el=document.getElementById(id); if(el) el.textContent=dict[key];});
-      document.documentElement.lang = (lang==='ar')? 'ar':'en';
-      document.documentElement.dir  = (lang==='ar')? 'rtl':'ltr';
-      document.body.classList.toggle('rtl', lang==='ar');
-      if(btnAR && btnEN){
-        btnAR.classList.toggle('active', lang==='ar');
-        btnEN.classList.toggle('active', lang==='en');
-        btnAR.setAttribute('aria-pressed', lang==='ar');
-        btnEN.setAttribute('aria-pressed', lang==='en');
-      }
-    }
-
-    // Arabic default
-    setLang('ar');
-    if(btnAR) btnAR.addEventListener('click',()=>setLang('ar'));
-    if(btnEN) btnEN.addEventListener('click',()=>setLang('en'));
+    function setLang(lang){const dict=t[lang];map.forEach(([id,key])=>{const el=document.getElementById(id);if(el) el.textContent=dict[key];});document.documentElement.lang=(lang==='ar')?'ar':'en';document.documentElement.dir=(lang==='ar')?'rtl':'ltr';document.body.classList.toggle('rtl', lang==='ar');if(btnAR&&btnEN){btnAR.classList.toggle('active', lang==='ar');btnEN.classList.toggle('active', lang==='en');btnAR.setAttribute('aria-pressed', lang==='ar');btnEN.setAttribute('aria-pressed', lang==='en');}}
+    setLang('ar'); if(btnAR) btnAR.addEventListener('click',()=>setLang('ar')); if(btnEN) btnEN.addEventListener('click',()=>setLang('en'));
   </script>
 
   <!-- ========================= SEO SCHEMA ========================= -->
   <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"HealthClub",
-    "name":"Gravity Gym",
-    "address":{"@type":"PostalAddress","addressLocality":"Irbid","addressCountry":"JO"},
-    "description":"Strength & Cardio facility. Ladies AM / Men PM. Sauna, showers, lockers, changing rooms. Private parking for 30 cars.",
-    "openingHoursSpecification":[
-      {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"08:00","closes":"14:00","description":"Ladies"},
-      {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"15:00","closes":"24:00","description":"Men"}
-    ],
-    "foundingDate":"2021-08",
-    "sameAs":["https://www.facebook.com/gravitygymjo/","https://www.instagram.com/gravity.gym_jo"]
-  }
+  {"@context":"https://schema.org","@type":"HealthClub","name":"Gravity Gym","address":{"@type":"PostalAddress","addressLocality":"Irbid","addressCountry":"JO"},"description":"Strength & Cardio facility. Ladies AM / Men PM. Sauna, showers, lockers, changing rooms. Private parking for 30 cars.","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"08:00","closes":"14:00","description":"Ladies"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"15:00","closes":"24:00","description":"Men"}],"foundingDate":"2021-08","sameAs":["https://www.facebook.com/gravitygymjo/","https://www.instagram.com/gravity.gym_jo"]}
   </script>
 </body>
 </html>
