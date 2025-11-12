@@ -1,886 +1,341 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gravity Gym - Premium Fitness Experience</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #ff6b00;
-            --secondary: #121212;
-            --accent: #ffd700;
-            --light: #f5f5f5;
-            --dark: #1a1a1a;
-            --gray: #6c757d;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: var(--light);
-            color: var(--dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        section {
-            padding: 80px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--secondary);
-            margin-bottom: 15px;
-        }
-        
-        .section-title p {
-            color: var(--gray);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        /* Header */
-        header {
-            background-color: var(--secondary);
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-        }
-        
-        .logo {
-            color: var(--light);
-            font-size: 1.8rem;
-            font-weight: 700;
-            text-decoration: none;
-        }
-        
-        .logo span {
-            color: var(--primary);
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 30px;
-        }
-        
-        .nav-links a {
-            color: var(--light);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-        
-        .mobile-menu {
-            display: none;
-            color: var(--light);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://i.imgur.com/omyhNW0.jpeg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--light);
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            padding: 0 20px;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            animation: fadeInDown 1s ease;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            animation: fadeInUp 1s ease 0.5s both;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: var(--primary);
-            color: var(--light);
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            animation: fadeIn 1s ease 1s both;
-        }
-        
-        .cta-button:hover {
-            background: var(--accent);
-            color: var(--dark);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        /* Features Section */
-        .features {
-            background-color: var(--light);
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .feature-card {
-            background: white;
-            padding: 40px 30px;
-            border-radius: 10px;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .feature-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-        
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-        
-        /* Pricing Section */
-        .pricing {
-            background-color: var(--secondary);
-            color: var(--light);
-        }
-        
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-        
-        .pricing-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            overflow: hidden;
-            transition: transform 0.3s;
-            text-align: center;
-        }
-        
-        .pricing-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .pricing-header {
-            background: var(--primary);
-            padding: 20px;
-        }
-        
-        .pricing-header h3 {
-            font-size: 1.5rem;
-        }
-        
-        .price {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin: 20px 0;
-        }
-        
-        .pricing-features {
-            padding: 20px;
-            list-style: none;
-        }
-        
-        .pricing-features li {
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .pricing-button {
-            display: block;
-            background: var(--primary);
-            color: var(--light);
-            padding: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background 0.3s;
-        }
-        
-        .pricing-button:hover {
-            background: var(--accent);
-            color: var(--dark);
-        }
-        
-        /* Gallery Section */
-        .gallery {
-            background-color: var(--light);
-        }
-        
-        .gallery-slider {
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            height: 500px;
-        }
-        
-        .slides {
-            display: flex;
-            transition: transform 0.5s ease;
-            height: 100%;
-        }
-        
-        .slide {
-            min-width: 100%;
-            height: 100%;
-        }
-        
-        .slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .slider-nav {
-            position: absolute;
-            bottom: 20px;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-        
-        .slider-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        
-        .slider-dot.active {
-            background: var(--primary);
-        }
-        
-        /* Videos Section */
-        .videos {
-            background-color: var(--secondary);
-            color: var(--light);
-        }
-        
-        .videos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .video-item {
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .video-item iframe {
-            width: 100%;
-            height: 250px;
-            border: none;
-        }
-        
-        /* Contact Section */
-        .contact {
-            background-color: var(--light);
-        }
-        
-        .contact-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-        
-        .contact-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-        
-        .contact-details {
-            list-style: none;
-            margin-bottom: 30px;
-        }
-        
-        .contact-details li {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .contact-details i {
-            margin-right: 10px;
-            color: var(--primary);
-            font-size: 1.2rem;
-            width: 20px;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: var(--primary);
-            color: var(--light);
-            border-radius: 50%;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-        
-        .social-links a:hover {
-            background: var(--accent);
-            color: var(--dark);
-            transform: translateY(-5px);
-        }
-        
-        .map-container {
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .map-container iframe {
-            width: 100%;
-            height: 400px;
-            border: none;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: var(--light);
-            padding: 40px 0 20px;
-            text-align: center;
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .footer-logo {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-        
-        .footer-logo span {
-            color: var(--primary);
-        }
-        
-        .copyright {
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            width: 100%;
-        }
-        
-        /* Animations */
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                right: -100%;
-                background: var(--secondary);
-                width: 80%;
-                height: calc(100vh - 70px);
-                flex-direction: column;
-                align-items: center;
-                padding-top: 50px;
-                transition: right 0.3s;
-            }
-            
-            .nav-links.active {
-                right: 0;
-            }
-            
-            .nav-links li {
-                margin: 15px 0;
-            }
-            
-            .mobile-menu {
-                display: block;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .section-title h2 {
-                font-size: 2rem;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            
-            .section-title h2 {
-                font-size: 1.8rem;
-            }
-            
-            .pricing-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gravity Gym — Irbid</title>
+  <meta name="description" content="Gravity Gym Irbid — Strength & Cardio facility with ladies' morning hours and men's evening hours. Sauna, showers, lockers, changing rooms, and private parking for 30 cars." />
+  <meta property="og:title" content="Gravity Gym — Irbid" />
+  <meta property="og:description" content="Premium strength & cardio facility. Bilingual (EN/AR)." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://i.imgur.com/omyhNW0.jpeg" />
+  <meta name="theme-color" content="#0ea5e9" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root{
+      --bg:#0b0f14; --bg-2:#0f1620; --ink:#e6f1ff; --muted:#9db2ce;
+      --brand:#00e0ff; --accent:#66ff8c; --gold:#d4af37; --card:#121a25; --ring:#1f2a39;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, "Cairo", Arial, sans-serif;}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1200px;margin:0 auto;padding:0 20px}
+    header{
+      position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);
+      background:linear-gradient(180deg, rgba(15,22,32,.85), rgba(15,22,32,.35));
+      border-bottom:1px solid var(--ring);
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;gap:12px;align-items:center}
+    .badge{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border:1px solid var(--ring);border-radius:999px;background:#0e1520}
+    .badge i{color:var(--brand)}
+    .switch{display:flex;gap:8px;align-items:center}
+    .lang-btn{padding:6px 10px;border-radius:10px;border:1px solid var(--ring);background:#0e1520;cursor:pointer}
+    .lang-btn.active{background:var(--brand);color:#001018;border-color:transparent;font-weight:700}
+
+    /* HERO */
+    .hero{position:relative;overflow:hidden}
+    .hero-wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center;padding:36px 0 18px}
+    .headline{font-size:clamp(28px,5vw,56px);line-height:1.05;font-weight:800;letter-spacing:-.01em}
+    .sub{color:var(--muted);font-size:clamp(14px,2.2vw,18px)}
+    .cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+    .btn{padding:12px 16px;border-radius:14px;border:1px solid var(--ring);background:linear-gradient(180deg,#0f1926,#0b131d);cursor:pointer;font-weight:700}
+    .btn.primary{border:0;background:linear-gradient(90deg,#00e0ff,#66ff8c)}
+    .btn.primary span{background:linear-gradient(90deg,#00343d,#012b20);-webkit-background-clip:text;color:transparent}
+
+    /* Carousel */
+    .carousel{position:relative;border-radius:20px;overflow:hidden;height:420px;background:#0a0f16;border:1px solid var(--ring)}
+    .carousel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 900ms ease}
+    .carousel img.active{opacity:1}
+    .dots{position:absolute;bottom:10px;left:0;right:0;display:flex;justify-content:center;gap:8px}
+    .dot{width:8px;height:8px;border-radius:999px;background:#3a4a60;border:1px solid #789}
+    .dot.active{background:#bdeafe}
+
+    /* INFO GRID */
+    .grid{display:grid;gap:16px;margin:28px 0 10px}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    .card{background:linear-gradient(180deg, #0e1520, #0a121b);border:1px solid var(--ring);border-radius:16px;padding:18px}
+    .card h3{margin:0 0 6px;font-size:18px}
+    .card p{margin:0;color:var(--muted)}
+    .kv{display:grid;grid-template-columns:1fr auto;gap:8px;margin-top:10px}
+
+    /* PRICE */
+    .price{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .plan{background:linear-gradient(180deg,#101a27,#0b141f);border:1px solid var(--ring);border-radius:18px;padding:18px;position:relative;overflow:hidden}
+    .plan h4{margin:0 0 8px}
+    .plan .num{font-size:40px;font-weight:800}
+    .plan .jod{font-size:14px;color:var(--muted)}
+    .plan .save{position:absolute;top:12px;right:12px;background:var(--gold);color:#201800;font-weight:800;padding:4px 8px;border-radius:999px;font-size:12px}
+
+    /* Videos & Gallery */
+    .media{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
+    .video{position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;border:1px solid var(--ring)}
+    .thumbs{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .thumb{aspect-ratio:1.2/1;border-radius:14px;overflow:hidden;position:relative;border:1px solid var(--ring)}
+    .thumb img{width:100%;height:100%;object-fit:cover}
+
+    /* Amenities */
+    .amen{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+    .chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--ring);background:#0d1521;border-radius:999px;padding:8px 12px}
+
+    /* Footer */
+    footer{margin-top:30px;padding:24px 0;border-top:1px solid var(--ring);background:linear-gradient(180deg, transparent, rgba(255,255,255,0.02))}
+
+    /* Responsive */
+    @media (max-width:1000px){
+      .hero-wrap{grid-template-columns:1fr}
+      .media{grid-template-columns:1fr}
+      .grid.cols-3{grid-template-columns:1fr}
+      .price{grid-template-columns:repeat(2,1fr)}
+      .carousel{height:320px}
+    }
+    @media (max-width:640px){
+      .price{grid-template-columns:1fr}
+      .carousel{height:260px}
+    }
+
+    /* Direction helpers */
+    .rtl{direction:rtl}
+    .rtl .kv{grid-template-columns:auto 1fr}
+    .rtl .hero-wrap{grid-template-columns:1fr}
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="header-container">
-            <a href="#" class="logo">Gravity<span>Gym</span></a>
-            <div class="mobile-menu">
-                <i class="fas fa-bars"></i>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#videos">Videos</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div style="width:44px;height:44px;border-radius:12px;border:1px solid var(--ring);display:grid;place-items:center;background:radial-gradient(120% 120% at 0% 0%, #00e0ff30, transparent 60%);">
+          <i class="fa-solid fa-dumbbell" aria-hidden="true"></i>
         </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Gravity Gym - Premium Fitness Experience</h1>
-            <p>Jordan's premier fitness destination with state-of-the-art equipment and professional trainers</p>
-            <a href="#pricing" class="cta-button">Join Now</a>
+        <div>
+          <div style="font-weight:800;letter-spacing:.5px">Gravity Gym</div>
+          <div class="badge" title="Founded Aug 2021">
+            <i class="fa-regular fa-calendar"></i>
+            <span id="i-founded">Founded Aug 2021</span>
+          </div>
         </div>
-    </section>
+      </div>
+      <div class="switch">
+        <a class="badge" id="fbIcon" href="https://www.facebook.com/gravitygymjo/" target="_blank" rel="noopener" title="Facebook">
+          <i class="fa-brands fa-facebook-f"></i><span>Facebook</span>
+        </a>
+        <a class="badge" href="https://www.instagram.com/gravity.gym_jo" target="_blank" rel="noopener" title="Instagram">
+          <i class="fa-brands fa-instagram"></i><span>Instagram</span>
+        </a>
+        <button class="lang-btn active" id="btnEN" aria-pressed="true">EN</button>
+        <button class="lang-btn" id="btnAR" aria-pressed="false">ع</button>
+      </div>
+    </div>
+  </header>
 
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Facilities</h2>
-                <p>Experience the best fitness environment with our premium facilities</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-dumbbell"></i>
-                    </div>
-                    <h3>Strength Training</h3>
-                    <p>Premium equipment for muscle building and strength development</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-running"></i>
-                    </div>
-                    <h3>Cardio Zone</h3>
-                    <p>Latest cardio machines for heart health and endurance</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-fire"></i>
-                    </div>
-                    <h3>Sauna & Steam</h3>
-                    <p>Relaxation facilities for post-workout recovery</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-user-graduate"></i>
-                    </div>
-                    <h3>Certified Trainers</h3>
-                    <p>Professional trainers with international certifications</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-car"></i>
-                    </div>
-                    <h3>Parking Space</h3>
-                    <p>Convenient parking for up to 30 vehicles</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h3>Flexible Hours</h3>
-                    <p>Separate timing for ladies and gentlemen</p>
-                </div>
-            </div>
+  <main class="container hero">
+    <div class="hero-wrap">
+      <div>
+        <h1 class="headline" id="i-title">Strength & Cardio — built for real progress</h1>
+        <p class="sub" id="i-sub">Modern resistance floor and full cardio zone, ladies' morning hours and men's evening hours. Sauna, showers, lockers, changing rooms, and private parking for 30 cars.</p>
+        <div class="cta">
+          <a class="btn primary" href="#pricing"><span id="i-cta-join">Join now</span></a>
+          <a class="btn" href="#hours" id="i-cta-hours">View hours</a>
+          <a class="btn" href="#contact" id="i-cta-contact">Contact</a>
         </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section class="pricing" id="pricing">
-        <div class="container">
-            <div class="section-title">
-                <h2>Membership Plans</h2>
-                <p>Choose the plan that fits your fitness journey</p>
-            </div>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3>1 Month</h3>
-                    </div>
-                    <div class="price">25 <span>JOD</span></div>
-                    <ul class="pricing-features">
-                        <li>Full facility access</li>
-                        <li>Free training consultation</li>
-                        <li>Locker room access</li>
-                        <li>Sauna & steam room</li>
-                    </ul>
-                    <a href="#" class="pricing-button">Join Now</a>
-                </div>
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3>3 Months</h3>
-                    </div>
-                    <div class="price">50 <span>JOD</span></div>
-                    <ul class="pricing-features">
-                        <li>All 1-month benefits</li>
-                        <li>1 personal training session</li>
-                        <li>10% supplement discount</li>
-                        <li>Fitness assessment</li>
-                    </ul>
-                    <a href="#" class="pricing-button">Join Now</a>
-                </div>
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3>6 Months</h3>
-                    </div>
-                    <div class="price">90 <span>JOD</span></div>
-                    <ul class="pricing-features">
-                        <li>All 3-month benefits</li>
-                        <li>3 personal training sessions</li>
-                        <li>15% supplement discount</li>
-                        <li>2 guest passes</li>
-                    </ul>
-                    <a href="#" class="pricing-button">Join Now</a>
-                </div>
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3>1 Year</h3>
-                    </div>
-                    <div class="price">170 <span>JOD</span></div>
-                    <ul class="pricing-features">
-                        <li>All 6-month benefits</li>
-                        <li>6 personal training sessions</li>
-                        <li>20% supplement discount</li>
-                        <li>6 guest passes</li>
-                        <li>Welcome package</li>
-                    </ul>
-                    <a href="#" class="pricing-button">Join Now</a>
-                </div>
-            </div>
+        <div class="kv card" style="margin-top:14px">
+          <div>
+            <strong id="i-loc-title">Location</strong>
+            <p id="i-location">Irbid — behind Al-Rahibat Hospital, next to "Sanwisha" restaurant</p>
+          </div>
+          <div style="display:grid;place-items:center">
+            <div class="chip"><i class="fa-solid fa-car"></i><span id="i-parking">Private parking for 30 cars</span></div>
+          </div>
         </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section class="gallery" id="gallery">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Gallery</h2>
-                <p>Take a look at our state-of-the-art facilities</p>
-            </div>
-            <div class="gallery-slider">
-                <div class="slides">
-                    <div class="slide">
-                        <img src="https://i.imgur.com/omyhNW0.jpeg" alt="Gravity Gym">
-                    </div>
-                    <div class="slide">
-                        <img src="https://i.imgur.com/BhILWUs.jpeg" alt="Gravity Gym">
-                    </div>
-                    <div class="slide">
-                        <img src="https://i.imgur.com/nRaE0ei.jpeg" alt="Gravity Gym">
-                    </div>
-                    <div class="slide">
-                        <img src="https://i.imgur.com/bjjNhPr.jpeg" alt="Gravity Gym">
-                    </div>
-                    <div class="slide">
-                        <img src="https://i.imgur.com/Pgb8LVN.jpeg" alt="Gravity Gym">
-                    </div>
-                    <div class="slide">
-                        <img src="https://i.imgur.com/06hi449.jpeg" alt="Gravity Gym">
-                    </div>
-                </div>
-                <div class="slider-nav">
-                    <div class="slider-dot active"></div>
-                    <div class="slider-dot"></div>
-                    <div class="slider-dot"></div>
-                    <div class="slider-dot"></div>
-                    <div class="slider-dot"></div>
-                    <div class="slider-dot"></div>
-                </div>
-            </div>
+      </div>
+      <div>
+        <div class="carousel" id="carousel">
+          <img src="https://i.imgur.com/omyhNW0.jpeg" alt="Gym photo 1" class="active">
+          <img src="https://i.imgur.com/BhILWUs.jpeg" alt="Gym photo 2">
+          <img src="https://i.imgur.com/nRaE0ei.jpeg" alt="Gym photo 3">
+          <img src="https://i.imgur.com/bjjNhPr.jpeg" alt="Gym photo 4">
+          <img src="https://i.imgur.com/Pgb8LVN.jpeg" alt="Gym photo 5">
+          <img src="https://i.imgur.com/06hi449.jpeg" alt="Gym photo 6">
+          <div class="dots" id="dots"></div>
         </div>
-    </section>
+      </div>
+    </div>
+  </main>
 
-    <!-- Videos Section -->
-    <section class="videos" id="videos">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Videos</h2>
-                <p>See Gravity Gym in action</p>
-            </div>
-            <div class="videos-grid">
-                <div class="video-item">
-                    <iframe src="https://www.youtube.com/embed/Azuflu-PgJA" allowfullscreen></iframe>
-                </div>
-                <div class="video-item">
-                    <iframe src="https://www.youtube.com/embed/w0PgPKT1h8s" allowfullscreen></iframe>
-                </div>
-                <div class="video-item">
-                    <iframe src="https://www.youtube.com/embed/IfFAI8CxTxA" allowfullscreen></iframe>
-                </div>
-            </div>
+  <section class="container">
+    <div class="grid cols-3">
+      <div class="card">
+        <h3><i class="fa-solid fa-person-running"></i> <span id="i-amen-1-t">Facility</span></h3>
+        <p id="i-amen-1-d">Resistance floor, cardio zone, sauna, showers, lockers, changing rooms.</p>
+        <div class="amen">
+          <span class="chip"><i class="fa-solid fa-dumbbell"></i><span id="i-chip-strength">Strength</span></span>
+          <span class="chip"><i class="fa-solid fa-heart-pulse"></i><span id="i-chip-cardio">Cardio</span></span>
+          <span class="chip"><i class="fa-solid fa-hot-tub-person"></i><span id="i-chip-sauna">Sauna</span></span>
+          <span class="chip"><i class="fa-solid fa-shower"></i><span id="i-chip-showers">Showers</span></span>
+          <span class="chip"><i class="fa-solid fa-key"></i><span id="i-chip-lockers">Lockers</span></span>
         </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Contact Us</h2>
-                <p>Get in touch to start your fitness journey</p>
-            </div>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Visit Us</h3>
-                    <ul class="contact-details">
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Irbid - Behind Al-Rahibat Hospital - Next to Sanawesha Restaurant</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-clock"></i>
-                            <span>Ladies: 8:00 AM - 2:00 PM | Gentlemen: 3:00 PM - 12:00 AM</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-phone"></i>
-                            <span>+962 7X XXX XXXX</span>
-                        </li>
-                    </ul>
-                    <h3>Follow Us</h3>
-                    <div class="social-links">
-                        <a href="https://www.facebook.com/gravitygymjo/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/gravity.gym_jo" target="_blank"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3383.885841034312!2d35.85425831516149!3d32.01750578121818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151c9f6d59b9b7a5%3A0x6a8c0e8d3c5b5b6e!2sIrbid%2C%20Jordan!5e0!3m2!1sen!2s!4v1642345678901!5m2!1sen!2s" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-            </div>
+      </div>
+      <div class="card" id="hours">
+        <h3><i class="fa-regular fa-clock"></i> <span id="i-hours-t">Hours</span></h3>
+        <div class="kv">
+          <div><strong id="i-ladies">Ladies</strong><br><span id="i-ladies-time">8:00 AM – 2:00 PM</span></div>
+          <div><strong id="i-men">Men</strong><br><span id="i-men-time">3:00 PM – 12:00 AM</span></div>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">Gravity<span>Gym</span></div>
-                <p>Jordan's Premier Fitness Destination</p>
-                <div class="copyright">
-                    <p>© 2024 Gravity Gym. All Rights Reserved</p>
-                </div>
-            </div>
+      </div>
+      <div class="card">
+        <h3><i class="fa-solid fa-user-graduate"></i> <span id="i-trainers-t">Trainers</span></h3>
+        <p id="i-trainers-d">High-competency coaches with international ISSA certifications.</p>
+        <div class="amen">
+          <span class="chip"><i class="fa-solid fa-medal"></i><span id="i-chip-issa">ISSA Certified</span></span>
+          <span class="chip"><i class="fa-solid fa-hand-fist"></i><span id="i-chip-programs">Personal programs</span></span>
         </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        // Mobile Menu
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const navLinks = document.querySelector('.nav-links');
-        
-        mobileMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-        
-        // Close menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 70,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // Image Slider
-        const slides = document.querySelector('.slides');
-        const dots = document.querySelectorAll('.slider-dot');
-        let currentSlide = 0;
-        
-        function showSlide(n) {
-            slides.style.transform = `translateX(-${n * 100}%)`;
-            
-            // Update active dot
-            dots.forEach(dot => dot.classList.remove('active'));
-            dots[n].classList.add('active');
-            
-            currentSlide = n;
-        }
-        
-        // Auto slide change
-        setInterval(() => {
-            currentSlide = (currentSlide + 1) % dots.length;
-            showSlide(currentSlide);
-        }, 5000);
-        
-        // Dot click events
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                showSlide(index);
-            });
-        });
-        
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-        
-        // Apply animations to elements
-        document.querySelectorAll('.feature-card, .pricing-card, .video-item').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.5s, transform 0.5s';
-            observer.observe(el);
-        });
-        
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if(window.scrollY > 100) {
-                header.style.background = 'rgba(18, 18, 18, 0.98)';
-                header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
-            } else {
-                header.style.background = 'var(--secondary)';
-                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-            }
-        });
-    </script>
+  <section class="container" id="pricing" style="margin-top:6px">
+    <h2 style="font-size:28px;margin:4px 0 12px" id="i-price-t">Membership Plans</h2>
+    <div class="price">
+      <div class="plan">
+        <div class="save" id="i-save-1">Popular</div>
+        <h4 id="i-plan-1">1 Month</h4>
+        <div class="num">25 <span class="jod">JOD</span></div>
+      </div>
+      <div class="plan">
+        <h4 id="i-plan-3">3 Months</h4>
+        <div class="num">50 <span class="jod">JOD</span></div>
+      </div>
+      <div class="plan">
+        <div class="save" id="i-save-3">Best value</div>
+        <h4 id="i-plan-6">6 Months</h4>
+        <div class="num">90 <span class="jod">JOD</span></div>
+      </div>
+      <div class="plan">
+        <h4 id="i-plan-12">12 Months</h4>
+        <div class="num">170 <span class="jod">JOD</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container" style="margin-top:22px">
+    <h2 style="font-size:28px;margin:4px 0 12px" id="i-media-t">Inside Gravity Gym</h2>
+    <div class="media">
+      <div class="video">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Azuflu-PgJA" title="Gravity Gym video 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="thumbs">
+        <a class="thumb" href="https://youtube.com/shorts/w0PgPKT1h8s" target="_blank" rel="noopener" title="Short 1">
+          <img src="https://i.ytimg.com/vi/w0PgPKT1h8s/hqdefault.jpg" alt="Short 1">
+        </a>
+        <a class="thumb" href="https://youtube.com/shorts/IfFAI8CxTxA" target="_blank" rel="noopener" title="Short 2">
+          <img src="https://i.ytimg.com/vi/IfFAI8CxTxA/hqdefault.jpg" alt="Short 2">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="container" id="contact" style="margin-top:22px">
+    <div class="card">
+      <h3 style="margin-bottom:8px" id="i-contact-t"><i class="fa-solid fa-location-dot"></i> Contact & Location</h3>
+      <p id="i-contact-d">Visit us in Irbid — behind Al-Rahibat Hospital, next to "Sanwisha" restaurant. Reach out on Facebook or Instagram for inquiries and membership.</p>
+      <div class="amen">
+        <a class="chip" href="https://www.facebook.com/gravitygymjo/" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i><span>Facebook</span></a>
+        <a class="chip" href="https://www.instagram.com/gravity.gym_jo" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i><span>Instagram</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container" style="display:flex;gap:10px;justify-content:space-between;align-items:center;flex-wrap:wrap">
+      <div style="opacity:.7">© <span id="i-foot-name">Gravity Gym</span> — Irbid</div>
+      <div style="display:flex;gap:10px">
+        <a class="badge" href="#pricing"><i class="fa-solid fa-ticket"></i><span id="i-foot-join">Membership</span></a>
+        <a class="badge" href="#hours"><i class="fa-regular fa-clock"></i><span id="i-foot-hours">Hours</span></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simple carousel
+    const carousel = document.getElementById('carousel');
+    const imgs = [...carousel.querySelectorAll('img')];
+    const dotsWrap = document.getElementById('dots');
+    imgs.forEach((_,i)=>{const d=document.createElement('div');d.className='dot'+(i===0?' active':'');d.dataset.i=i;dotsWrap.appendChild(d);});
+    const dots=[...dotsWrap.children];
+    let idx=0; let timer=null;
+    function go(n){imgs[idx].classList.remove('active');dots[idx].classList.remove('active');idx=(n+imgs.length)%imgs.length;imgs[idx].classList.add('active');dots[idx].classList.add('active');}
+    function play(){timer=setInterval(()=>go(idx+1), 3200);} play();
+    carousel.addEventListener('mouseenter',()=>clearInterval(timer));
+    carousel.addEventListener('mouseleave',play);
+    dots.forEach(d=>d.addEventListener('click',()=>{clearInterval(timer);go(+d.dataset.i);play();}))
+
+    // i18n
+    const t = {
+      en:{
+        founded:'Founded Aug 2021',
+        title:'Strength & Cardio — built for real progress',
+        sub:"Modern resistance floor and full cardio zone, ladies' morning hours and men's evening hours. Sauna, showers, lockers, changing rooms, and private parking for 30 cars.",
+        ctaJoin:'Join now', ctaHours:'View hours', ctaContact:'Contact',
+        locTitle:'Location', location:'Irbid — behind Al-Rahibat Hospital, next to \"Sanwisha\" restaurant', parking:'Private parking for 30 cars',
+        amen1t:'Facility', amen1d:'Resistance floor, cardio zone, sauna, showers, lockers, changing rooms.',
+        chipStrength:'Strength', chipCardio:'Cardio', chipSauna:'Sauna', chipShowers:'Showers', chipLockers:'Lockers',
+        hoursT:'Hours', ladies:'Ladies', men:'Men', ladiesTime:'8:00 AM – 2:00 PM', menTime:'3:00 PM – 12:00 AM',
+        trainersT:'Trainers', trainersD:'High-competency coaches with international ISSA certifications.', chipISSA:'ISSA Certified', chipPrograms:'Personal programs',
+        priceT:'Membership Plans', save1:'Popular', save3:'Best value', p1:'1 Month', p3:'3 Months', p6:'6 Months', p12:'12 Months',
+        mediaT:'Inside Gravity Gym',
+        contactT:'Contact & Location', contactD:'Visit us in Irbid — behind Al-Rahibat Hospital, next to \"Sanwisha\" restaurant. Reach out on Facebook or Instagram for inquiries and membership.',
+        footName:'Gravity Gym', footJoin:'Membership', footHours:'Hours'
+      },
+      ar:{
+        founded:'تأسس آب 2021',
+        title:'قوّة وكارديو — تقدّم حقيقي',
+        sub:'صالة تمارين مقاومة وصالة هوائية وأجهزة كارديو. فترة صباحية للسيدات وفترة مسائية للرجال. ساونا، شاورات، لوكرات وغرف غيار، ومصفّ خاص لـ 30 سيارة.',
+        ctaJoin:'اشترك الآن', ctaHours:'مواعيد الدوام', ctaContact:'تواصل',
+        locTitle:'الموقع', location:'إربد — خلف مستشفى الراهبات، بجانب مطعم سنويشة', parking:'مصفّ خاص يتسع لـ 30 سيارة',
+        amen1t:'المرافق', amen1d:'تمارين مقاومة، صالة هوائية، ساونا، شاورات، لوكرات وغرف غيار.',
+        chipStrength:'مقاومة', chipCardio:'كارديو', chipSauna:'ساونا', chipShowers:'شاورات', chipLockers:'لوكرات',
+        hoursT:'ساعات العمل', ladies:'سيدات', men:'رجال', ladiesTime:'08:00 صباحاً – 02:00 ظهراً', menTime:'03:00 عصراً – 12:00 منتصف الليل',
+        trainersT:'المدرّبون', trainersD:'مدرّبون بكفاءة عالية حاصلون على دورات دولية ISSA.', chipISSA:'اعتماد ISSA', chipPrograms:'برامج شخصية',
+        priceT:'الاشتراكات', save1:'الأكثر طلباً', save3:'الأوفر', p1:'شهر', p3:'3 أشهر', p6:'6 أشهر', p12:'سنة',
+        mediaT:'من داخل Gravity Gym',
+        contactT:'التواصل والموقع', contactD:'زورونا في إربد — خلف مستشفى الراهبات، بجانب مطعم سنويشة. راسلونا على فيسبوك أو إنستغرام للاستفسارات والاشتراك.',
+        footName:'Gravity Gym', footJoin:'الاشتراك', footHours:'المواعيد'
+      }
+    };
+
+    const map = [
+      ['i-founded','founded'],['i-title','title'],['i-sub','sub'],
+      ['i-cta-join','ctaJoin'],['i-cta-hours','ctaHours'],['i-cta-contact','ctaContact'],
+      ['i-loc-title','locTitle'],['i-location','location'],['i-parking','parking'],
+      ['i-amen-1-t','amen1t'],['i-amen-1-d','amen1d'],
+      ['i-chip-strength','chipStrength'],['i-chip-cardio','chipCardio'],['i-chip-sauna','chipSauna'],['i-chip-showers','chipShowers'],['i-chip-lockers','chipLockers'],
+      ['i-hours-t','hoursT'],['i-ladies','ladies'],['i-men','men'],['i-ladies-time','ladiesTime'],['i-men-time','menTime'],
+      ['i-trainers-t','trainersT'],['i-trainers-d','trainersD'],['i-chip-issa','chipISSA'],['i-chip-programs','chipPrograms'],
+      ['i-price-t','priceT'],['i-save-1','save1'],['i-save-3','save3'],['i-plan-1','p1'],['i-plan-3','p3'],['i-plan-6','p6'],['i-plan-12','p12'],
+      ['i-media-t','mediaT'],
+      ['i-contact-t','contactT'],['i-contact-d','contactD'],
+      ['i-foot-name','footName'],['i-foot-join','footJoin'],['i-foot-hours','footHours']
+    ];
+
+    const btnEN=document.getElementById('btnEN');
+    const btnAR=document.getElementById('btnAR');
+
+    function setLang(lang){
+      const dict=t[lang];
+      map.forEach(([id,key])=>{const el=document.getElementById(id); if(el) el.textContent=dict[key];});
+      document.documentElement.lang= (lang==='ar')? 'ar':'en';
+      document.documentElement.dir = (lang==='ar')? 'rtl':'ltr';
+      document.body.classList.toggle('rtl', lang==='ar');
+      btnEN.classList.toggle('active', lang==='en'); btnAR.classList.toggle('active', lang==='ar');
+    }
+
+    // default EN
+    setLang('en');
+    btnEN.addEventListener('click',()=>setLang('en'));
+    btnAR.addEventListener('click',()=>setLang('ar'));
+  </script>
 </body>
 </html>
