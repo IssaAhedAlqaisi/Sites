@@ -1,242 +1,210 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-  <!-- =====================
-       GRAVITY GYM — SHOWSTOPPER LANDING PAGE (EN/AR)
-       High‑polish, fully responsive, animated, bilingual
-       Author: ChatGPT × Issa — 2025-11-12
-       ===================== -->
+  <!-- Gravity Gym — Clean, Mobile‑First, Bilingual (EN/AR) -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gravity Gym — Irbid | Strength • Cardio • Sauna</title>
-  <meta name="description" content="Gravity Gym (Irbid). Strength & cardio floors, ladies morning hours, men evening hours, sauna, showers, lockers, changing rooms, and private parking for 30 cars. Founded Aug 2021." />
-  <meta name="theme-color" content="#0f172a" />
-  <meta property="og:title" content="Gravity Gym — Irbid" />
-  <meta property="og:description" content="Strength & Cardio • Ladies AM / Men PM • Sauna & Showers • Private Parking" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://i.imgur.com/omyhNW0.jpeg" />
+  <title>Gravity Gym — Irbid</title>
+  <meta name="description" content="Gravity Gym Irbid — Strength & Cardio facility with ladies' morning hours and men's evening hours. Sauna, showers, lockers, changing rooms, and private parking for 30 cars. Founded Aug 2021." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <!-- GSAP for tasteful micro‑interactions -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   <style>
-    /* ========= DESIGN SYSTEM ========= */
+    /* ============ DESIGN SYSTEM (Light, clean) ============ */
     :root{
-      --bg: #070b14;         /* deep midnight */
-      --bg-2:#0b1220;        /* card layer */
-      --ink:#e6f1ff;         /* main text */
-      --muted:#9db2ce;       /* secondary text */
-      --brand:#00e0ff;       /* cyan accent */
-      --accent:#66ff8c;      /* neon green */
-      --gold:#d4af37;        /* pricing ribbon */
-      --ring:#203046;        /* borders */
-      --alert:#ff5470;       /* highlights */
-      --grad: linear-gradient(90deg, var(--brand), var(--accent));
+      --bg:#ffffff;           /* page */
+      --ink:#111827;          /* primary text */
+      --muted:#6b7280;        /* secondary text */
+      --line:#e5e7eb;         /* borders */
+      --card:#ffffff;         /* cards */
+      --brand:#0ea5e9;        /* cyan */
+      --accent:#111827;       /* dark */
+      --gold:#d1a954;         /* subtle highlight */
+      --shadow:0 8px 24px rgba(17,24,39,.06);
+      --radius:16px;
     }
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, "Cairo", Arial, sans-serif;}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Cairo",Arial,sans-serif;}
     img{max-width:100%;display:block}
     a{color:inherit;text-decoration:none}
-    .container{max-width:1200px;margin:0 auto;padding:0 22px}
+    .container{max-width:1100px;margin:0 auto;padding:0 16px}
 
-    /* ======== GLOBAL FX ======== */
-    .glass{background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));border:1px solid var(--ring);backdrop-filter:blur(8px)}
-    .card{background:linear-gradient(180deg,#0c1422,#091220);border:1px solid var(--ring);border-radius:18px}
-    .pill{border-radius:999px;padding:8px 12px;border:1px solid var(--ring);display:inline-flex;align-items:center;gap:8px;background:#0d1728}
-    .btn{position:relative;display:inline-flex;gap:10px;align-items:center;padding:14px 18px;border-radius:16px;border:1px solid var(--ring);background:linear-gradient(180deg,#0e1929,#09131f);font-weight:800;letter-spacing:.2px;cursor:pointer;transition:transform .12s ease, box-shadow .12s ease}
-    .btn:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(0,0,0,.35)}
-    .btn.primary{border:0;background:var(--grad);color:#012116}
-    .btn.ghost{background:transparent}
-    .tag{font-size:12px;letter-spacing:.5px;text-transform:uppercase;opacity:.88}
+    /* ============ NAVBAR ============ */
+    header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:10px}
+    .logo{width:40px;height:40px;border-radius:10px;border:1px solid var(--line);display:grid;place-items:center}
+    .menu{display:flex;align-items:center;gap:8px}
+    .pill{padding:8px 12px;border:1px solid var(--line);border-radius:12px;background:#fff}
+    .lang{display:flex;gap:6px}
+    .lang button{padding:8px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;cursor:pointer}
+    .lang .active{background:var(--brand);color:#fff;border-color:var(--brand);font-weight:700}
 
-    /* ======== NAV ======== */
-    header{position:sticky;top:0;z-index:1000;backdrop-filter:blur(10px);border-bottom:1px solid var(--ring);background:linear-gradient(180deg, rgba(7,11,20,.85), rgba(7,11,20,.35))}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{width:48px;height:48px;border-radius:14px;border:1px solid var(--ring);display:grid;place-items:center;background:radial-gradient(120% 120% at 0% 0%, #00e0ff25, transparent 60%)}
-    .links{display:flex;gap:10px;align-items:center}
-    .lang-btn{padding:8px 12px;border-radius:12px;border:1px solid var(--ring);background:#0b1424;cursor:pointer}
-    .lang-btn.active{background:var(--brand);color:#001018;border-color:transparent;font-weight:900}
+    /* Mobile burger */
+    .burger{display:none;border:1px solid var(--line);border-radius:10px;background:#fff;padding:8px}
+    @media (max-width:900px){
+      .menu{display:none}
+      .burger{display:inline-flex}
+      .drawer{position:fixed;inset:56px 0 0 0;background:#fff;border-top:1px solid var(--line);box-shadow:var(--shadow);display:none}
+      .drawer .list{display:grid;gap:8px;padding:14px}
+      .drawer .list a,.drawer .list button{padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff;text-align:center}
+    }
 
-    /* ======== PROGRESS BAR ======== */
-    .progress{position:fixed;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg, var(--brand), var(--accent));transform-origin:left center;transform:scaleX(0);z-index:1200}
+    /* ============ HERO ============ */
+    .hero{display:grid;gap:16px;padding:18px 0 8px}
+    .headline{font-size:clamp(26px,6vw,44px);line-height:1.05;font-weight:800;letter-spacing:-.01em}
+    .sub{color:var(--muted);font-size:clamp(14px,2.6vw,18px)}
+    .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:12px;border:1px solid var(--line);background:#fff;cursor:pointer}
+    .btn.primary{background:var(--brand);color:#fff;border-color:var(--brand);font-weight:700}
 
-    /* ======== HERO ======== */
-    .hero{position:relative;overflow:clip}
-    .hero-wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:center;padding:28px 0 0}
-    .headline{font-size:clamp(32px,5.2vw,64px);line-height:1.02;font-weight:900;letter-spacing:-.01em}
-    .sub{color:var(--muted);font-size:clamp(14px,2.2vw,18px)}
-    .hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-    .orbit{position:absolute;inset:auto -80px -120px -80px;height:420px;background:radial-gradient(60% 80% at 50% 100%, #00e0ff18, transparent 60%), radial-gradient(50% 60% at 10% 90%, #66ff8c14, transparent 60%)}
-
-    /* Photo carousel (autoplay) */
-    .carousel{position:relative;border-radius:20px;overflow:hidden;height:470px;background:#0a1019;border:1px solid var(--ring)}
-    .carousel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1000ms ease}
+    /* Carousel */
+    .carousel{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);height:360px}
+    .carousel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s ease}
     .carousel img.active{opacity:1}
-    .dots{position:absolute;bottom:10px;left:0;right:0;display:flex;justify-content:center;gap:8px}
-    .dot{width:8px;height:8px;border-radius:999px;background:#30435a;border:1px solid #5f7a9a}
-    .dot.active{background:#bdeafe}
+    .dots{position:absolute;bottom:10px;left:0;right:0;display:flex;justify-content:center;gap:6px}
+    .dot{width:8px;height:8px;border-radius:999px;background:#d1d5db}
+    .dot.active{background:#60a5fa}
 
-    /* ======== SECTIONS ======== */
-    section{padding:32px 0}
-    .grid{display:grid;gap:16px}
-    .cols-3{grid-template-columns:repeat(3,1fr)}
-    .cols-4{grid-template-columns:repeat(4,1fr)}
+    /* ============ SECTIONS ============ */
+    section{padding:18px 0}
+    .grid{display:grid;gap:12px}
+    .cards{grid-template-columns:repeat(12,1fr)}
+    .card{border:1px solid var(--line);border-radius:var(--radius);background:var(--card);padding:14px;box-shadow:var(--shadow)}
 
-    .kv{display:grid;grid-template-columns:1fr auto;gap:10px}
-    .chips{display:flex;gap:10px;flex-wrap:wrap}
-    .chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--ring);background:#0d1626;border-radius:999px;padding:8px 12px}
+    /* 3 columns desktop, 1 column mobile */
+    .col-4{grid-column:span 4}
+    .col-6{grid-column:span 6}
+    .col-12{grid-column:span 12}
+    @media (max-width:900px){.col-4,.col-6{grid-column:span 12}}
 
-    /* HOURS TIMELINE */
-    .timeline{position:relative;padding:12px 0}
-    .timeline::before{content:"";position:absolute;left:0;right:0;top:50%;height:2px;background:linear-gradient(90deg,#1b2a3f,#284564)}
-    .slot{position:relative;padding:16px 18px;border-radius:14px;border:1px solid var(--ring);background:linear-gradient(180deg,#0e1728,#0a1320)}
+    /* Hours */
+    .kv{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    @media (max-width:600px){.kv{grid-template-columns:1fr}}
 
-    /* PRICING */
-    .price{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-    .plan{position:relative;overflow:hidden}
-    .plan .ribbon{position:absolute;top:12px;right:-18px;transform:rotate(15deg);background:var(--gold);color:#1a1500;font-weight:900;padding:6px 24px;border-radius:999px}
-    .num{font-size:42px;font-weight:900}
-    .jod{font-size:14px;color:var(--muted)}
+    /* Pricing */
+    .price{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
+    .plan{grid-column:span 3;border:1px solid var(--line);border-radius:var(--radius);padding:16px;background:#fff;box-shadow:var(--shadow)}
+    .plan h4{margin:0 0 6px}
+    .num{font-size:36px;font-weight:800}
+    .jod{font-size:12px;color:var(--muted)}
+    .ribbon{display:inline-block;background:var(--gold);color:#111;padding:4px 10px;border-radius:999px;font-weight:700;font-size:12px}
+    @media (max-width:900px){.plan{grid-column:span 6}}
+    @media (max-width:600px){.plan{grid-column:span 12}}
 
-    /* MEDIA */
-    .media{display:grid;grid-template-columns:1.25fr .75fr;gap:16px}
-    .video{position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;border:1px solid var(--ring)}
-    .thumbs{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    /* Media */
+    .media{display:grid;grid-template-columns:1fr;gap:12px}
+    .video{position:relative;aspect-ratio:16/9;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+    .thumbs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    @media (max-width:600px){.thumbs{grid-template-columns:1fr}}
 
-    /* TESTIMONIALS MARQUEE */
-    .marquee{overflow:hidden;mask-image:linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%)}
-    .marquee-track{display:flex;gap:16px;animation:slide 22s linear infinite}
-    @keyframes slide{to{transform:translateX(-50%)}}
-    .quote{min-width:340px}
-
-    /* MAP + CONTACT */
-    .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}
-    .map{border:1px solid var(--ring);border-radius:16px;overflow:hidden;height:360px}
-    .form{display:grid;gap:10px}
-    .field{display:grid;gap:6px}
-    .input, textarea{background:#0b1424;border:1px solid var(--ring);color:var(--ink);border-radius:12px;padding:10px 12px;font:inherit}
+    /* Contact */
+    .contact{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media (max-width:900px){.contact{grid-template-columns:1fr}}
+    .input, textarea{width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:#fff;font:inherit}
     textarea{min-height:120px}
 
-    /* FOOTER */
-    footer{margin-top:32px;padding:28px 0;border-top:1px solid var(--ring);background:linear-gradient(180deg, transparent, rgba(255,255,255,0.03))}
+    /* Footer */
+    footer{margin-top:22px;padding:16px 0;border-top:1px solid var(--line)}
 
-    /* RTL MODE */
+    /* RTL helper */
     .rtl{direction:rtl}
-    .rtl .kv{grid-template-columns:auto 1fr}
-    .rtl .hero-wrap{grid-template-columns:1fr}
-
-    /* RESPONSIVE */
-    @media (max-width:1100px){.hero-wrap{grid-template-columns:1fr}.media{grid-template-columns:1fr}.cols-3,.cols-4{grid-template-columns:1fr}.price{grid-template-columns:repeat(2,1fr)}.carousel{height:360px}}
-    @media (max-width:640px){.price{grid-template-columns:1fr}.carousel{height:260px}}
   </style>
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"HealthClub","name":"Gravity Gym","address":{"@type":"PostalAddress","addressLocality":"Irbid","addressCountry":"JO"},"description":"Strength & Cardio facility. Ladies AM / Men PM. Sauna, showers, lockers, changing rooms. Private parking for 30 cars.","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"08:00","closes":"14:00","description":"Ladies"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"15:00","closes":"24:00","description":"Men"}],"foundingDate":"2021-08","sameAs":["https://www.facebook.com/gravitygymjo/","https://www.instagram.com/gravity.gym_jo"]}
-  </script>
 </head>
 <body>
-  <!-- Scroll progress -->
-  <div class="progress" id="progress"></div>
-
   <!-- NAVBAR -->
   <header>
     <div class="container nav">
       <div class="brand">
         <div class="logo"><i class="fa-solid fa-dumbbell"></i></div>
         <div>
-          <div style="font-weight:900;letter-spacing:.3px">Gravity Gym</div>
-          <div class="pill"><i class="fa-regular fa-calendar"></i><span id="i-founded">Founded Aug 2021</span></div>
+          <div style="font-weight:800">Gravity Gym</div>
+          <div style="font-size:12px;color:var(--muted)" id="i-founded">Founded Aug 2021</div>
         </div>
       </div>
-      <nav class="links">
-        <a class="pill" href="#amenities"><i class="fa-solid fa-bolt"></i><span id="nav-amen">Facility</span></a>
-        <a class="pill" href="#pricing"><i class="fa-solid fa-ticket"></i><span id="nav-price">Plans</span></a>
-        <a class="pill" href="#hours"><i class="fa-regular fa-clock"></i><span id="nav-hours">Hours</span></a>
-        <a class="pill" href="#contact"><i class="fa-solid fa-location-dot"></i><span id="nav-contact">Contact</span></a>
-        <a class="pill" href="https://www.facebook.com/gravitygymjo/" target="_blank" rel="noopener" id="facebook-icon" title="Facebook">
-          <i class="fa-brands fa-facebook-f"></i><span>Facebook</span>
-        </a>
-        <a class="pill" href="https://www.instagram.com/gravity.gym_jo" target="_blank" rel="noopener" title="Instagram">
-          <i class="fa-brands fa-instagram"></i><span>Instagram</span>
-        </a>
-        <button class="lang-btn active" id="btnEN" aria-pressed="true">EN</button>
-        <button class="lang-btn" id="btnAR" aria-pressed="false">ع</button>
-      </nav>
+      <div class="menu" id="menu">
+        <a class="pill" href="#about" id="nav-about">About</a>
+        <a class="pill" href="#hours" id="nav-hours">Hours</a>
+        <a class="pill" href="#pricing" id="nav-plans">Plans</a>
+        <a class="pill" href="#contact" id="nav-contact">Contact</a>
+        <a class="pill" href="https://www.facebook.com/gravitygymjo/" target="_blank" rel="noopener" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a class="pill" href="https://www.instagram.com/gravity.gym_jo" target="_blank" rel="noopener" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <div class="lang">
+          <button id="btnEN" class="active">EN</button>
+          <button id="btnAR">ع</button>
+        </div>
+      </div>
+      <button class="burger" id="burger" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+    <div class="drawer" id="drawer" hidden>
+      <div class="list">
+        <a href="#about" onclick="toggleDrawer(false)">About</a>
+        <a href="#hours" onclick="toggleDrawer(false)">Hours</a>
+        <a href="#pricing" onclick="toggleDrawer(false)">Plans</a>
+        <a href="#contact" onclick="toggleDrawer(false)">Contact</a>
+        <a href="https://www.facebook.com/gravitygymjo/" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.instagram.com/gravity.gym_jo" target="_blank" rel="noopener">Instagram</a>
+        <div style="display:flex;gap:8px">
+          <button onclick="setLang('en')">EN</button>
+          <button onclick="setLang('ar')">ع</button>
+        </div>
+      </div>
     </div>
   </header>
 
   <!-- HERO -->
-  <main class="container hero">
-    <div class="hero-wrap">
-      <div>
-        <div class="tag" id="i-tag">IRBID • JORDAN</div>
-        <h1 class="headline" id="i-title">Strength & Cardio — built for real progress</h1>
-        <p class="sub" id="i-sub">Resistance floor and full cardio zone. Ladies' morning hours and men's evening hours. Sauna, showers, lockers, changing rooms — plus private parking for 30 cars.</p>
-        <div class="hero-badges">
-          <span class="pill"><i class="fa-solid fa-car"></i><span id="i-parking">Private parking (30)</span></span>
-          <span class="pill"><i class="fa-solid fa-medal"></i><span id="i-issa">ISSA‑Certified Coaches</span></span>
-          <span class="pill"><i class="fa-solid fa-fire"></i><span id="i-programs">Strength • Cardio • Sauna</span></span>
-        </div>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
-          <a class="btn primary" href="#pricing"><i class="fa-solid fa-ticket"></i><span id="cta-join">Join now</span></a>
-          <a class="btn ghost" href="#hours"><i class="fa-regular fa-clock"></i><span id="cta-hours">View hours</span></a>
-          <a class="btn ghost" href="#gallery"><i class="fa-regular fa-images"></i><span id="cta-gallery">Gallery</span></a>
-        </div>
-      </div>
-      <div>
-        <div class="carousel card" id="carousel">
-          <img src="https://i.imgur.com/omyhNW0.jpeg" alt="Gym photo 1" class="active">
-          <img src="https://i.imgur.com/BhILWUs.jpeg" alt="Gym photo 2">
-          <img src="https://i.imgur.com/nRaE0ei.jpeg" alt="Gym photo 3">
-          <img src="https://i.imgur.com/bjjNhPr.jpeg" alt="Gym photo 4">
-          <img src="https://i.imgur.com/Pgb8LVN.jpeg" alt="Gym photo 5">
-          <img src="https://i.imgur.com/06hi449.jpeg" alt="Gym photo 6">
-          <div class="dots" id="dots"></div>
-        </div>
+  <main class="container hero" id="about">
+    <div>
+      <h1 class="headline" id="i-title">Strength & Cardio — built for real progress</h1>
+      <p class="sub" id="i-sub">Modern resistance floor and full cardio zone. Ladies' morning hours and men's evening hours. Sauna, showers, lockers, changing rooms — plus private parking for 30 cars.</p>
+      <div class="cta">
+        <a class="btn primary" href="#pricing"><i class="fa-solid fa-ticket"></i><span id="i-join">Join now</span></a>
+        <a class="btn" href="#hours"><i class="fa-regular fa-clock"></i><span id="i-hours">View hours</span></a>
       </div>
     </div>
-    <div class="orbit"></div>
+    <div class="carousel" id="carousel">
+      <img src="https://i.imgur.com/omyhNW0.jpeg" alt="Gym photo 1" class="active">
+      <img src="https://i.imgur.com/BhILWUs.jpeg" alt="Gym photo 2">
+      <img src="https://i.imgur.com/nRaE0ei.jpeg" alt="Gym photo 3">
+      <img src="https://i.imgur.com/bjjNhPr.jpeg" alt="Gym photo 4">
+      <img src="https://i.imgur.com/Pgb8LVN.jpeg" alt="Gym photo 5">
+      <img src="https://i.imgur.com/06hi449.jpeg" alt="Gym photo 6">
+      <div class="dots" id="dots"></div>
+    </div>
   </main>
 
-  <!-- AMENITIES / HOURS / COACHES -->
-  <section class="container" id="amenities">
-    <div class="grid cols-3">
-      <div class="card" style="padding:18px">
-        <h3 style="margin:0 0 8px" id="amen-t"><i class="fa-solid fa-person-running"></i> Facility</h3>
-        <p class="sub" id="amen-d">Resistance floor, cardio zone, sauna, showers, lockers, changing rooms.</p>
-        <div class="chips" style="margin-top:10px">
-          <span class="chip"><i class="fa-solid fa-dumbbell"></i><span id="chip-strength">Strength</span></span>
-          <span class="chip"><i class="fa-solid fa-heart-pulse"></i><span id="chip-cardio">Cardio</span></span>
-          <span class="chip"><i class="fa-solid fa-hot-tub-person"></i><span id="chip-sauna">Sauna</span></span>
-          <span class="chip"><i class="fa-solid fa-shower"></i><span id="chip-showers">Showers</span></span>
-          <span class="chip"><i class="fa-solid fa-key"></i><span id="chip-lockers">Lockers</span></span>
-        </div>
+  <!-- KEY CARDS: Facility / Location / Trainers -->
+  <section class="container">
+    <div class="grid cards">
+      <div class="card col-4">
+        <h3 style="margin:0 0 6px" id="i-facility-t">Facility</h3>
+        <p class="sub" id="i-facility-d">Resistance floor, cardio zone, sauna, showers, lockers, changing rooms.</p>
       </div>
-      <div class="card" style="padding:18px" id="hours">
-        <h3 style="margin:0 0 8px"><i class="fa-regular fa-clock"></i> <span id="hours-t">Hours</span></h3>
-        <div class="timeline">
-          <div class="grid" style="grid-template-columns:1fr 1fr; gap:12px">
-            <div class="slot">
-              <strong id="ladies">Ladies</strong><br>
-              <span id="ladies-time">8:00 AM – 2:00 PM</span>
-            </div>
-            <div class="slot">
-              <strong id="men">Men</strong><br>
-              <span id="men-time">3:00 PM – 12:00 AM</span>
-            </div>
-          </div>
-        </div>
-        <div class="pill" style="margin-top:10px"><i class="fa-solid fa-location-dot"></i><span id="loc">Irbid — behind Al‑Rahibat Hospital, next to “Sanwisha”</span></div>
+      <div class="card col-4">
+        <h3 style="margin:0 0 6px" id="i-location-t">Location</h3>
+        <p class="sub" id="i-location">Irbid — behind Al‑Rahibat Hospital, next to "Sanwisha" restaurant</p>
+        <div class="sub" id="i-parking">Private parking for 30 cars</div>
       </div>
-      <div class="card" style="padding:18px">
-        <h3 style="margin:0 0 8px"><i class="fa-solid fa-user-graduate"></i> <span id="trainers-t">Trainers</span></h3>
-        <p class="sub" id="trainers-d">High‑competency coaches with international ISSA certifications.</p>
-        <div class="chips" style="margin-top:10px">
-          <span class="chip"><i class="fa-solid fa-medal"></i><span id="chip-issa">ISSA Certified</span></span>
-          <span class="chip"><i class="fa-solid fa-hand-fist"></i><span id="chip-programs">Personal programs</span></span>
+      <div class="card col-4">
+        <h3 style="margin:0 0 6px" id="i-trainers-t">Trainers</h3>
+        <p class="sub" id="i-trainers-d">High‑competency coaches with international ISSA certifications.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOURS -->
+  <section class="container" id="hours">
+    <div class="card">
+      <h3 style="margin:0 0 10px" id="i-hours-t">Hours</h3>
+      <div class="kv">
+        <div>
+          <strong id="i-ladies">Ladies</strong><br>
+          <span id="i-ladies-time">8:00 AM – 2:00 PM</span>
+        </div>
+        <div>
+          <strong id="i-men">Men</strong><br>
+          <span id="i-men-time">3:00 PM – 12:00 AM</span>
         </div>
       </div>
     </div>
@@ -244,206 +212,146 @@
 
   <!-- PRICING -->
   <section class="container" id="pricing">
-    <h2 style="font-size:30px;margin:4px 0 12px" id="price-t">Membership Plans</h2>
+    <h2 style="margin:0 0 10px" id="i-plans-t">Membership Plans</h2>
     <div class="price">
-      <div class="card plan" style="padding:18px">
-        <div class="ribbon" id="save-1">Popular</div>
-        <h4 id="p1">1 Month</h4>
+      <div class="plan">
+        <span class="ribbon" id="i-popular">Popular</span>
+        <h4 id="i-p1">1 Month</h4>
         <div class="num">25 <span class="jod">JOD</span></div>
       </div>
-      <div class="card plan" style="padding:18px">
-        <h4 id="p3">3 Months</h4>
+      <div class="plan">
+        <h4 id="i-p3">3 Months</h4>
         <div class="num">50 <span class="jod">JOD</span></div>
       </div>
-      <div class="card plan" style="padding:18px">
-        <div class="ribbon" id="save-3">Best value</div>
-        <h4 id="p6">6 Months</h4>
+      <div class="plan">
+        <span class="ribbon" id="i-best">Best value</span>
+        <h4 id="i-p6">6 Months</h4>
         <div class="num">90 <span class="jod">JOD</span></div>
       </div>
-      <div class="card plan" style="padding:18px">
-        <h4 id="p12">12 Months</h4>
+      <div class="plan">
+        <h4 id="i-p12">12 Months</h4>
         <div class="num">170 <span class="jod">JOD</span></div>
       </div>
     </div>
   </section>
 
-  <!-- MEDIA + GALLERY -->
-  <section class="container" id="gallery">
-    <h2 style="font-size:30px;margin:4px 0 12px" id="media-t">Inside Gravity Gym</h2>
-    <div class="media">
-      <div class="video card">
+  <!-- MEDIA -->
+  <section class="container" id="media">
+    <div class="grid">
+      <div class="video">
         <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Azuflu-PgJA" title="Gravity Gym video 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       <div class="thumbs">
-        <a class="card" style="overflow:hidden;border-radius:14px" href="https://youtube.com/shorts/w0PgPKT1h8s" target="_blank" rel="noopener" title="Short 1">
-          <img src="https://i.ytimg.com/vi/w0PgPKT1h8s/hqdefault.jpg" alt="Short 1">
-        </a>
-        <a class="card" style="overflow:hidden;border-radius:14px" href="https://youtube.com/shorts/IfFAI8CxTxA" target="_blank" rel="noopener" title="Short 2">
-          <img src="https://i.ytimg.com/vi/IfFAI8CxTxA/hqdefault.jpg" alt="Short 2">
-        </a>
+        <a class="card" href="https://youtube.com/shorts/w0PgPKT1h8s" target="_blank" rel="noopener" title="Short 1"><img src="https://i.ytimg.com/vi/w0PgPKT1h8s/hqdefault.jpg" alt="Short 1"></a>
+        <a class="card" href="https://youtube.com/shorts/IfFAI8CxTxA" target="_blank" rel="noopener" title="Short 2"><img src="https://i.ytimg.com/vi/IfFAI8CxTxA/hqdefault.jpg" alt="Short 2"></a>
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIALS / SOCIAL PROOF -->
-  <section class="container">
-    <div class="card" style="padding:18px">
-      <div class="tag" id="rev-t">Member vibes</div>
-      <h3 style="margin:6px 0 14px" id="rev-d">What our community says</h3>
-      <div class="marquee">
-        <div class="marquee-track" aria-hidden="true">
-          <div class="card quote" style="padding:14px">
-            <div style="display:flex;gap:8px;align-items:center"><i class="fa-solid fa-star" style="color:#ffd166"></i><i class="fa-solid fa-star" style="color:#ffd166"></i><i class="fa-solid fa-star" style="color:#ffd166"></i><i class="fa-solid fa-star" style="color:#ffd166"></i><i class="fa-solid fa-star" style="color:#ffd166"></i></div>
-            <p class="sub">Clean equipment, strong coaching energy. Parking is a lifesaver.</p>
-          </div>
-          <div class="card quote" style="padding:14px"><p class="sub">Ladies morning hours are perfect — safe and calm atmosphere.</p></div>
-          <div class="card quote" style="padding:14px"><p class="sub">Sauna + showers after cardio = bliss. Membership value is top tier.</p></div>
-          <div class="card quote" style="padding:14px"><p class="sub">Evening vibe for men is packed but organized. Solid playlist too.</p></div>
-          <!-- clone for seamless loop -->
-          <div class="card quote" style="padding:14px"><p class="sub">Clean equipment, strong coaching energy. Parking is a lifesaver.</p></div>
-          <div class="card quote" style="padding:14px"><p class="sub">Ladies morning hours are perfect — safe and calm atmosphere.</p></div>
-          <div class="card quote" style="padding:14px"><p class="sub">Sauna + showers after cardio = bliss. Membership value is top tier.</p></div>
-          <div class="card quote" style="padding:14px"><p class="sub">Evening vibe for men is packed but organized. Solid playlist too.</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT + MAP -->
+  <!-- CONTACT -->
   <section class="container" id="contact">
-    <h2 style="font-size:30px;margin:4px 0 12px" id="contact-t">Contact & Location</h2>
-    <div class="contact-grid">
-      <div class="card" style="padding:18px">
-        <p class="sub" id="contact-d">Visit us in Irbid — behind Al‑Rahibat Hospital, next to “Sanwisha”. Reach out on Facebook or Instagram for inquiries and membership.</p>
-        <div class="chips" style="margin:10px 0 14px">
-          <a class="chip" href="https://www.facebook.com/gravitygymjo/" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i><span>Facebook</span></a>
-          <a class="chip" href="https://www.instagram.com/gravity.gym_jo" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i><span>Instagram</span></a>
+    <div class="contact">
+      <div class="card">
+        <h3 style="margin:0 0 8px" id="i-contact-t">Contact & Location</h3>
+        <p class="sub" id="i-contact-d">Reach out on Facebook or Instagram for inquiries and membership.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 12px">
+          <a class="pill" href="https://www.facebook.com/gravitygymjo/" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
+          <a class="pill" href="https://www.instagram.com/gravity.gym_jo" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i> Instagram</a>
         </div>
-        <form class="form" onsubmit="event.preventDefault();alert(msgSent.innerText)">
-          <div class="field"><label for="name" id="lbl-name">Your name</label><input id="name" class="input" required placeholder="John / Hala"/></div>
-          <div class="field"><label for="msg" id="lbl-msg">Message</label><textarea id="msg" class="input" required placeholder="I want to ask about membership..."></textarea></div>
-          <button class="btn primary" id="btn-send" type="submit"><i class="fa-regular fa-paper-plane"></i><span id="send">Send</span></button>
-          <span id="msgSent" style="display:none">Thanks! We’ll get back via Facebook/Instagram.</span>
+        <form onsubmit="event.preventDefault();alert(note.innerText)">
+          <input id="name" class="input" placeholder="Your name / اسمك" required>
+          <textarea id="message" class="input" placeholder="Message / رسالتك" required></textarea>
+          <button class="btn primary" type="submit" id="i-send">Send</button>
+          <span id="note" style="display:none">Thanks! We’ll get back via Facebook/Instagram.</span>
         </form>
       </div>
-      <div class="map card">
-        <!-- Simple static map embed (can be swapped to Google Maps embed if coordinates are available) -->
-        <iframe title="Irbid Map" width="100%" height="100%" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.openstreetmap.org/export/embed.html?bbox=35.840%2C32.550%2C35.890%2C32.580&amp;layer=mapnik"></iframe>
+      <div class="card">
+        <iframe title="Irbid Map" width="100%" height="320" style="border:0;border-radius:12px" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.openstreetmap.org/export/embed.html?bbox=35.840%2C32.550%2C35.890%2C32.580&amp;layer=mapnik"></iframe>
       </div>
     </div>
   </section>
 
   <footer>
-    <div class="container" style="display:flex;gap:12px;justify-content:space-between;align-items:center;flex-wrap:wrap">
-      <div style="opacity:.75">© <span id="foot-name">Gravity Gym</span> — Irbid</div>
-      <div style="display:flex;gap:10px">
-        <a class="pill" href="#pricing"><i class="fa-solid fa-ticket"></i><span id="foot-join">Membership</span></a>
-        <a class="pill" href="#hours"><i class="fa-regular fa-clock"></i><span id="foot-hours">Hours</span></a>
+    <div class="container" style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:var(--muted)">
+      <div>© <span id="i-foot">Gravity Gym — Irbid</span></div>
+      <div style="display:flex;gap:8px">
+        <a href="#pricing" class="pill">Membership</a>
+        <a href="#hours" class="pill">Hours</a>
       </div>
     </div>
   </footer>
 
   <script>
-    // ===== Scroll progress =====
-    const progress = document.getElementById('progress');
-    window.addEventListener('scroll',()=>{
-      const t = document.documentElement; const sc = t.scrollTop; const h = t.scrollHeight - t.clientHeight; const pct = h? sc/h : 0; progress.style.transform=`scaleX(${pct})`;
-    });
+    // ===== Mobile drawer =====
+    const burger=document.getElementById('burger');
+    const drawer=document.getElementById('drawer');
+    function toggleDrawer(show){drawer.hidden = (show===undefined? !drawer.hidden : !show? true:false);}
+    burger.addEventListener('click',()=>toggleDrawer());
 
     // ===== Carousel =====
-    const carousel = document.getElementById('carousel');
-    const imgs = [...carousel.querySelectorAll('img')];
-    const dotsWrap = document.getElementById('dots');
+    const c=document.getElementById('carousel');
+    const imgs=[...c.querySelectorAll('img')];
+    const dotsWrap=document.getElementById('dots');
     imgs.forEach((_,i)=>{const d=document.createElement('div');d.className='dot'+(i===0?' active':'');d.dataset.i=i;dotsWrap.appendChild(d)});
     const dots=[...dotsWrap.children];
-    let idx=0; let timer=null;
+    let idx=0;let timer=null;
     function go(n){imgs[idx].classList.remove('active');dots[idx].classList.remove('active');idx=(n+imgs.length)%imgs.length;imgs[idx].classList.add('active');dots[idx].classList.add('active');}
-    function play(){timer=setInterval(()=>go(idx+1), 3000);} play();
-    carousel.addEventListener('mouseenter',()=>clearInterval(timer));
-    carousel.addEventListener('mouseleave',play);
+    function play(){timer=setInterval(()=>go(idx+1),3200);} play();
+    c.addEventListener('mouseenter',()=>clearInterval(timer));
+    c.addEventListener('mouseleave',play);
     dots.forEach(d=>d.addEventListener('click',()=>{clearInterval(timer);go(+d.dataset.i);play();}))
 
-    // ===== GSAP reveal =====
-    window.addEventListener('load',()=>{
-      if(window.gsap && window.ScrollTrigger){
-        gsap.utils.toArray('section .card, .headline, .price .card').forEach((el)=>{
-          gsap.from(el,{opacity:0,y:24,duration:.8,scrollTrigger:{trigger:el,start:'top 85%'}});
-        });
-      }
-    });
-
     // ===== i18n =====
-    const t = {
+    const t={
       en:{
-        founded:'Founded Aug 2021', tag:'IRBID • JORDAN',
-        title:'Strength & Cardio — built for real progress',
-        sub:"Resistance floor and full cardio zone. Ladies' morning hours and men's evening hours. Sauna, showers, lockers, changing rooms — plus private parking for 30 cars.",
-        parking:'Private parking (30)', issa:'ISSA‑Certified Coaches', programs:'Strength • Cardio • Sauna',
-        navAmen:'Facility', navPrice:'Plans', navHours:'Hours', navContact:'Contact',
-        ctaJoin:'Join now', ctaHours:'View hours', ctaGallery:'Gallery',
-        amenT:'Facility', amenD:'Resistance floor, cardio zone, sauna, showers, lockers, changing rooms.',
-        chipStrength:'Strength', chipCardio:'Cardio', chipSauna:'Sauna', chipShowers:'Showers', chipLockers:'Lockers',
+        founded:'Founded Aug 2021', title:'Strength & Cardio — built for real progress',
+        sub:"Modern resistance floor and full cardio zone. Ladies' morning hours and men's evening hours. Sauna, showers, lockers, changing rooms — plus private parking for 30 cars.",
+        about:'About', hours:'Hours', plans:'Plans', contact:'Contact', join:'Join now', viewHours:'View hours',
+        facilityT:'Facility', facilityD:'Resistance floor, cardio zone, sauna, showers, lockers, changing rooms.',
+        locationT:'Location', location:'Irbid — behind Al‑Rahibat Hospital, next to \"Sanwisha\" restaurant', parking:'Private parking for 30 cars',
+        trainersT:'Trainers', trainersD:'High‑competency coaches with international ISSA certifications.',
         hoursT:'Hours', ladies:'Ladies', men:'Men', ladiesTime:'8:00 AM – 2:00 PM', menTime:'3:00 PM – 12:00 AM',
-        loc:'Irbid — behind Al‑Rahibat Hospital, next to “Sanwisha”',
-        trainersT:'Trainers', trainersD:'High‑competency coaches with international ISSA certifications.', chipISSA:'ISSA Certified', chipPrograms:'Personal programs',
-        priceT:'Membership Plans', save1:'Popular', save3:'Best value', p1:'1 Month', p3:'3 Months', p6:'6 Months', p12:'12 Months',
-        mediaT:'Inside Gravity Gym', revT:'Member vibes', revD:'What our community says',
-        contactT:'Contact & Location', contactD:'Visit us in Irbid — behind Al‑Rahibat Hospital, next to “Sanwisha”. Reach out on Facebook or Instagram for inquiries and membership.',
-        lblName:'Your name', lblMsg:'Message', send:'Send', thanks:'Thanks! We’ll get back via Facebook/Instagram.',
-        footName:'Gravity Gym', footJoin:'Membership', footHours:'Hours'
+        plansT:'Membership Plans', popular:'Popular', best:'Best value', p1:'1 Month', p3:'3 Months', p6:'6 Months', p12:'12 Months',
+        contactT:'Contact & Location', contactD:'Reach out on Facebook or Instagram for inquiries and membership.', send:'Send', foot:'Gravity Gym — Irbid'
       },
       ar:{
-        founded:'تأسس آب 2021', tag:'إربد • الأردن',
-        title:'قوّة وكارديو — تقدّم حقيقي',
+        founded:'تأسس آب 2021', title:'قوّة وكارديو — تقدّم حقيقي',
         sub:'صالة تمارين مقاومة وصالة هوائية وأجهزة كارديو. فترة صباحية للسيدات وفترة مسائية للرجال. ساونا، شاورات، لوكرات وغرف غيار — ومصفّ خاص لـ 30 سيارة.',
-        parking:'مصفّ خاص (30)', issa:'مدرّبون معتمدون ISSA', programs:'مقاومة • كارديو • ساونا',
-        navAmen:'المرافق', navPrice:'الاشتراكات', navHours:'المواعيد', navContact:'التواصل',
-        ctaJoin:'اشترك الآن', ctaHours:'ساعات العمل', ctaGallery:'المعرض',
-        amenT:'المرافق', amenD:'تمارين مقاومة، صالة هوائية، ساونا، شاورات، لوكرات وغرف غيار.',
-        chipStrength:'مقاومة', chipCardio:'كارديو', chipSauna:'ساونا', chipShowers:'شاورات', chipLockers:'لوكرات',
+        about:'عن النادي', hours:'المواعيد', plans:'الاشتراكات', contact:'التواصل', join:'اشترك الآن', viewHours:'ساعات العمل',
+        facilityT:'المرافق', facilityD:'تمارين مقاومة، صالة هوائية، ساونا، شاورات، لوكرات وغرف غيار.',
+        locationT:'الموقع', location:'إربد — خلف مستشفى الراهبات، بجانب مطعم سنويشة', parking:'مصفّ خاص لـ 30 سيارة',
+        trainersT:'المدرّبون', trainersD:'مدرّبون بكفاءة عالية حاصلون على دورات دولية ISSA.',
         hoursT:'ساعات العمل', ladies:'سيدات', men:'رجال', ladiesTime:'08:00 صباحاً – 02:00 ظهراً', menTime:'03:00 عصراً – 12:00 منتصف الليل',
-        loc:'إربد — خلف مستشفى الراهبات، بجانب مطعم سنويشة',
-        trainersT:'المدرّبون', trainersD:'مدرّبون بكفاءة عالية حاصلون على دورات دولية ISSA.', chipISSA:'اعتماد ISSA', chipPrograms:'برامج شخصية',
-        priceT:'الاشتراكات', save1:'الأكثر طلباً', save3:'الأوفر', p1:'شهر', p3:'3 أشهر', p6:'6 أشهر', p12:'سنة',
-        mediaT:'من داخل Gravity Gym', revT:'آراء المشتركين', revD:'شو بحكوا عنا',
-        contactT:'التواصل والموقع', contactD:'زورونا في إربد — خلف مستشفى الراهبات، بجانب مطعم سنويشة. راسلونا على فيسبوك أو إنستغرام للاستفسارات والاشتراك.',
-        lblName:'اسمك', lblMsg:'رسالتك', send:'إرسال', thanks:'شكراً! منرجعلك عبر فيسبوك/إنستغرام.',
-        footName:'Gravity Gym', footJoin:'الاشتراك', footHours:'المواعيد'
+        plansT:'الاشتراكات', popular:'الأكثر طلباً', best:'الأوفر', p1:'شهر', p3:'3 أشهر', p6:'6 أشهر', p12:'سنة',
+        contactT:'التواصل والموقع', contactD:'راسلونا على فيسبوك أو إنستغرام للاستفسارات والاشتراك.', send:'إرسال', foot:'Gravity Gym — إربد'
       }
     };
 
-    const map = [
-      ['i-founded','founded'],['i-tag','tag'],['i-title','title'],['i-sub','sub'],
-      ['i-parking','parking'],['i-issa','issa'],['i-programs','programs'],
-      ['nav-amen','navAmen'],['nav-price','navPrice'],['nav-hours','navHours'],['nav-contact','navContact'],
-      ['cta-join','ctaJoin'],['cta-hours','ctaHours'],['cta-gallery','ctaGallery'],
-      ['amen-t','amenT'],['amen-d','amenD'],
-      ['chip-strength','chipStrength'],['chip-cardio','chipCardio'],['chip-sauna','chipSauna'],['chip-showers','chipShowers'],['chip-lockers','chipLockers'],
-      ['hours-t','hoursT'],['ladies','ladies'],['men','men'],['ladies-time','ladiesTime'],['men-time','menTime'],['loc','loc'],
-      ['trainers-t','trainersT'],['trainers-d','trainersD'],['chip-issa','chipISSA'],['chip-programs','chipPrograms'],
-      ['price-t','priceT'],['save-1','save1'],['save-3','save3'],['p1','p1'],['p3','p3'],['p6','p6'],['p12','p12'],
-      ['media-t','mediaT'],['rev-t','revT'],['rev-d','revD'],
-      ['contact-t','contactT'],['contact-d','contactD'],
-      ['lbl-name','lblName'],['lbl-msg','lblMsg'],['send','send'],['foot-name','footName'],['foot-join','footJoin'],['foot-hours','footHours']
+    const map=[
+      ['i-founded','founded'],['i-title','title'],['i-sub','sub'],
+      ['nav-about','about'],['nav-hours','hours'],['nav-plans','plans'],['nav-contact','contact'],
+      ['i-join','join'],['i-hours','viewHours'],
+      ['i-facility-t','facilityT'],['i-facility-d','facilityD'],
+      ['i-location-t','locationT'],['i-location','location'],['i-parking','parking'],
+      ['i-trainers-t','trainersT'],['i-trainers-d','trainersD'],
+      ['i-hours-t','hoursT'],['i-ladies','ladies'],['i-men','men'],['i-ladies-time','ladiesTime'],['i-men-time','menTime'],
+      ['i-plans-t','plansT'],['i-popular','popular'],['i-best','best'],['i-p1','p1'],['i-p3','p3'],['i-p6','p6'],['i-p12','p12'],
+      ['i-contact-t','contactT'],['i-contact-d','contactD'],['i-send','send'],['i-foot','foot']
     ];
 
     const btnEN=document.getElementById('btnEN');
     const btnAR=document.getElementById('btnAR');
-    const body=document.body;
-    const msgSent=document.getElementById('msgSent');
 
     function setLang(lang){
       const dict=t[lang];
       map.forEach(([id,key])=>{const el=document.getElementById(id); if(el) el.textContent=dict[key];});
       document.documentElement.lang = (lang==='ar')? 'ar':'en';
       document.documentElement.dir  = (lang==='ar')? 'rtl':'ltr';
-      body.classList.toggle('rtl', lang==='ar');
+      document.body.classList.toggle('rtl', lang==='ar');
       btnEN.classList.toggle('active', lang==='en');
       btnAR.classList.toggle('active', lang==='ar');
-      msgSent.innerText = dict.thanks;
     }
 
-    // default EN
     setLang('en');
     btnEN.addEventListener('click',()=>setLang('en'));
     btnAR.addEventListener('click',()=>setLang('ar'));
