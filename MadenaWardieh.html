@@ -1,324 +1,853 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <!-- PINK CITY — Minimal Elegance RTL v2 (Clean • Ordered • Ultra‑Responsive) -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>المدينة الوردية | أجهزة كهربائية — مفرق وجملة — أسعار منافسة</title>
-  <meta name="description" content="المدينة الوردية — أجهزة كهربائية مفرق وجملة بأسعار منافسة. تصميم مرتب ونظيف، أقسام واضحة، واستجابة عالية للموبايل."/>
-  
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;600;700;800;900&family=Reem+Kufi:wght@600;700&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
-  <meta name="theme-color" content="#ffffff" />
-
-  <style>
-    :root{
-      /* هويّة لذيذة ومرتبة */
-      --bg:#ffffff; --paper:#f6f7fb; --panel:#ffffff; --ink:#1f2937; --muted:#6b7280; --line:#e7e8ef;
-      --brand:#e45a86; --brand-2:#f6aac2; --accent:#ffd166; --ok:#22c55e; --blue:#3b82f6; --lav:#8b5cf6;
-      --radius:18px; --shadow:0 14px 44px rgba(15,23,42,.08);
-      --h1:clamp(28px,6vw,50px); --h2:clamp(22px,4vw,36px); --h3:clamp(18px,3.2vw,22px);
-      --container:1240px;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:"Noto Kufi Arabic", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;overflow-x:hidden}
-    img{max-width:100%;display:block}
-    a{color:inherit;text-decoration:none}
-    .container{max-width:var(--container);margin:0 auto;padding:0 16px}
-
-    /* عناصر أساسية */
-    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;border:1px solid var(--line);background:#fff;transition:transform .12s ease, box-shadow .12s ease}
-    .btn:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
-    .btn.primary{background:linear-gradient(90deg,var(--brand),var(--brand-2));color:#fff;border-color:transparent;font-weight:900}
-    .btn.soft{background:#fafafa}
-    .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:#fff;color:#374151}
-    .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
-
-    /* رأس الصفحة */
-    header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.92);backdrop-filter:saturate(120%) blur(8px);border-bottom:1px solid var(--line)}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{width:52px;height:52px;border-radius:12px;border:1px solid var(--line);display:grid;place-items:center;background:#fff}
-    .brand-title{font-family:"Reem Kufi", serif;letter-spacing:.2px;font-weight:800}
-    .menu{display:flex;align-items:center;gap:8px}
-    .burger{display:none;border:1px solid var(--line);border-radius:10px;background:#fff;padding:8px;color:#374151}
-    @media (max-width:980px){.menu{display:none}.burger{display:inline-flex}}
-    .drawer{position:fixed;inset:56px 0 0 0;background:#fff;border-top:1px solid var(--line);box-shadow:var(--shadow);display:none}
-    .drawer .list{display:grid;gap:8px;padding:14px}
-    .drawer .list a{padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff;text-align:center}
-
-    /* بطل الصفحة */
-    .hero{padding:26px 0 4px}
-    .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center}
-    @media (max-width:1100px){.hero-grid{grid-template-columns:1fr}}
-    .headline{font-size:var(--h1);line-height:1.1;font-weight:900;font-family:"Reem Kufi", serif}
-    .headline .accent{color:var(--brand)}
-    .sub{color:#4b5563;font-size:clamp(14px,2.2vw,17px)}
-    .hero-media{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line)}
-    .hero-media .frame{position:relative;padding:16px;background:var(--paper)}
-    .hero-media .frame img{border-radius:14px;border:1px solid var(--line)}
-
-    section{padding:24px 0}
-    .sec-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
-    .sec-head h2{font-size:var(--h2);margin:0;font-family:"Reem Kufi", serif}
-
-    /* أقسام */
-    .cats{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
-    .cat{grid-column:span 3;display:grid;gap:6px;place-items:start;padding:16px}
-    .cat h3{font-size:var(--h3);margin:0;display:flex;align-items:center;gap:8px}
-    .cat p{margin:0;color:var(--muted);font-size:13px}
-    .cat:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
-    @media (max-width:980px){.cat{grid-column:span 6}}
-    @media (max-width:560px){.cat{grid-column:span 12}}
-
-    /* عروض */
-    .offers{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
-    .offer{grid-column:span 4;display:grid;gap:8px;padding:16px}
-    .offer .price{font-size:24px;font-weight:900;color:#111}
-    .offer .badge{display:inline-grid;grid-auto-flow:column;gap:8px;align-items:center;padding:6px 10px;border-radius:999px;background:#fff;border:1px solid var(--line)}
-    @media (max-width:980px){.offer{grid-column:span 6}}
-    @media (max-width:560px){.offer{grid-column:span 12}}
-
-    /* صور */
-    .gallery{column-count:4;column-gap:12px}
-    @media (max-width:990px){.gallery{column-count:3}}
-    @media (max-width:740px){.gallery{column-count:2}}
-    @media (max-width:480px){.gallery{column-count:1}}
-    .gallery img{width:100%;border-radius:12px;border:1px solid var(--line);margin:0 0 12px;break-inside:avoid}
-
-    /* سوشال */
-    .socials{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
-    .soc{grid-column:span 3;padding:14px;display:flex;align-items:center;gap:12px}
-    .soc .ic{display:grid;place-items:center;width:42px;height:42px;border-radius:10px;border:1px solid var(--line);background:#fff}
-    .soc.fb .ic{color:#1877f2}
-    .soc.ig .ic{color:#e1306c}
-    .soc.sc .ic{color:#111;background:#fffc00}
-    .soc.tt .ic{color:#000;background:#fff}
-    @media (max-width:980px){.soc{grid-column:span 6}}
-    @media (max-width:560px){.soc{grid-column:span 12}}
-
-    /* تواصل */
-    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    @media (max-width:900px){.contact-grid{grid-template-columns:1fr}}
-
-    /* شريط الإحصائيات (نقلناه لأسفل الصفحة) */
-    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-    .stat{display:grid;gap:4px;place-items:center;padding:14px;background:var(--paper);border-radius:14px;border:1px solid var(--line)}
-    .stat .num{font-weight:900;font-size:26px;color:var(--brand)}
-    .stat .lbl{color:#6b7280;font-size:13px}
-    @media (max-width:880px){.stats{grid-template-columns:repeat(2,1fr)}}
-
-    footer{margin-top:18px;padding:16px 0;border-top:1px solid var(--line);color:#6b7280}
-
-    /* تفاعلات خفيفة */
-    .reveal{opacity:0;transform:translateY(10px);transition:opacity .3s ease, transform .3s ease}
-    .reveal.in{opacity:1;transform:none}
-    @media (max-width:600px){.reveal{opacity:1;transform:none}}
-
-    /* فلوّت أزرار */
-    .fab{position:fixed;inset:auto 14px 14px auto;display:grid;gap:10px;z-index:50}
-    .fab a{width:52px;height:52px;display:grid;place-items:center;border-radius:50%;box-shadow:var(--shadow);background:#fff;border:1px solid var(--line)}
-    .fab .wa{color:#25D366}
-    .fab .top{color:#111}
-
-    /* شريط تقدم */
-    .progress{position:fixed;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,var(--brand),var(--brand-2));transform-origin:right center;transform:scaleX(0);z-index:60}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المدينة الوردية | أجهزة كهربائية - مفرق وجملة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #e91e63;
+            --primary-light: #f8bbd9;
+            --primary-dark: #c2185b;
+            --accent: #9c27b0;
+            --gold: #ffd700;
+            --gradient: linear-gradient(135deg, #e91e63 0%, #9c27b0 100%);
+            --gradient-gold: linear-gradient(135deg, #e91e63 0%, #ffd700 100%);
+            --light-bg: #fafafa;
+            --light-card: #ffffff;
+            --dark-text: #2c1810;
+            --light-text: #666666;
+            --shadow: 0 8px 25px rgba(233, 30, 99, 0.15);
+            --shadow-lg: 0 15px 35px rgba(233, 30, 99, 0.25);
+            --border: 1px solid #f0f0f0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Sofia Sans', sans-serif;
+        }
+        
+        html {
+            -webkit-text-size-adjust: 100%;
+        }
+        
+        body {
+            background: var(--light-bg);
+            color: var(--dark-text);
+            min-height: 100vh;
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .profile-header {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            background: var(--light-card);
+            box-shadow: var(--shadow);
+        }
+        
+        .cover-container {
+            width: 100%;
+            height: 350px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .cover-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.9);
+        }
+        
+        .profile-info {
+            position: relative;
+            padding: 0 20px 30px;
+            text-align: center;
+            margin-top: -60px;
+            z-index: 2;
+        }
+        
+        .profile-image-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 20px;
+            border: 4px solid var(--light-card);
+            object-fit: cover;
+            box-shadow: var(--shadow-lg);
+            display: block;
+        }
+        
+        .verified-badge {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            background: var(--primary);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            border: 2px solid var(--light-card);
+            font-weight: bold;
+        }
+        
+        .profile-name {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: var(--dark-text);
+            letter-spacing: -0.5px;
+        }
+        
+        .profile-tagline {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--light-text);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Gallery Sections */
+        .gallery-section {
+            background: var(--light-card);
+            margin: 30px auto;
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 1000px;
+            box-shadow: var(--shadow);
+            border: var(--border);
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            color: var(--dark-text);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: var(--border);
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .gallery-caption {
+            padding: 12px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--light-text);
+            font-weight: 500;
+        }
+        
+        /* Categories Section */
+        .categories-section {
+            background: var(--light-card);
+            margin: 30px auto;
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 1000px;
+            box-shadow: var(--shadow);
+            border: var(--border);
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .category-card {
+            background: rgba(233, 30, 99, 0.05);
+            padding: 20px 15px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: var(--border);
+        }
+        
+        .category-card:hover {
+            background: rgba(233, 30, 99, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        .category-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            color: white;
+            font-size: 1.3rem;
+        }
+        
+        .category-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--dark-text);
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background: var(--light-card);
+            margin: 30px auto;
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 1000px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: var(--border);
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-size: 1.1rem;
+            padding: 15px;
+            background: rgba(233, 30, 99, 0.05);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            color: var(--dark-text);
+            border: var(--border);
+        }
+        
+        .contact-item:hover {
+            background: rgba(233, 30, 99, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .contact-item i {
+            color: var(--primary);
+            font-size: 1.2rem;
+            width: 25px;
+        }
+        
+        .business-hours {
+            background: var(--gradient);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+            box-shadow: var(--shadow);
+        }
+        
+        .hours-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .hours-time {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* Social Icons */
+        .social-section {
+            text-align: center;
+            padding: 40px 0 20px;
+        }
+        
+        .social-title {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            color: var(--dark-text);
+        }
+        
+        .social-icons-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--light-text);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+            background: var(--light-card);
+            border: var(--border);
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            background: var(--gradient);
+            color: white;
+        }
+        
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .action-button {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 25px;
+            background: var(--light-card);
+            color: var(--dark-text);
+            border: 2px solid var(--primary);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: var(--shadow);
+        }
+        
+        .action-button.primary {
+            background: var(--gradient);
+            color: white;
+            border: 2px solid var(--primary);
+        }
+        
+        .action-button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .action-button i {
+            font-size: 1.1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--light-card);
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 50px;
+            color: var(--light-text);
+            border-top: var(--border);
+        }
+        
+        .footer-text {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.1s; opacity: 0; }
+        .delay-2 { animation-delay: 0.2s; opacity: 0; }
+        .delay-3 { animation-delay: 0.3s; opacity: 0; }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .profile-name {
+                font-size: 1.8rem;
+            }
+            
+            .profile-tagline {
+                font-size: 1rem;
+            }
+            
+            .profile-image {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .cover-container {
+                height: 250px;
+            }
+            
+            .social-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .stats-container {
+                gap: 20px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+            
+            .gallery-item img {
+                height: 150px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .profile-image {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .cover-container {
+                height: 200px;
+            }
+            
+            .profile-name {
+                font-size: 1.5rem;
+            }
+            
+            .social-icons-grid {
+                gap: 15px;
+            }
+            
+            .social-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+            
+            .stats-container {
+                gap: 15px;
+            }
+            
+            .stat-number {
+                font-size: 1.4rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="progress" id="progress"></div>
-
-  <div class="fab">
-    <a class="wa" href="https://wa.me/962780039393" target="_blank" title="واتساب"><i class="fa-brands fa-whatsapp"></i></a>
-    <a class="top" href="#" id="backTop" title="أعلى"><i class="fa-solid fa-arrow-up"></i></a>
-  </div>
-
-  <header>
-    <div class="container nav">
-      <div class="brand">
-        <div class="logo"><i class="fa-solid fa-plug" style="color:var(--brand)"></i></div>
-        <div>
-          <div class="brand-title">المدينة الوردية</div>
-          <div style="font-size:12px;color:#9aa1b2">أجهزة كهربائية — مفرق وجملة</div>
+    <!-- Header Section -->
+    <header class="profile-header fade-in">
+        <div class="cover-container">
+            <img src="https://i.imgur.com/IokqoOW.jpeg" alt="المدينة الوردية" class="cover-photo">
         </div>
-      </div>
-      <div class="menu" id="menu">
-        <a class="pill" href="#cats">الأقسام</a>
-        <a class="pill" href="#offers">العروض</a>
-        <a class="pill" href="#gallery">صور</a>
-        <a class="pill" href="#social">تابعنا</a>
-        <a class="pill" href="#contact">تواصل</a>
-      </div>
-      <button class="burger" id="burger" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
-    </div>
-    <div class="drawer" id="drawer">
-      <div class="list">
-        <a href="#cats" onclick="toggleDrawer(false)">الأقسام</a>
-        <a href="#offers" onclick="toggleDrawer(false)">العروض</a>
-        <a href="#gallery" onclick="toggleDrawer(false)">صور</a>
-        <a href="#social" onclick="toggleDrawer(false)">تابعنا</a>
-        <a href="#contact" onclick="toggleDrawer(false)">التواصل</a>
-      </div>
-    </div>
-  </header>
-
-  <!-- HERO (بدون أرقام ولا هواتف — نظيف وبسيط) -->
-  <main class="container hero" id="about">
-    <div class="hero-grid">
-      <div>
-        <h1 class="headline">أجهزة كهربائية <span class="accent">بأسعار منافسة</span></h1>
-        <p class="sub">بيع مفرق وجملة — كفالة، توصيل سريع، ودعم ما بعد البيع.</p>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
-          <a class="btn primary" href="https://wa.me/962780039393" target="_blank"><i class="fa-brands fa-whatsapp"></i> تواصل واتساب</a>
-          <a class="btn soft" href="#offers"><i class="fa-solid fa-tags"></i> العروض</a>
+        <div class="profile-info">
+            <div class="profile-image-container">
+                <img src="https://i.imgur.com/IokqoOW.jpeg" alt="المدينة الوردية" class="profile-image">
+                <div class="verified-badge">
+                    <i class="fas fa-check"></i>
+                </div>
+            </div>
+            <h1 class="profile-name">المدينة الوردية</h1>
+            <div class="profile-tagline">أجهزة كهربائية - مفرق وجملة</div>
+            
+            <div class="stats-container">
+                <div class="stat-item">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">ماركة</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">300+</span>
+                    <span class="stat-label">منتج</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">7</span>
+                    <span class="stat-label">أيام عمل</span>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="hero-media card">
-        <div class="frame">
-          <img src="https://i.imgur.com/IokqoOW.jpeg" alt="المدينة الوردية — صورة المتجر" />
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Categories Section -->
+        <div class="categories-section fade-in delay-1">
+            <h2 class="section-title">أقسام المنتجات</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-snowflake"></i>
+                    </div>
+                    <div class="category-name">ثلاجات</div>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-tv"></i>
+                    </div>
+                    <div class="category-name">شاشات</div>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-soap"></i>
+                    </div>
+                    <div class="category-name">غسالات</div>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-blender"></i>
+                    </div>
+                    <div class="category-name">عجانات</div>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <div class="category-name">أفران غاز</div>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <div class="category-name">بكجات</div>
+                </div>
+            </div>
         </div>
-      </div>
+
+        <!-- Mixers Gallery -->
+        <div class="gallery-section fade-in delay-1">
+            <h2 class="section-title">عجانات كهربائية</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://i.imgur.com/swDbJ2y.jpeg" alt="عجانة 1">
+                    <div class="gallery-caption">عجانة متعددة الاستخدامات</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.imgur.com/gqi9CDf.jpeg" alt="عجانة 2">
+                    <div class="gallery-caption">عجانة سريعة</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.imgur.com/Q8FyUYN.jpeg" alt="عجانة 3">
+                    <div class="gallery-caption">عجانة احترافية</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.imgur.com/2xSem8q.jpeg" alt="عجانة 4">
+                    <div class="gallery-caption">عجانة منزلية</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.imgur.com/52Gh6XF.jpeg" alt="عجانة 5">
+                    <div class="gallery-caption">عجانة كهربائية</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.imgur.com/5vm2iOW.jpeg" alt="عجانة 6">
+                    <div class="gallery-caption">عجانة حديثة</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Refrigerators Gallery -->
+        <div class="gallery-section fade-in delay-2">
+            <h2 class="section-title">ثلاجات حديثة</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://i.imgur.com/iOzYmOY.jpeg" alt="ثلاجة 1">
+                    <div class="gallery-caption">ثلاجة كبيرة</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.imgur.com/CUEs7Cf.jpeg" alt="ثلاجة 2">
+                    <div class="gallery-caption">ثلاجة مزدوجة</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.imgur.com/uAvN1S4.jpeg" alt="ثلاجة 3">
+                    <div class="gallery-caption">ثلاجة سمارت</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.imgur.com/0sZHxcf.jpeg" alt="ثلاجة 4">
+                    <div class="gallery-caption">ثلاجة اقتصادية</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gas Ovens Gallery -->
+        <div class="gallery-section fade-in delay-2">
+            <h2 class="section-title">أفران غاز</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://i.imgur.com/lY8VNJ3.jpeg" alt="فرن غاز 1">
+                    <div class="gallery-caption">فرن غاز حديث</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.imgur.com/lYOR84S.jpeg" alt="فرن غاز 2">
+                    <div class="gallery-caption">فرن غاز كبير</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.imgur.com/h4DFL68.jpeg" alt="فرن غاز 3">
+                    <div class="gallery-caption">فرن غاز عملي</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.imgur.com/zPnL0d1.jpeg" alt="فرن غاز 4">
+                    <div class="gallery-caption">فرن غاز متعدد</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.imgur.com/msQwdD9.jpeg" alt="فرن غاز 5">
+                    <div class="gallery-caption">فرن غاز احترافي</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.imgur.com/Du34Jnn.jpeg" alt="فرن غاز 6">
+                    <div class="gallery-caption">فرن غاز منزلي</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TVs Gallery -->
+        <div class="gallery-section fade-in delay-3">
+            <h2 class="section-title">شاشات تلفزيون</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://i.imgur.com/klw7uiD.jpeg" alt="شاشة 1">
+                    <div class="gallery-caption">شاشة 55 بوصة</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.imgur.com/uLWZuVa.jpeg" alt="شاشة 2">
+                    <div class="gallery-caption">شاشة سمارت</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.imgur.com/Ri4jEEl.jpeg" alt="شاشة 3">
+                    <div class="gallery-caption">شاشة 4K</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.imgur.com/WxJj7fG.jpeg" alt="شاشة 4">
+                    <div class="gallery-caption">شاشة LED</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.imgur.com/kXQIhkz.jpeg" alt="شاشة 5">
+                    <div class="gallery-caption">شاشة كبيرة</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.imgur.com/YH85CDe.jpeg" alt="شاشة 6">
+                    <div class="gallery-caption">شاشة جدارية</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Packages Gallery -->
+        <div class="gallery-section fade-in delay-3">
+            <h2 class="section-title">بكجات وعروض</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://i.imgur.com/evtv77H.jpeg" alt="بكج 1">
+                    <div class="gallery-caption">بكج مطبخ متكامل</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.imgur.com/9dS7IiO.jpeg" alt="بكج 2">
+                    <div class="gallery-caption">عروض خاصة</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.imgur.com/tnmNMCF.jpeg" alt="بكج 3">
+                    <div class="gallery-caption">بكج غسالات</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.imgur.com/Ul4GZL7.jpeg" alt="بكج 4">
+                    <div class="gallery-caption">عروض شاشات</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="contact-section fade-in delay-3">
+            <h2 class="section-title">تواصل معنا</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>079 800 3939</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>077 235 5888</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>079 800 3939</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>pinkcity162@gmail.com</span>
+                </div>
+            </div>
+            
+            <div class="business-hours">
+                <div class="hours-title">مواعيد العمل</div>
+                <div class="hours-time">السبت - الخميس: 10:00 ص - 10:00 م | الجمعة: حسب الاتصال</div>
+            </div>
+        </div>
+
+        <!-- Social Icons -->
+        <div class="social-section fade-in delay-3">
+            <h2 class="social-title">تابعونا على</h2>
+            <div class="social-icons-grid">
+                <a href="https://www.facebook.com/share/16X5fN6Uzw/?mibextid=wwXIfr" class="social-icon" target="_blank">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/pinkcity.jo?igsh=MWIxcDRlMWYwYzBkeg%3D%3D&utm_source=qr" class="social-icon" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.snapchat.com/add/pinkciity?share_id=ueCMKwNk5sc&locale=ar-JO" class="social-icon" target="_blank">
+                    <i class="fab fa-snapchat"></i>
+                </a>
+                <a href="https://www.tiktok.com/@city.pink8?_r=1&_t=ZS-91L9urOPQ0K" class="social-icon" target="_blank">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons fade-in delay-3">
+            <a href="https://wa.me/962780039393" class="action-button primary" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                تواصل عبر واتساب
+            </a>
+            <a href="tel:+962780039393" class="action-button">
+                <i class="fas fa-phone"></i>
+                اتصل بنا
+            </a>
+        </div>
     </div>
-  </main>
 
-  <!-- CATEGORIES -->
-  <section class="container" id="cats">
-    <div class="sec-head"><h2>الأقسام</h2><span class="pill"><i class="fa-solid fa-layer-group"></i> مختصر</span></div>
-    <div class="cats">
-      <div class="cat card reveal"><h3><i class="fa-solid fa-snowflake" style="color:var(--blue)"></i> ثلاجات</h3><p>توفير طاقة</p></div>
-      <div class="cat card reveal"><h3><i class="fa-solid fa-tv" style="color:#f59e0b"></i> شاشات</h3><p>4K / سمارت</p></div>
-      <div class="cat card reveal"><h3><i class="fa-solid fa-soap" style="color:var(--ok)"></i> غسالات</h3><p>برامج سريعة</p></div>
-      <div class="cat card reveal"><h3><i class="fa-solid fa-fan" style="color:#60a5fa"></i> تكييف</h3><p>بارد / حار</p></div>
-      <div class="cat card reveal"><h3><i class="fa-solid fa-bolt" style="color:var(--brand)"></i> صغار الأجهزة</h3><p>منوع</p></div>
-      <div class="cat card reveal"><h3><i class="fa-solid fa-kitchen-set" style="color:#ef4444"></i> مطابخ</h3><p>غاز/كهرباء</p></div>
-      <div class="cat card reveal"><h3><i class="fa-solid fa-house-chimney" style="color:var(--lav)"></i> سخانات</h3><p>آمن</p></div>
-      <div class="cat card reveal"><h3><i class="fa-solid fa-lightbulb" style="color:#facc15"></i> إنارة</h3><p>ليد</p></div>
-    </div>
-  </section>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p class="footer-text">المدينة الوردية - أجهزة كهربائية مفرق وجملة</p>
+            <p class="footer-text">جميع الحقوق محفوظة © 2024</p>
+        </div>
+    </footer>
 
-  <!-- OFFERS -->
-  <section class="container" id="offers">
-    <div class="sec-head"><h2>عروض</h2><span class="pill"><i class="fa-solid fa-clock"></i> تتجدد</span></div>
-    <div class="offers">
-      <div class="offer card reveal">
-        <div style="display:flex;gap:10px;align-items:center"><span class="badge"><i class="fa-solid fa-bolt"></i> سريع</span><span class="badge" style="border-style:dashed"><i class="fa-solid fa-shield"></i> ضمان</span></div>
-        <h3>ثلاجة 18 قدم</h3>
-        <div class="price">سعر خاص</div>
-        <div class="sub" style="color:var(--muted)">توصيل + تركيب</div>
-        <div style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn primary" href="https://wa.me/962780039393" target="_blank">استفسار</a><a class="btn" href="#contact">اتصال</a></div>
-      </div>
-      <div class="offer card reveal">
-        <div style="display:flex;gap:10px;align-items:center"><span class="badge"><i class="fa-solid fa-star"></i> مبيع</span></div>
-        <h3>غسالة 8كغم</h3>
-        <div class="price">سعر خاص</div>
-        <div class="sub" style="color:var(--muted)">ألوان متعددة</div>
-        <div style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn primary" href="https://wa.me/962772355888" target="_blank">استفسار</a><a class="btn" href="#contact">اتصال</a></div>
-      </div>
-      <div class="offer card reveal">
-        <div style="display:flex;gap:10px;align-items:center"><span class="badge"><i class="fa-solid fa-fire"></i> خصم</span></div>
-        <h3>شاشة 55" 4K</h3>
-        <div class="price">سعر خاص</div>
-        <div class="sub" style="color:var(--muted)">Smart OS</div>
-        <div style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn primary" href="https://wa.me/962780039393" target="_blank">استفسار</a><a class="btn" href="#contact">اتصال</a></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GALLERY -->
-  <section class="container" id="gallery">
-    <div class="sec-head"><h2>معرض الصور</h2><span class="pill"><i class="fa-solid fa-camera"></i> نستبدل بصوركم</span></div>
-    <div class="gallery reveal">
-      <img src="https://i.imgur.com/IokqoOW.jpeg" alt="صورة المعرض 1" loading="lazy">
-      <img src="https://i.imgur.com/IokqoOW.jpeg" alt="صورة المعرض 2" loading="lazy">
-      <img src="https://i.imgur.com/IokqoOW.jpeg" alt="صورة المعرض 3" loading="lazy">
-      <img src="https://i.imgur.com/IokqoOW.jpeg" alt="صورة المعرض 4" loading="lazy">
-    </div>
-  </section>
-
-  <!-- SOCIALS -->
-  <section class="container" id="social">
-    <div class="sec-head"><h2>تابعنا</h2><span class="pill"><i class="fa-solid fa-bell"></i> العروض أولاً</span></div>
-    <div class="socials">
-      <a class="soc card reveal fb" href="https://www.facebook.com/share/16X5fN6Uzw/?mibextid=wwXIfr" target="_blank" rel="noopener"><span class="ic"><i class="fa-brands fa-facebook-f"></i></span><div><div style="font-weight:900">Facebook</div><div class="sub" style="margin-top:2px;color:#6b7280">تحديثات يومية</div></div></a>
-      <a class="soc card reveal ig" href="https://www.instagram.com/pinkcity.jo?igsh=MWIxcDRlMWYwYzBkeg%3D%3D&utm_source=qr" target="_blank" rel="noopener"><span class="ic"><i class="fa-brands fa-instagram"></i></span><div><div style="font-weight:900">Instagram</div><div class="sub" style="margin-top:2px;color:#6b7280">صور ومنتجات</div></div></a>
-      <a class="soc card reveal sc" href="https://www.snapchat.com/add/pinkciity?share_id=ueCMKwNk5sc&locale=ar-JO" target="_blank" rel="noopener" style="color:#111"><span class="ic" style="background:#fffc00"><i class="fa-brands fa-snapchat"></i></span><div><div style="font-weight:900">Snapchat</div><div class="sub" style="margin-top:2px;color:#6b7280">لحظات سريعة</div></div></a>
-      <a class="soc card reveal tt" href="https://www.tiktok.com/@city.pink8?_r=1&_t=ZS-91L9urOPQ0K" target="_blank" rel="noopener"><span class="ic"><i class="fa-brands fa-tiktok"></i></span><div><div style="font-weight:900">TikTok</div><div class="sub" style="margin-top:2px;color:#6b7280">فيديوهات</div></div></a>
-    </div>
-  </section>
-
-  <!-- CONTACT (الأرقام كلها هنا تحت كما طلبت) -->
-  <section class="container" id="contact">
-    <div class="sec-head"><h2>تواصل</h2><span class="pill"><i class="fa-solid fa-circle-info"></i> سريع</span></div>
-    <div class="contact-grid">
-      <div class="card" style="padding:16px;display:grid;gap:10px">
-        <a class="btn" href="https://wa.me/962780039393" target="_blank"><i class="fa-brands fa-whatsapp" style="color:#25D366"></i> واتساب: 079 800 3939</a>
-        <a class="btn" href="https://wa.me/962772355888" target="_blank"><i class="fa-brands fa-whatsapp" style="color:#25D366"></i> واتساب: 077 235 5888</a>
-        <a class="btn" href="tel:+962780039393"><i class="fa-solid fa-phone" style="color:#f59e0b"></i> اتصال: 079 800 3939</a>
-        <a class="btn" href="tel:+962772355888"><i class="fa-solid fa-phone" style="color:#f59e0b"></i> اتصال: 077 235 5888</a>
-        <a class="btn" href="mailto:pinkcity162@gmail.com"><i class="fa-solid fa-envelope" style="color:#e45a86"></i> البريد: pinkcity162@gmail.com</a>
-      </div>
-      <div class="card" style="padding:16px">
-        <h3 style="margin:0 0 10px">مواعيد</h3>
-        <ul style="margin:0 0 12px; padding:0 18px 0 0; line-height:1.9">
-          <li>السبت — الخميس: 10:00 ص → 10:00 م</li>
-          <li>الجمعة: حسب الاتصال</li>
-        </ul>
-        <div class="sub" style="color:#6b7280">الأردن</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- STATS moved to the very bottom (تحت) -->
-  <section class="container" id="strip">
-    <div class="card" style="padding:14px">
-      <div class="stats">
-        <div class="stat"><div class="num" data-count="50">0</div><div class="lbl">+ ماركات</div></div>
-        <div class="stat"><div class="num" data-count="300">0</div><div class="lbl">+ منتج</div></div>
-        <div class="stat"><div class="num" data-count="7">0</div><div class="lbl">أيام عمل/أسبوع</div></div>
-        <div class="stat"><div class="num" data-count="24">0</div><div class="lbl">دعم</div></div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container" style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap">
-      <div>© المدينة الوردية — جميع الحقوق محفوظة</div>
-      <div style="display:flex;gap:8px">
-        <a class="pill" href="#offers">عروض</a>
-        <a class="pill" href="#contact">تواصل</a>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // Progress
-    const progress=document.getElementById('progress');
-    window.addEventListener('scroll',()=>{const t=document.documentElement;const sc=t.scrollTop;const h=t.scrollHeight-t.clientHeight;progress.style.transform=`scaleX(${h?sc/h:0})`});
-
-    // Drawer
-    const burger=document.getElementById('burger'); const drawer=document.getElementById('drawer');
-    function toggleDrawer(force){drawer.style.display=(force===false?'none':(drawer.style.display==='grid'?'none':'grid'));}
-    if(burger) burger.addEventListener('click',()=>toggleDrawer());
-
-    // Reveal
-    const rev=[...document.querySelectorAll('.reveal, .cat, .offer')];
-    const rIO=new IntersectionObserver((es)=>{ es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in'); rIO.unobserve(e.target);}}) },{threshold:.12, rootMargin:'0px 0px -8% 0px'});
-    rev.forEach(el=>rIO.observe(el));
-    setTimeout(()=>{ document.querySelectorAll('.reveal:not(.in)').forEach(el=>el.classList.add('in')); }, 900);
-
-    // Counters (تشتغل لما توصل آخر الصفحة)
-    const statNums=document.querySelectorAll('.stat .num');
-    const io=new IntersectionObserver((entries)=>{entries.forEach((e)=>{if(e.isIntersecting){const el=e.target;const final=+el.dataset.count;let val=0;const step=Math.ceil(final/40);const inc=()=>{val+=step;if(val>final) val=final; el.textContent=val; if(val<final) requestAnimationFrame(inc);}; inc(); io.unobserve(el);}})},{threshold:.4});
-    statNums.forEach(n=>io.observe(n));
-
-    // Back to top
-    const backTop=document.getElementById('backTop');
-    const showTop=()=>{ backTop.classList.toggle('show', window.scrollY>220); };
-    showTop(); window.addEventListener('scroll', showTop);
-    if(backTop){ backTop.addEventListener('click', (e)=>{ e.preventDefault(); window.scrollTo({top:0, behavior:'smooth'});}); }
-  </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click effects to buttons
+            const buttons = document.querySelectorAll('.social-icon, .action-button, .category-card');
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+        });
+    </script>
 </body>
 </html>
