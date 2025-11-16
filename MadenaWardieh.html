@@ -245,39 +245,6 @@
             font-weight: 500;
         }
         
-        .slider-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 45px;
-            height: 45px;
-            background: var(--gradient);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            font-size: 1.2rem;
-            cursor: pointer;
-            box-shadow: var(--shadow-lg);
-            transition: all 0.3s ease;
-            z-index: 10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .slider-btn:hover {
-            background: var(--gradient-gold);
-            transform: translateY(-50%) scale(1.1);
-        }
-        
-        .slider-btn.prev {
-            right: -20px;
-        }
-        
-        .slider-btn.next {
-            left: -20px;
-        }
-        
         /* Categories Section */
         .categories-section {
             background: var(--light-card);
@@ -549,20 +516,6 @@
                 gap: 20px;
             }
             
-            .slider-btn {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
-            }
-            
-            .slider-btn.prev {
-                right: -15px;
-            }
-            
-            .slider-btn.next {
-                left: -15px;
-            }
-            
             .gallery-item {
                 min-width: 180px;
             }
@@ -700,12 +653,6 @@
         <div class="gallery-section fade-in delay-1" id="mixers">
             <h2 class="section-title">عجانات كهربائية</h2>
             <div class="slider-container">
-                <button class="slider-btn prev" onclick="scrollSlider('mixersSlider', -1)">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-                <button class="slider-btn next" onclick="scrollSlider('mixersSlider', 1)">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
                 <div class="slider" id="mixersSlider">
                     <div class="gallery-item">
                         <img src="https://i.imgur.com/swDbJ2y.jpeg" alt="عجانة 1">
@@ -739,12 +686,6 @@
         <div class="gallery-section fade-in delay-2" id="refrigerators">
             <h2 class="section-title">ثلاجات حديثة</h2>
             <div class="slider-container">
-                <button class="slider-btn prev" onclick="scrollSlider('refrigeratorsSlider', -1)">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-                <button class="slider-btn next" onclick="scrollSlider('refrigeratorsSlider', 1)">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
                 <div class="slider" id="refrigeratorsSlider">
                     <div class="gallery-item">
                         <img src="https://i.imgur.com/iOzYmOY.jpeg" alt="ثلاجة 1">
@@ -770,12 +711,6 @@
         <div class="gallery-section fade-in delay-2" id="ovens">
             <h2 class="section-title">أفران غاز</h2>
             <div class="slider-container">
-                <button class="slider-btn prev" onclick="scrollSlider('ovensSlider', -1)">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-                <button class="slider-btn next" onclick="scrollSlider('ovensSlider', 1)">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
                 <div class="slider" id="ovensSlider">
                     <div class="gallery-item">
                         <img src="https://i.imgur.com/lY8VNJ3.jpeg" alt="فرن غاز 1">
@@ -809,12 +744,6 @@
         <div class="gallery-section fade-in delay-3" id="tvs">
             <h2 class="section-title">شاشات تلفزيون</h2>
             <div class="slider-container">
-                <button class="slider-btn prev" onclick="scrollSlider('tvsSlider', -1)">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-                <button class="slider-btn next" onclick="scrollSlider('tvsSlider', 1)">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
                 <div class="slider" id="tvsSlider">
                     <div class="gallery-item">
                         <img src="https://i.imgur.com/klw7uiD.jpeg" alt="شاشة 1">
@@ -848,12 +777,6 @@
         <div class="gallery-section fade-in delay-3" id="packages">
             <h2 class="section-title">بكجات وعروض</h2>
             <div class="slider-container">
-                <button class="slider-btn prev" onclick="scrollSlider('packagesSlider', -1)">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-                <button class="slider-btn next" onclick="scrollSlider('packagesSlider', 1)">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
                 <div class="slider" id="packagesSlider">
                     <div class="gallery-item">
                         <img src="https://i.imgur.com/evtv77H.jpeg" alt="بكج 1">
@@ -879,12 +802,6 @@
         <div class="gallery-section fade-in delay-3" id="washers">
             <h2 class="section-title">غسالات وجلايات</h2>
             <div class="slider-container">
-                <button class="slider-btn prev" onclick="scrollSlider('washersSlider', -1)">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-                <button class="slider-btn next" onclick="scrollSlider('washersSlider', 1)">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
                 <div class="slider" id="washersSlider">
                     <div class="gallery-item">
                         <img src="https://i.imgur.com/WAH61qB.jpeg" alt="غسالة 1">
@@ -979,13 +896,6 @@
     </footer>
 
     <script>
-        // Slider functionality
-        function scrollSlider(sliderId, direction) {
-            const slider = document.getElementById(sliderId);
-            const scrollAmount = 220;
-            slider.scrollLeft += direction * scrollAmount;
-        }
-
         // Scroll to section function
         function scrollToSection(sectionId) {
             document.getElementById(sectionId).scrollIntoView({
@@ -995,4 +905,16 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             // Add click effects to buttons
-            const
+            const buttons = document.querySelectorAll('.action-button, .category-card, .contact-item, .social-icon');
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
