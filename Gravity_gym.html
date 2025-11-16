@@ -160,6 +160,95 @@
             letter-spacing: 1px;
         }
         
+        /* Gallery Slider Section */
+        .gallery-section {
+            background: var(--dark-card);
+            margin: 40px auto;
+            padding: 40px;
+            border-radius: 25px;
+            max-width: 900px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: var(--border);
+            position: relative;
+        }
+        
+        .slider-container {
+            position: relative;
+            margin: 30px 0;
+        }
+        
+        .slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            gap: 20px;
+            padding: 15px 0;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            border-radius: 20px;
+        }
+        
+        .slider::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .gallery-item {
+            min-width: 300px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: var(--border);
+            transition: all 0.4s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            color: var(--dark-bg);
+            border: none;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .slider-btn:hover {
+            background: var(--gradient-accent);
+            transform: translateY(-50%) scale(1.1);
+            color: white;
+        }
+        
+        .slider-btn.prev {
+            right: -25px;
+        }
+        
+        .slider-btn.next {
+            left: -25px;
+        }
+        
         /* About Section */
         .about-section {
             background: var(--dark-card);
@@ -637,6 +726,24 @@
             .price-card.featured {
                 transform: none;
             }
+            
+            .slider-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+            
+            .slider-btn.prev {
+                right: -20px;
+            }
+            
+            .slider-btn.next {
+                left: -20px;
+            }
+            
+            .gallery-item {
+                min-width: 280px;
+            }
         }
         
         @media (max-width: 480px) {
@@ -673,6 +780,10 @@
             
             .section-title {
                 font-size: 1.8rem;
+            }
+            
+            .gallery-item {
+                min-width: 260px;
             }
         }
     </style>
@@ -737,6 +848,33 @@
             <div class="about-text">
                 Gravity Gym هو الوجهة المثالية لعشاق كمال الأجسام واللياقة البدنية في إربد. 
                 نقدم أحدث الأجهزة والمرافق المتكاملة لضمان تحقيق أفضل النتائج.
+            </div>
+        </div>
+
+        <!-- Gallery Slider Section -->
+        <div class="gallery-section fade-in delay-2">
+            <h2 class="section-title">معرض الصور</h2>
+            <div class="slider-container">
+                <button class="slider-btn prev" onclick="scrollSlider(-1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <button class="slider-btn next" onclick="scrollSlider(1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="slider" id="gallerySlider">
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/QMHUbMM.jpeg" alt="Gravity Gym Interior 1">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/cB2LqdL.jpeg" alt="Gravity Gym Interior 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/zQSRouq.jpeg" alt="Gravity Gym Equipment">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/DwaQTcb.jpeg" alt="Gravity Gym Facilities">
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -897,6 +1035,13 @@
     </footer>
 
     <script>
+        // Slider functionality
+        function scrollSlider(direction) {
+            const slider = document.getElementById('gallerySlider');
+            const scrollAmount = 320;
+            slider.scrollLeft += direction * scrollAmount;
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             // Add click effects to buttons
             const buttons = document.querySelectorAll('.social-icon, .action-button');
@@ -908,6 +1053,11 @@
                     }, 150);
                 });
             });
+
+            // Auto slide gallery every 5 seconds
+            setInterval(() => {
+                scrollSlider(1);
+            }, 5000);
         });
     </script>
 </body>
