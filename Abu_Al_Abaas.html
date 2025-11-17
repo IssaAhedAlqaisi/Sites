@@ -103,108 +103,6 @@
             display: block;
         }
         
-        .lamp-section {
-            position: absolute;
-            top: -100px;
-            left: 50px;
-            z-index: 10;
-            width: 80px;
-            height: 200px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .lamp-ceiling {
-            width: 8px;
-            height: 20px;
-            background: #8B4513;
-            border-radius: 4px 4px 0 0;
-        }
-        
-        .lamp-cord {
-            width: 3px;
-            height: 120px;
-            background: #654321;
-            transition: height 0.3s ease;
-            position: relative;
-        }
-        
-        .lamp {
-            width: 70px;
-            height: 90px;
-            position: relative;
-            cursor: grab;
-            transition: transform 0.3s ease;
-        }
-        
-        .lamp:active {
-            cursor: grabbing;
-        }
-        
-        .lamp-top {
-            width: 60px;
-            height: 25px;
-            background: #8B4513;
-            border-radius: 30px 30px 5px 5px;
-            margin: 0 auto;
-            position: relative;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-        
-        .lamp-body {
-            width: 50px;
-            height: 50px;
-            background: #D2691E;
-            border-radius: 25px 25px 5px 5px;
-            margin: 0 auto;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            border: 2px solid #8B4513;
-        }
-        
-        .lamp-light {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 0;
-            background: rgba(255, 255, 200, 0.9);
-            box-shadow: 0 0 40px 20px rgba(255, 255, 200, 0.7);
-            transition: height 0.3s ease;
-            border-radius: 50% 50% 0 0;
-            opacity: 0;
-        }
-        
-        .lamp.on .lamp-light {
-            height: 100%;
-            opacity: 1;
-        }
-        
-        .lamp-pull {
-            width: 8px;
-            height: 25px;
-            background: #8B4513;
-            border-radius: 4px;
-            margin: 5px auto 0;
-            position: relative;
-        }
-        
-        .lamp-pull::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 15px;
-            height: 15px;
-            background: #ffd700;
-            border-radius: 50%;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.4);
-            border: 2px solid #ffed4e;
-        }
-        
         .verified-badge {
             position: absolute;
             bottom: 8px;
@@ -235,13 +133,6 @@
             font-weight: 500;
             color: var(--primary);
             margin-bottom: 20px;
-            position: relative;
-            display: inline-block;
-            padding-right: 90px; /* مساحة للمصباح */
-        }
-        
-        .year-text {
-            position: relative;
         }
         
         .stats-container {
@@ -630,33 +521,11 @@
             
             .profile-tagline {
                 font-size: 1rem;
-                padding-right: 70px;
             }
             
             .profile-image {
                 width: 100px;
                 height: 100px;
-            }
-            
-            .lamp-section {
-                left: 30px;
-                top: -80px;
-                width: 60px;
-            }
-            
-            .lamp {
-                width: 55px;
-                height: 75px;
-            }
-            
-            .lamp-top {
-                width: 45px;
-                height: 20px;
-            }
-            
-            .lamp-body {
-                width: 40px;
-                height: 40px;
             }
             
             .cover-container {
@@ -691,31 +560,6 @@
             .profile-image {
                 width: 80px;
                 height: 80px;
-            }
-            
-            .lamp-section {
-                left: 20px;
-                top: -60px;
-                width: 50px;
-            }
-            
-            .lamp {
-                width: 45px;
-                height: 60px;
-            }
-            
-            .lamp-top {
-                width: 35px;
-                height: 15px;
-            }
-            
-            .lamp-body {
-                width: 30px;
-                height: 35px;
-            }
-            
-            .profile-tagline {
-                padding-right: 60px;
             }
             
             .cover-container {
@@ -767,15 +611,12 @@
         <div class="profile-info">
             <div class="profile-image-container">
                 <img src="https://i.imgur.com/NBIFUss.jpeg" alt="مؤسسة أبو العباس للإنارة والكهرباء" class="profile-image">
-               
                 <div class="verified-badge">
                     <i class="fas fa-check"></i>
                 </div>
             </div>
             <h1 class="profile-name">مؤسسة أبو العباس</h1>
-            <div class="profile-tagline">
-                للإنارة والكهرباء - <span class="year-text">2007</span>
-            </div>
+            <div class="profile-tagline">للإنارة والكهرباء - منذ 2007</div>
             
             <div class="stats-container">
                 <div class="stat-item">
@@ -938,67 +779,11 @@
     <footer>
         <div class="container">
             <p class="footer-text">مؤسسة أبو العباس للإنارة والكهرباء - منذ 2007</p>
-            <p class="footer-text"></p>
+            <p class="footer-text">جميع الحقوق محفوظة © 2024</p>
         </div>
     </footer>
 
     <script>
-        // Interactive Lamp Functionality
-        const lamp = document.getElementById('interactiveLamp');
-        const lampCord = document.getElementById('lampCord');
-        let isLampOn = false;
-        let isDragging = false;
-        let startY = 0;
-        let currentY = 0;
-        const maxPull = 80; // أقصى مسافة للسحب
-
-        lamp.addEventListener('mousedown', startDrag);
-        lamp.addEventListener('touchstart', startDrag);
-
-        function startDrag(e) {
-            isDragging = true;
-            startY = e.type === 'mousedown' ? e.clientY : e.touches[0].clientY;
-            currentY = 0;
-            lamp.style.cursor = 'grabbing';
-            e.preventDefault();
-        }
-
-        document.addEventListener('mousemove', drag);
-        document.addEventListener('touchmove', drag);
-
-        function drag(e) {
-            if (!isDragging) return;
-            
-            const clientY = e.type === 'mousemove' ? e.clientY : e.touches[0].clientY;
-            currentY = Math.min(Math.max(clientY - startY, 0), maxPull);
-            
-            // تحديث طول السلك وموقع المصباح
-            lampCord.style.height = (120 - currentY) + 'px';
-            lamp.style.transform = `translateY(${currentY}px)`;
-            
-            e.preventDefault();
-        }
-
-        document.addEventListener('mouseup', endDrag);
-        document.addEventListener('touchend', endDrag);
-
-        function endDrag() {
-            if (!isDragging) return;
-            
-            isDragging = false;
-            lamp.style.cursor = 'grab';
-            
-            // إذا تم سحب المصباح لمسافة كافية، تغيير حالة التشغيل
-            if (currentY > 40) {
-                isLampOn = !isLampOn;
-                lamp.classList.toggle('on', isLampOn);
-            }
-            
-            // إرجاع المصباح إلى وضعه الطبيعي
-            lampCord.style.height = '120px';
-            lamp.style.transform = 'translateY(0px)';
-        }
-
         // Scroll to section function
         function scrollToSection(sectionId) {
             document.getElementById(sectionId).scrollIntoView({
