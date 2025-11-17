@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مؤسسة أبو العباس للإنارة والكهرباء</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff9800;
+            --primary-light: #ffb74d;
+            --primary-dark: #f57c00;
+            --accent: #ff5722;
+            --gold: #ffd700;
+            --gradient: linear-gradient(135deg, #ff9800 0%, #ff5722 100%);
+            --gradient-gold: linear-gradient(135deg, #ff9800 0%, #ffd700 100%);
+            --light-bg: #fafafa;
+            --light-card: #ffffff;
+            --dark-text: #2c1810;
+            --light-text: #666666;
+            --shadow: 0 8px 25px rgba(255, 152, 0, 0.15);
+            --shadow-lg: 0 15px 35px rgba(255, 152, 0, 0.25);
+            --border: 1px solid #f0f0f0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        html {
+            -webkit-text-size-adjust: 100%;
+        }
+        
+        body {
+            background: var(--light-bg);
+            color: var(--dark-text);
+            min-height: 100vh;
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .profile-header {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            background: var(--light-card);
+            box-shadow: var(--shadow);
+        }
+        
+        .cover-container {
+            width: 100%;
+            height: 350px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .cover-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.9);
+        }
+        
+        .profile-info {
+            position: relative;
+            padding: 0 20px 30px;
+            text-align: center;
+            margin-top: -60px;
+            z-index: 2;
+        }
+        
+        .profile-image-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 20px;
+            border: 4px solid var(--light-card);
+            object-fit: cover;
+            box-shadow: var(--shadow-lg);
+            display: block;
+        }
+        
+        .lamp-container {
+            position: absolute;
+            top: -30px;
+            left: -60px;
+            z-index: 10;
+        }
+        
+        .lamp {
+            width: 50px;
+            height: 80px;
+            position: relative;
+            cursor: grab;
+            transition: transform 0.3s ease;
+        }
+        
+        .lamp:active {
+            cursor: grabbing;
+        }
+        
+        .lamp-top {
+            width: 40px;
+            height: 20px;
+            background: #8B4513;
+            border-radius: 10px 10px 0 0;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .lamp-body {
+            width: 30px;
+            height: 50px;
+            background: #D2691E;
+            border-radius: 5px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .lamp-light {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: rgba(255, 215, 0, 0.7);
+            box-shadow: 0 0 20px 10px rgba(255, 215, 0, 0.5);
+            transition: height 0.3s ease;
+            border-radius: 50% 50% 0 0;
+        }
+        
+        .lamp.on .lamp-light {
+            height: 100%;
+        }
+        
+        .lamp-cord {
+            width: 3px;
+            height: 60px;
+            background: #654321;
+            margin: 0 auto;
+        }
+        
+        .verified-badge {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            background: var(--primary);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            border: 2px solid var(--light-card);
+            font-weight: bold;
+        }
+        
+        .profile-name {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: var(--dark-text);
+            letter-spacing: -0.5px;
+        }
+        
+        .profile-tagline {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--light-text);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* About Section */
+        .about-section {
+            background: var(--light-card);
+            margin: 30px auto;
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 1000px;
+            box-shadow: var(--shadow);
+            border: var(--border);
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            color: var(--dark-text);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+        
+        .about-content {
+            line-height: 1.8;
+            color: var(--light-text);
+        }
+        
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 15px;
+            background: rgba(255, 152, 0, 0.1);
+            padding: 10px 15px;
+            border-radius: 10px;
+            width: fit-content;
+        }
+        
+        .stars {
+            color: var(--gold);
+        }
+        
+        /* Gallery Sections with Slider */
+        .gallery-section {
+            background: var(--light-card);
+            margin: 30px auto;
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 1000px;
+            box-shadow: var(--shadow);
+            border: var(--border);
+            position: relative;
+        }
+        
+        .slider-container {
+            position: relative;
+            margin: 20px 0;
+        }
+        
+        .slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            gap: 15px;
+            padding: 10px 0;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            border-radius: 15px;
+        }
+        
+        .slider::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .gallery-item {
+            min-width: 200px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: var(--border);
+            transition: all 0.3s ease;
+            background: white;
+            flex-shrink: 0;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .gallery-caption {
+            padding: 12px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--light-text);
+            font-weight: 500;
+        }
+        
+        /* Categories Section */
+        .categories-section {
+            background: var(--light-card);
+            margin: 30px auto;
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 1000px;
+            box-shadow: var(--shadow);
+            border: var(--border);
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .category-card {
+            background: rgba(255, 152, 0, 0.05);
+            padding: 20px 15px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: var(--border);
+            cursor: pointer;
+        }
+        
+        .category-card:hover {
+            background: rgba(255, 152, 0, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        .category-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            color: white;
+            font-size: 1.3rem;
+        }
+        
+        .category-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--dark-text);
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background: var(--light-card);
+            margin: 30px auto;
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 1000px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: var(--border);
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-size: 1.1rem;
+            padding: 15px;
+            background: rgba(255, 152, 0, 0.05);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            color: var(--dark-text);
+            border: var(--border);
+        }
+        
+        .contact-item:hover {
+            background: rgba(255, 152, 0, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .contact-item i {
+            color: var(--primary);
+            font-size: 1.2rem;
+            width: 25px;
+        }
+        
+        .business-hours {
+            background: var(--gradient);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+            box-shadow: var(--shadow);
+        }
+        
+        .hours-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .hours-time {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* Social Icons */
+        .social-section {
+            text-align: center;
+            padding: 40px 0 20px;
+        }
+        
+        .social-title {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            color: var(--dark-text);
+        }
+        
+        .social-icons-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--light-text);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+            background: var(--light-card);
+            border: var(--border);
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            background: var(--gradient);
+            color: white;
+        }
+        
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .action-button {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 25px;
+            background: var(--light-card);
+            color: var(--dark-text);
+            border: 2px solid var(--primary);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: var(--shadow);
+        }
+        
+        .action-button.primary {
+            background: var(--gradient);
+            color: white;
+            border: 2px solid var(--primary);
+        }
+        
+        .action-button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .action-button i {
+            font-size: 1.1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--light-card);
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 50px;
+            color: var(--light-text);
+            border-top: var(--border);
+        }
+        
+        .footer-text {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.1s; opacity: 0; }
+        .delay-2 { animation-delay: 0.2s; opacity: 0; }
+        .delay-3 { animation-delay: 0.3s; opacity: 0; }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .profile-name {
+                font-size: 1.8rem;
+            }
+            
+            .profile-tagline {
+                font-size: 1rem;
+            }
+            
+            .profile-image {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .lamp-container {
+                left: -40px;
+                top: -20px;
+            }
+            
+            .lamp {
+                width: 40px;
+                height: 70px;
+            }
+            
+            .cover-container {
+                height: 250px;
+            }
+            
+            .social-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .stats-container {
+                gap: 20px;
+            }
+            
+            .gallery-item {
+                min-width: 180px;
+            }
+            
+            .gallery-item img {
+                height: 160px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .profile-image {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .lamp-container {
+                left: -30px;
+                top: -15px;
+            }
+            
+            .lamp {
+                width: 35px;
+                height: 60px;
+            }
+            
+            .cover-container {
+                height: 200px;
+            }
+            
+            .profile-name {
+                font-size: 1.5rem;
+            }
+            
+            .social-icons-grid {
+                gap: 15px;
+            }
+            
+            .social-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+            
+            .stats-container {
+                gap: 15px;
+            }
+            
+            .stat-number {
+                font-size: 1.4rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .gallery-item {
+                min-width: 160px;
+            }
+            
+            .gallery-item img {
+                height: 140px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="profile-header fade-in">
+        <div class="cover-container">
+            <img src="https://i.imgur.com/NBIFUss.jpeg" alt="مؤسسة أبو العباس للإنارة والكهرباء" class="cover-photo">
+        </div>
+        <div class="profile-info">
+            <div class="profile-image-container">
+                <img src="https://i.imgur.com/NBIFUss.jpeg" alt="مؤسسة أبو العباس للإنارة والكهرباء" class="profile-image">
+                <div class="lamp-container">
+                    <div class="lamp" id="interactiveLamp">
+                        <div class="lamp-cord"></div>
+                        <div class="lamp-top"></div>
+                        <div class="lamp-body">
+                            <div class="lamp-light"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="verified-badge">
+                    <i class="fas fa-check"></i>
+                </div>
+            </div>
+            <h1 class="profile-name">مؤسسة أبو العباس</h1>
+            <div class="profile-tagline">للإنارة والكهرباء - منذ 2007</div>
+            
+            <div class="stats-container">
+                <div class="stat-item">
+                    <span class="stat-number">92%</span>
+                    <span class="stat-label">توصية</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">25+</span>
+                    <span class="stat-label">مراجعة</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">16</span>
+                    <span class="stat-label">عام خبرة</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- About Section -->
+        <div class="about-section fade-in delay-1">
+            <h2 class="section-title">عن المؤسسة</h2>
+            <div class="about-content">
+                <p>مؤسسة أبو العباس للإنارة والكهرباء تأسست عام 2007 وتعد من أبرز معارض الإنارة والحلول الكهربائية، حيث نوفر تشكيلة واسعة من الثريات، الإضاءة الداخلية والخارجية، والمواد الكهربائية عالية الجودة للمنازل والمكاتب والمشاريع التجارية.</p>
+                <p>يقع مقرنا في مدينة إربد ونخدم أيضاً المدن المجاورة، مع حرص تام على توفير منتجات موثوقة وأسعار تنافسية. حصلنا على تقييم 92% توصية من العملاء (بناءً على 25 مراجعة)، مما يعكس ثقة زبائننا وجودة ما نقدمه.</p>
+                <p>نسعد بخدمتكم وتلبية جميع احتياجاتكم في عالم الإنارة والكهرباء.</p>
+                
+                <div class="rating">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <span>92% توصية (25 مراجعة)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Categories Section -->
+        <div class="categories-section fade-in delay-1">
+            <h2 class="section-title">أقسام المنتجات</h2>
+            <div class="categories-grid">
+                <div class="category-card" onclick="scrollToSection('chandeliers')">
+                    <div class="category-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="category-name">ثريات</div>
+                </div>
+                <div class="category-card" onclick="scrollToSection('indoor')">
+                    <div class="category-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="category-name">إضاءة داخلية</div>
+                </div>
+                <div class="category-card" onclick="scrollToSection('outdoor')">
+                    <div class="category-icon">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <div class="category-name">إضاءة خارجية</div>
+                </div>
+                <div class="category-card" onclick="scrollToSection('electrical')">
+                    <div class="category-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="category-name">مواد كهربائية</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chandeliers Gallery -->
+        <div class="gallery-section fade-in delay-1" id="chandeliers">
+            <h2 class="section-title">ثريات فاخرة</h2>
+            <div class="slider-container">
+                <div class="slider" id="chandeliersSlider">
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/qW6VtPq.jpeg" alt="ثريات 1">
+                        <div class="gallery-caption">ثريات كلاسيكية</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/zxpxrsV.jpeg" alt="ثريات 2">
+                        <div class="gallery-caption">ثريات حديثة</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/T8mXBoj.jpeg" alt="ثريات 3">
+                        <div class="gallery-caption">ثريات كريستال</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/MCvBqUj.jpeg" alt="ثريات 4">
+                        <div class="gallery-caption">ثريات فاخرة</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/bmdjvtR.jpeg" alt="ثريات 5">
+                        <div class="gallery-caption">ثريات صالونات</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/6OTsRIr.jpeg" alt="ثريات 6">
+                        <div class="gallery-caption">ثريات مودرن</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/IAr1tOR.jpeg" alt="ثريات 7">
+                        <div class="gallery-caption">ثريات معاصرة</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/pFeMlBJ.jpeg" alt="ثريات 8">
+                        <div class="gallery-caption">ثريات راقية</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/n1YbyfG.jpeg" alt="ثريات 9">
+                        <div class="gallery-caption">ثريات فخمة</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/J4dzzSf.jpeg" alt="ثريات 10">
+                        <div class="gallery-caption">ثريات ضخمة</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/3lLnCdp.jpeg" alt="ثريات 11">
+                        <div class="gallery-caption">ثريات متعددة الأضواء</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Indoor Lighting Gallery -->
+        <div class="gallery-section fade-in delay-2" id="indoor">
+            <h2 class="section-title">إضاءة داخلية</h2>
+            <div class="slider-container">
+                <div class="slider" id="indoorSlider">
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/CLelekC.jpeg" alt="إضاءة داخلية 1">
+                        <div class="gallery-caption">إضاءة جدارية</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/uJdc06z.jpeg" alt="إضاءة داخلية 2">
+                        <div class="gallery-caption">إضاءة طاولة</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/eKeXBGC.jpeg" alt="إضاءة داخلية 3">
+                        <div class="gallery-caption">إضاءة أرضية</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/jjea6rl.jpeg" alt="إضاءة داخلية 4">
+                        <div class="gallery-caption">إضاءة سقفية</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/8VTfg7u.jpeg" alt="إضاءة داخلية 5">
+                        <div class="gallery-caption">إضاءة مطبخ</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/ojcdjJS.jpeg" alt="إضاءة داخلية 6">
+                        <div class="gallery-caption">إضاءة غرف نوم</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/mHk3Mvv.jpeg" alt="إضاءة داخلية 7">
+                        <div class="gallery-caption">إضاءة صالات</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/uALrmIF.jpeg" alt="إضاءة داخلية 8">
+                        <div class="gallery-caption">إضاءة ممرات</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/RCMpugQ.jpeg" alt="إضاءة داخلية 9">
+                        <div class="gallery-caption">إضاءة حمامات</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/1z4GUCn.jpeg" alt="إضاءة داخلية 10">
+                        <div class="gallery-caption">إضاءة مكاتب</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/rMd6R3A.jpeg" alt="إضاءة داخلية 11">
+                        <div class="gallery-caption">إضاءة LED</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Outdoor & Electrical Gallery -->
+        <div class="gallery-section fade-in delay-3" id="outdoor">
+            <h2 class="section-title">إضاءة خارجية ومواد كهربائية</h2>
+            <div class="slider-container">
+                <div class="slider" id="outdoorSlider">
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/WDBeslM.jpeg" alt="إضاءة خارجية 1">
+                        <div class="gallery-caption">إضاءة حدائق</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/kY6f829.jpeg" alt="إضاءة خارجية 2">
+                        <div class="gallery-caption">إضاءة واجهات</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/58H0mjR.jpeg" alt="إضاءة خارجية 3">
+                        <div class="gallery-caption">إضاءة أعمدة</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/cOVYz7r.jpeg" alt="إضاءة خارجية 4">
+                        <div class="gallery-caption">إضاءة أمنية</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/evYPCy7.jpeg" alt="إضاءة خارجية 5">
+                        <div class="gallery-caption">إضاءة مداخل</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/cDXODIV.jpeg" alt="مواد كهربائية 1">
+                        <div class="gallery-caption">مفاتيح كهربائية</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/P4eGwCk.jpeg" alt="مواد كهربائية 2">
+                        <div class="gallery-caption">مقابس وأفياش</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/ZUhmO2C.jpeg" alt="مواد كهربائية 3">
+                        <div class="gallery-caption">أسلاك وكابلات</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/q1iLWxH.jpeg" alt="مواد كهربائية 4">
+                        <div class="gallery-caption">لوحات توزيع</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/2Ng0OJY.jpeg" alt="مواد كهربائية 5">
+                        <div class="gallery-caption">قواطع كهربائية</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/To6fyoi.jpeg" alt="مواد كهربائية 6">
+                        <div class="gallery-caption">مستلزمات كهربائية</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="contact-section fade-in delay-3">
+            <h2 class="section-title">تواصل معنا</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>إربد - الأردن</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>اتصل بنا للمزيد من المعلومات</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>info@abualabbas.com</span>
+                </div>
+            </div>
+            
+            <div class="business-hours">
+                <div class="hours-title">مواعيد العمل</div>
+                <div class="hours-time">السبت - الخميس: 9:00 ص - 9:00 م | الجمعة: 4:00 م - 9:00 م</div>
+            </div>
+        </div>
+
+        <!-- Social Icons -->
+        <div class="social-section fade-in delay-3">
+            <h2 class="social-title">تابعونا على</h2>
+            <div class="social-icons-grid">
+                <a href="https://www.facebook.com/share/1StVhWeVXy/?mibextid=wwXIfr" class="social-icon" target="_blank">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="#" class="social-icon" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-icon" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://maps.app.goo.gl/TW2LU447kBi9avEX7?g_st=iw" class="social-icon" target="_blank">
+                    <i class="fas fa-map-marked-alt"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons fade-in delay-3">
+            <a href="https://maps.app.goo.gl/TW2LU447kBi9avEX7?g_st=iw" class="action-button primary" target="_blank">
+                <i class="fas fa-map-marker-alt"></i>
+                موقعنا على الخريطة
+            </a>
+            <a href="https://www.facebook.com/share/1StVhWeVXy/?mibextid=wwXIfr" class="action-button" target="_blank">
+                <i class="fab fa-facebook"></i>
+                صفحتنا على فيسبوك
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p class="footer-text">مؤسسة أبو العباس للإنارة والكهرباء - منذ 2007</p>
+            <p class="footer-text">جميع الحقوق محفوظة © 2024</p>
+        </div>
+    </footer>
+
+    <script>
+        // Interactive Lamp Functionality
+        const lamp = document.getElementById('interactiveLamp');
+       
