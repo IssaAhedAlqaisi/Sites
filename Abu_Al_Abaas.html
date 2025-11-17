@@ -105,14 +105,34 @@
         
         .lamp-container {
             position: absolute;
-            top: -30px;
-            left: -60px;
+            top: -120px;
+            left: -40px;
             z-index: 10;
+            width: 80px;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .lamp-ceiling {
+            width: 8px;
+            height: 30px;
+            background: #8B4513;
+            border-radius: 4px 4px 0 0;
+        }
+        
+        .lamp-cord {
+            width: 3px;
+            height: 120px;
+            background: #654321;
+            transition: height 0.3s ease;
+            position: relative;
         }
         
         .lamp {
             width: 50px;
-            height: 80px;
+            height: 70px;
             position: relative;
             cursor: grab;
             transition: transform 0.3s ease;
@@ -124,7 +144,7 @@
         
         .lamp-top {
             width: 40px;
-            height: 20px;
+            height: 15px;
             background: #8B4513;
             border-radius: 10px 10px 0 0;
             margin: 0 auto;
@@ -132,13 +152,14 @@
         }
         
         .lamp-body {
-            width: 30px;
-            height: 50px;
+            width: 35px;
+            height: 45px;
             background: #D2691E;
             border-radius: 5px;
             margin: 0 auto;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
         
         .lamp-light {
@@ -147,21 +168,38 @@
             left: 0;
             width: 100%;
             height: 0;
-            background: rgba(255, 215, 0, 0.7);
-            box-shadow: 0 0 20px 10px rgba(255, 215, 0, 0.5);
+            background: rgba(255, 255, 200, 0.9);
+            box-shadow: 0 0 30px 15px rgba(255, 255, 200, 0.7);
             transition: height 0.3s ease;
             border-radius: 50% 50% 0 0;
+            opacity: 0;
         }
         
         .lamp.on .lamp-light {
             height: 100%;
+            opacity: 1;
         }
         
-        .lamp-cord {
-            width: 3px;
-            height: 60px;
-            background: #654321;
-            margin: 0 auto;
+        .lamp-pull {
+            width: 8px;
+            height: 20px;
+            background: #8B4513;
+            border-radius: 4px;
+            margin: 5px auto 0;
+            position: relative;
+        }
+        
+        .lamp-pull::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 12px;
+            background: #ffd700;
+            border-radius: 50%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
         }
         
         .verified-badge {
@@ -590,13 +628,19 @@
             }
             
             .lamp-container {
-                left: -40px;
-                top: -20px;
+                left: -20px;
+                top: -100px;
+                width: 60px;
             }
             
             .lamp {
                 width: 40px;
-                height: 70px;
+                height: 60px;
+            }
+            
+            .lamp-body {
+                width: 30px;
+                height: 40px;
             }
             
             .cover-container {
@@ -634,13 +678,19 @@
             }
             
             .lamp-container {
-                left: -30px;
-                top: -15px;
+                left: -15px;
+                top: -80px;
+                width: 50px;
             }
             
             .lamp {
                 width: 35px;
-                height: 60px;
+                height: 50px;
+            }
+            
+            .lamp-body {
+                width: 25px;
+                height: 35px;
             }
             
             .cover-container {
@@ -693,12 +743,14 @@
             <div class="profile-image-container">
                 <img src="https://i.imgur.com/NBIFUss.jpeg" alt="مؤسسة أبو العباس للإنارة والكهرباء" class="profile-image">
                 <div class="lamp-container">
+                    <div class="lamp-ceiling"></div>
+                    <div class="lamp-cord" id="lampCord"></div>
                     <div class="lamp" id="interactiveLamp">
-                        <div class="lamp-cord"></div>
                         <div class="lamp-top"></div>
                         <div class="lamp-body">
                             <div class="lamp-light"></div>
                         </div>
+                        <div class="lamp-pull"></div>
                     </div>
                 </div>
                 <div class="verified-badge">
@@ -784,50 +836,7 @@
             <h2 class="section-title">ثريات فاخرة</h2>
             <div class="slider-container">
                 <div class="slider" id="chandeliersSlider">
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/qW6VtPq.jpeg" alt="ثريات 1">
-                        <div class="gallery-caption">ثريات كلاسيكية</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/zxpxrsV.jpeg" alt="ثريات 2">
-                        <div class="gallery-caption">ثريات حديثة</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/T8mXBoj.jpeg" alt="ثريات 3">
-                        <div class="gallery-caption">ثريات كريستال</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/MCvBqUj.jpeg" alt="ثريات 4">
-                        <div class="gallery-caption">ثريات فاخرة</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/bmdjvtR.jpeg" alt="ثريات 5">
-                        <div class="gallery-caption">ثريات صالونات</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/6OTsRIr.jpeg" alt="ثريات 6">
-                        <div class="gallery-caption">ثريات مودرن</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/IAr1tOR.jpeg" alt="ثريات 7">
-                        <div class="gallery-caption">ثريات معاصرة</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/pFeMlBJ.jpeg" alt="ثريات 8">
-                        <div class="gallery-caption">ثريات راقية</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/n1YbyfG.jpeg" alt="ثريات 9">
-                        <div class="gallery-caption">ثريات فخمة</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/J4dzzSf.jpeg" alt="ثريات 10">
-                        <div class="gallery-caption">ثريات ضخمة</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/3lLnCdp.jpeg" alt="ثريات 11">
-                        <div class="gallery-caption">ثريات متعددة الأضواء</div>
-                    </div>
+                    <!-- سيتم إضافة الصور هنا -->
                 </div>
             </div>
         </div>
@@ -837,50 +846,7 @@
             <h2 class="section-title">إضاءة داخلية</h2>
             <div class="slider-container">
                 <div class="slider" id="indoorSlider">
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/CLelekC.jpeg" alt="إضاءة داخلية 1">
-                        <div class="gallery-caption">إضاءة جدارية</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/uJdc06z.jpeg" alt="إضاءة داخلية 2">
-                        <div class="gallery-caption">إضاءة طاولة</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/eKeXBGC.jpeg" alt="إضاءة داخلية 3">
-                        <div class="gallery-caption">إضاءة أرضية</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/jjea6rl.jpeg" alt="إضاءة داخلية 4">
-                        <div class="gallery-caption">إضاءة سقفية</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/8VTfg7u.jpeg" alt="إضاءة داخلية 5">
-                        <div class="gallery-caption">إضاءة مطبخ</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/ojcdjJS.jpeg" alt="إضاءة داخلية 6">
-                        <div class="gallery-caption">إضاءة غرف نوم</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/mHk3Mvv.jpeg" alt="إضاءة داخلية 7">
-                        <div class="gallery-caption">إضاءة صالات</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/uALrmIF.jpeg" alt="إضاءة داخلية 8">
-                        <div class="gallery-caption">إضاءة ممرات</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/RCMpugQ.jpeg" alt="إضاءة داخلية 9">
-                        <div class="gallery-caption">إضاءة حمامات</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/1z4GUCn.jpeg" alt="إضاءة داخلية 10">
-                        <div class="gallery-caption">إضاءة مكاتب</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/rMd6R3A.jpeg" alt="إضاءة داخلية 11">
-                        <div class="gallery-caption">إضاءة LED</div>
-                    </div>
+                    <!-- سيتم إضافة الصور هنا -->
                 </div>
             </div>
         </div>
@@ -890,50 +856,7 @@
             <h2 class="section-title">إضاءة خارجية ومواد كهربائية</h2>
             <div class="slider-container">
                 <div class="slider" id="outdoorSlider">
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/WDBeslM.jpeg" alt="إضاءة خارجية 1">
-                        <div class="gallery-caption">إضاءة حدائق</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/kY6f829.jpeg" alt="إضاءة خارجية 2">
-                        <div class="gallery-caption">إضاءة واجهات</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/58H0mjR.jpeg" alt="إضاءة خارجية 3">
-                        <div class="gallery-caption">إضاءة أعمدة</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/cOVYz7r.jpeg" alt="إضاءة خارجية 4">
-                        <div class="gallery-caption">إضاءة أمنية</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/evYPCy7.jpeg" alt="إضاءة خارجية 5">
-                        <div class="gallery-caption">إضاءة مداخل</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/cDXODIV.jpeg" alt="مواد كهربائية 1">
-                        <div class="gallery-caption">مفاتيح كهربائية</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/P4eGwCk.jpeg" alt="مواد كهربائية 2">
-                        <div class="gallery-caption">مقابس وأفياش</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/ZUhmO2C.jpeg" alt="مواد كهربائية 3">
-                        <div class="gallery-caption">أسلاك وكابلات</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/q1iLWxH.jpeg" alt="مواد كهربائية 4">
-                        <div class="gallery-caption">لوحات توزيع</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/2Ng0OJY.jpeg" alt="مواد كهربائية 5">
-                        <div class="gallery-caption">قواطع كهربائية</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/To6fyoi.jpeg" alt="مواد كهربائية 6">
-                        <div class="gallery-caption">مستلزمات كهربائية</div>
-                    </div>
+                    <!-- سيتم إضافة الصور هنا -->
                 </div>
             </div>
         </div>
@@ -1005,4 +928,143 @@
     <script>
         // Interactive Lamp Functionality
         const lamp = document.getElementById('interactiveLamp');
-       
+        const lampCord = document.getElementById('lampCord');
+        let isLampOn = false;
+        let isDragging = false;
+        let startY = 0;
+        let currentY = 0;
+        const maxPull = 80; // أقصى مسافة للسحب
+
+        lamp.addEventListener('mousedown', startDrag);
+        lamp.addEventListener('touchstart', startDrag);
+
+        function startDrag(e) {
+            isDragging = true;
+            startY = e.type === 'mousedown' ? e.clientY : e.touches[0].clientY;
+            currentY = 0;
+            lamp.style.cursor = 'grabbing';
+            e.preventDefault();
+        }
+
+        document.addEventListener('mousemove', drag);
+        document.addEventListener('touchmove', drag);
+
+        function drag(e) {
+            if (!isDragging) return;
+            
+            const clientY = e.type === 'mousemove' ? e.clientY : e.touches[0].clientY;
+            currentY = Math.min(Math.max(clientY - startY, 0), maxPull);
+            
+            // تحديث طول السلك وموقع المصباح
+            lampCord.style.height = (120 - currentY) + 'px';
+            lamp.style.transform = `translateY(${currentY}px)`;
+            
+            e.preventDefault();
+        }
+
+        document.addEventListener('mouseup', endDrag);
+        document.addEventListener('touchend', endDrag);
+
+        function endDrag() {
+            if (!isDragging) return;
+            
+            isDragging = false;
+            lamp.style.cursor = 'grab';
+            
+            // إذا تم سحب المصباح لمسافة كافية، تغيير حالة التشغيل
+            if (currentY > 40) {
+                isLampOn = !isLampOn;
+                lamp.classList.toggle('on', isLampOn);
+            }
+            
+            // إرجاع المصباح إلى وضعه الطبيعي
+            lampCord.style.height = '120px';
+            lamp.style.transform = 'translateY(0px)';
+        }
+
+        // Scroll to section function
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // توزيع الصور على المعارض
+        const images = [
+            // ثريات (11 صورة)
+            {url: "https://i.imgur.com/qW6VtPq.jpeg", caption: "ثريات كلاسيكية"},
+            {url: "https://i.imgur.com/zxpxrsV.jpeg", caption: "ثريات حديثة"},
+            {url: "https://i.imgur.com/T8mXBoj.jpeg", caption: "ثريات كريستال"},
+            {url: "https://i.imgur.com/MCvBqUj.jpeg", caption: "ثريات فاخرة"},
+            {url: "https://i.imgur.com/bmdjvtR.jpeg", caption: "ثريات صالونات"},
+            {url: "https://i.imgur.com/6OTsRIr.jpeg", caption: "ثريات مودرن"},
+            {url: "https://i.imgur.com/IAr1tOR.jpeg", caption: "ثريات معاصرة"},
+            {url: "https://i.imgur.com/pFeMlBJ.jpeg", caption: "ثريات راقية"},
+            {url: "https://i.imgur.com/n1YbyfG.jpeg", caption: "ثريات فخمة"},
+            {url: "https://i.imgur.com/J4dzzSf.jpeg", caption: "ثريات ضخمة"},
+            {url: "https://i.imgur.com/3lLnCdp.jpeg", caption: "ثريات متعددة الأضواء"},
+            
+            // إضاءة داخلية (11 صورة)
+            {url: "https://i.imgur.com/CLelekC.jpeg", caption: "إضاءة جدارية"},
+            {url: "https://i.imgur.com/uJdc06z.jpeg", caption: "إضاءة طاولة"},
+            {url: "https://i.imgur.com/eKeXBGC.jpeg", caption: "إضاءة أرضية"},
+            {url: "https://i.imgur.com/jjea6rl.jpeg", caption: "إضاءة سقفية"},
+            {url: "https://i.imgur.com/8VTfg7u.jpeg", caption: "إضاءة مطبخ"},
+            {url: "https://i.imgur.com/ojcdjJS.jpeg", caption: "إضاءة غرف نوم"},
+            {url: "https://i.imgur.com/mHk3Mvv.jpeg", caption: "إضاءة صالات"},
+            {url: "https://i.imgur.com/uALrmIF.jpeg", caption: "إضاءة ممرات"},
+            {url: "https://i.imgur.com/RCMpugQ.jpeg", caption: "إضاءة حمامات"},
+            {url: "https://i.imgur.com/1z4GUCn.jpeg", caption: "إضاءة مكاتب"},
+            {url: "https://i.imgur.com/rMd6R3A.jpeg", caption: "إضاءة LED"},
+            
+            // إضاءة خارجية ومواد كهربائية (12 صورة)
+            {url: "https://i.imgur.com/WDBeslM.jpeg", caption: "إضاءة حدائق"},
+            {url: "https://i.imgur.com/kY6f829.jpeg", caption: "إضاءة واجهات"},
+            {url: "https://i.imgur.com/58H0mjR.jpeg", caption: "إضاءة أعمدة"},
+            {url: "https://i.imgur.com/cOVYz7r.jpeg", caption: "إضاءة أمنية"},
+            {url: "https://i.imgur.com/evYPCy7.jpeg", caption: "إضاءة مداخل"},
+            {url: "https://i.imgur.com/cDXODIV.jpeg", caption: "مفاتيح كهربائية"},
+            {url: "https://i.imgur.com/P4eGwCk.jpeg", caption: "مقابس وأفياش"},
+            {url: "https://i.imgur.com/ZUhmO2C.jpeg", caption: "أسلاك وكابلات"},
+            {url: "https://i.imgur.com/q1iLWxH.jpeg", caption: "لوحات توزيع"},
+            {url: "https://i.imgur.com/2Ng0OJY.jpeg", caption: "قواطع كهربائية"},
+            {url: "https://i.imgur.com/To6fyoi.jpeg", caption: "مستلزمات كهربائية"}
+        ];
+
+        // إضافة الصور إلى المعارض
+        document.addEventListener('DOMContentLoaded', function() {
+            const chandeliersSlider = document.getElementById('chandeliersSlider');
+            const indoorSlider = document.getElementById('indoorSlider');
+            const outdoorSlider = document.getElementById('outdoorSlider');
+
+            // إضافة الصور للثريات (11 صورة أولى)
+            for (let i = 0; i < 11; i++) {
+                const item = createGalleryItem(images[i]);
+                chandeliersSlider.appendChild(item);
+            }
+
+            // إضافة الصور للإضاءة الداخلية (11 صورة تالية)
+            for (let i = 11; i < 22; i++) {
+                const item = createGalleryItem(images[i]);
+                indoorSlider.appendChild(item);
+            }
+
+            // إضافة الصور للإضاءة الخارجية والمواد الكهربائية (12 صورة باقية)
+            for (let i = 22; i < images.length; i++) {
+                const item = createGalleryItem(images[i]);
+                outdoorSlider.appendChild(item);
+            }
+        });
+
+        function createGalleryItem(image) {
+            const item = document.createElement('div');
+            item.className = 'gallery-item';
+            item.innerHTML = `
+                <img src="${image.url}" alt="${image.caption}">
+                <div class="gallery-caption">${image.caption}</div>
+            `;
+            return item;
+        }
+    </script>
+</body>
+</html>
